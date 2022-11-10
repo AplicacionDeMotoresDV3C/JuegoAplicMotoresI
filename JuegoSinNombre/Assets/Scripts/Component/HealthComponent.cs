@@ -1,18 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthComponent : MonoBehaviour
+[Serializable]
+public class HealthComponent
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]int _maxHealth;
+    int _health;
+    public Action OnTakeDamage;
+    public Action OnHeal;
+    public Action OnDeath;
+
+    public void SetHealth()
     {
-        
+        _health = _maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        _health -= damage;
+
+        OnTakeDamage();
+
+        if (_health <= 0)
+        {
+            Death();
+        }
     }
+
+    public void Heal(int healValue)
+    {
+        _health += healValue;
+
+        if (_health > _maxHealth)
+            _health = _maxHealth;
+
+        OnHeal();
+    }
+
+    private void Death()
+    {
+        OnDeath();
+    }
+
 }
