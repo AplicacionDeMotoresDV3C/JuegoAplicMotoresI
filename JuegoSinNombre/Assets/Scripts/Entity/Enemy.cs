@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : Entity
 {
-    [SerializeField] protected float attackCooldown;
-    [SerializeField] protected float cooldownTimer;
-    [SerializeField] protected float attackDistance;
-    [SerializeField] protected float checkDistancePlayer;
+    [SerializeField] protected float _attackCooldown;
+    [SerializeField] protected float _cooldownTimer;
+    [SerializeField] protected float _attackDistance;
+    [SerializeField] protected float _checkDistancePlayer;
 }
