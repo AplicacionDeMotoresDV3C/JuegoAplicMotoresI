@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Entity
+public class PruebaControles : Entity
 {
+    public GameManager myGameManager;
     float _maxStamina = 10;
     float _stamina = 10;
     float _staminaRecovery;
@@ -42,6 +43,10 @@ public class PlayerController : Entity
         else if (Input.GetKey(KeyCode.A))
         {
             _movementInput.x = -1;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            myGameManager.LoadPosition();
         }
     }
 

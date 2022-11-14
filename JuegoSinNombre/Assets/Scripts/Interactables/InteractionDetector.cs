@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
 {
-    private List<IInteractable> _interatablesInRange = new List<IInteractable>();
+    public List<IInteractable> _interatablesInRange = new List<IInteractable>();
     void Update()
     {
         Debug.Log(_interatablesInRange.Count);
         //if (Input.GetKeyDown(KeyCode.E) && _interatablesInRange.Count > 0)
-        if (Input.GetKey(KeyCode.E) && _interatablesInRange.Count > 0)
+        
+    }
+    public void Interatable()
+    {
+        var interactable = _interatablesInRange[0];
+        interactable.Activate();
+        if (!interactable.CanInteract())
         {
-            var interactable = _interatablesInRange[0];
-            interactable.Activate();
-            if (!interactable.CanInteract())
-            {
-                _interatablesInRange.Remove(interactable); 
-            }
+            _interatablesInRange.Remove(interactable);
         }
     }
 
