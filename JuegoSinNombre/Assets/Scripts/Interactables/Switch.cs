@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour, IInteractuable
+public class Switch : MonoBehaviour, IInteractable
 {
     [SerializeField] float timer;
     [SerializeField] float timeLimit;
@@ -35,4 +35,10 @@ public class Switch : MonoBehaviour, IInteractuable
             }
         }
     }
+
+    public void CanInteract()
+    {
+
+    }
+
 }
