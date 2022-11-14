@@ -4,41 +4,37 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour, IInteractable
 {
-    [SerializeField] float timer;
-    [SerializeField] float timeLimit;
-    [SerializeField] float timeToLimit;
-    private bool doorIsOpen = false;
-    public GameObject door = null;
+    //[SerializeField] float timer;
+    //[SerializeField] float timeLimit;
+    //[SerializeField] float timeToLimit;
+    private bool doorIsOpen;
+    Color DoorCloseColor = Color.red;
+    Color DoorOpenColor = Color.green;
+    Renderer myRenderer;
+    BoxCollider2D doorCollider;
+    public GameObject door;
 
-    private void Update()
+
+    private void Start()
     {
-        Activate();
-        Debug.Log(doorIsOpen);
+        myRenderer = door.GetComponent<Renderer>();
+        doorCollider = door.GetComponent<BoxCollider2D>();
+        myRenderer.material.color = DoorCloseColor;
     }
 
     public void Activate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Apreto E");
-            if (!doorIsOpen)
-            {
-                doorIsOpen = true;
-                door.SetActive(false);
-                Debug.Log("Abro");
-            }
-            else
-            {
-                doorIsOpen = false;
-                door.SetActive(true);
-                Debug.Log("cierro");
-            }
-        }
+
+        doorIsOpen = true;
+        myRenderer.material.color = DoorOpenColor;
+        doorCollider.enabled = false;
     }
 
-    public void CanInteract()
+    public bool CanInteract()
     {
-
+        return !doorIsOpen;
     }
+
+    public void Desactivate() { }
 
 }

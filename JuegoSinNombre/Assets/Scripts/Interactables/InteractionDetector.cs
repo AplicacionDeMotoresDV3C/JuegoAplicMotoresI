@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InteractionDetector : MonoBehaviour
+{
+    private List<IInteractable> _interatablesInRange = new List<IInteractable>();
+    void Update()
+    {
+        Debug.Log(_interatablesInRange.Count);
+        //if (Input.GetKeyDown(KeyCode.E) && _interatablesInRange.Count > 0)
+        if (Input.GetKey(KeyCode.E) && _interatablesInRange.Count > 0)
+        {
+            var interactable = _interatablesInRange[0];
+            interactable.Activate();
+            if (!interactable.CanInteract())
+            {
+                _interatablesInRange.Remove(interactable); 
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var interactable = other.GetComponent<IInteractable>();
+        if (interactable != null && interactable.CanInteract())
+        {
+            _interatablesInRange.Add(interactable);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        var interactable = other.GetComponent<IInteractable>();
+        if (_interatablesInRange.Contains(interactable))
+        {
+            interactable.Desactivate();
+            _interatablesInRange.Remove(interactable);
+        }
+    }
+}
