@@ -55,8 +55,8 @@ public class PruebaControles : Entity
 
     }
 
-    protected override void Move(Vector3 direction)
+    protected override void Move(Vector2 direction)
     {
-        transform.position += direction.normalized * speed * Time.deltaTime;
+        //transform.position += direction.normalized * speed * Time.deltaTime;
     }
 }

@@ -18,7 +18,7 @@ public class Player : Entity
     protected override void Attack() { }
 
 
-    protected override void Move(Vector3 direction)
+    protected override void Move(Vector2 direction)
     {
         
         posPj = transform.position;
@@ -44,4 +44,6 @@ public class Player : Entity
             myGameManager.LoadPosition();
         }
     }
+
+
 }
