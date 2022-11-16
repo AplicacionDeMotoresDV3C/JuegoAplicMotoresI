@@ -13,7 +13,7 @@ public class PlayerController : Entity
     bool _isFloor;
     [SerializeField] InteractionDetector _interactable;
     public GameManager myGameManager;
-
+    [SerializeField] PLayerAnimatorController _aniPlayer;
     [SerializeField, Range(0, 10)] float _jumpForce;
     [SerializeField] float _timeRoll;
     [SerializeField] float _speedRoll;
@@ -21,9 +21,11 @@ public class PlayerController : Entity
     bool _canRoll;
     bool _canMove;
     bool _canJump;
+    float xInput;
 
     private void Awake()
     {
+
         _rb = GetComponent<Rigidbody2D>();
         _initialGravity = _rb.gravityScale;
 
@@ -31,7 +33,7 @@ public class PlayerController : Entity
     private void Update()
     {
         Move(_movement);
-
+        VoltearPersonaje();
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
@@ -51,7 +53,7 @@ public class PlayerController : Entity
 
     protected override void Move(Vector2 direction)
     {
-        float xInput = Input.GetAxisRaw("Horizontal");
+        xInput = Input.GetAxisRaw("Horizontal");
         _movement = new Vector2(xInput, 0f);
 
         if (Input.GetButtonDown("Jump") && _isFloor)
@@ -70,8 +72,20 @@ public class PlayerController : Entity
         {
             StartCoroutine(Roll());
         }
+        
     }
 
+    void VoltearPersonaje()
+    {
+        if (xInput < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
     IEnumerator Roll()
     {
         _canMove = false;
