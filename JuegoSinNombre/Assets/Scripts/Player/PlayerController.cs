@@ -15,11 +15,12 @@ public class PlayerController : Entity
     public GameManager myGameManager;
     [SerializeField] PLayerAnimatorController _aniPlayer;
     [SerializeField, Range(0, 10)] float _jumpForce;
-    [SerializeField] float _timeRoll;
-    [SerializeField] float _speedRoll;
-    [SerializeField] float _initialGravity;
-    bool _canRoll;
-    bool _canMove;
+    float move;
+
+    [Header("Roll")]
+    float _gravity;
+
+
     bool _canJump;
     float xInput;
     [SerializeField] Animator _ani;
@@ -28,12 +29,12 @@ public class PlayerController : Entity
     {
 
         _rb = GetComponent<Rigidbody2D>();
-        _initialGravity = _rb.gravityScale;
+        _gravity = _rb.gravityScale;
 
     }
     private void Update()
     {
-        Move(_movement);
+        Move(_movement,move);
         VoltearPersonaje();
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
@@ -53,7 +54,7 @@ public class PlayerController : Entity
 
     }
 
-    protected override void Move(Vector2 direction)
+    protected override void Move(Vector2 direction, float move)
     {
         xInput = Input.GetAxisRaw("Horizontal");
         _movement = new Vector2(xInput, 0f);
@@ -70,11 +71,11 @@ public class PlayerController : Entity
         {
             myGameManager.LoadPosition();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && _canRoll)
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            StartCoroutine(Roll());
+
         }
-        
+
     }
 
     void VoltearPersonaje()
@@ -87,21 +88,5 @@ public class PlayerController : Entity
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-    }
-    IEnumerator Roll()
-    {
-        _canMove = false;
-        _canJump = false;
-        _canRoll = false;
-        _rb.gravityScale = 0;
-        _rb.velocity = new Vector2(_speedRoll, 0);
-
-        yield return new WaitForSeconds(_timeRoll);
-
-        _canMove = true;
-        _canJump = true;
-        _canRoll = true;
-        _rb.gravityScale = _initialGravity;
-
     }
 }

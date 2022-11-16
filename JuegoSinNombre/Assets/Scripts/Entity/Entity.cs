@@ -16,6 +16,6 @@ public abstract class Entity : MonoBehaviour
     }
 
     protected abstract void Attack();
-    protected abstract void Move(Vector2 direction);
+    protected abstract void Move(Vector2 direction,float move);
    
 }

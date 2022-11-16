@@ -336,9 +336,9 @@ GameObject:
   m_Component:
   - component: {fileID: 920441978}
   - component: {fileID: 920441977}
-  - component: {fileID: 920441976}
   - component: {fileID: 920441975}
   - component: {fileID: 920441974}
+  - component: {fileID: 920441976}
   - component: {fileID: 920441979}
   m_Layer: 0
   m_Name: Player
@@ -403,25 +403,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 920441973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825948afd3b1cd94488c9104ae22dd48, type: 3}
+  m_Script: {fileID: 11500000, guid: 510cf15d6251b48428f56a575183f495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health:
     _maxHealth: 0
-  speed: 5
-  _floorCheck: {fileID: 1962045004}
-  _floorLayer:
+  speed: 0
+  _rb: {fileID: 920441975}
+  _speedMove: 400
+  _swayMove: 0.1
+  _addForce: 0
+  _floor:
     serializedVersion: 2
-    m_Bits: 64
-  _floorCheckRadius: 1
-  _interactable: {fileID: 568609122}
-  myGameManager: {fileID: 1455085546}
-  _aniPlayer: {fileID: 0}
-  _jumpForce: 5
-  _timeRoll: 0
-  _speedRoll: 0
-  _initialGravity: 0
-  _ani: {fileID: 920441979}
+    m_Bits: 0
+  _checkFloor: {fileID: 0}
+  dimensionBox: {x: 0, y: 0, z: 0}
 --- !u!212 &920441977
 SpriteRenderer:
   m_ObjectHideFlags: 0
