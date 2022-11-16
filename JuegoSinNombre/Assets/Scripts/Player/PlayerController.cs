@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,21 +15,27 @@ public class PlayerController : Entity
     public GameManager myGameManager;
 
     [SerializeField, Range(0, 10)] float _jumpForce;
-
+    [SerializeField] float _timeRoll;
+    [SerializeField] float _speedRoll;
+    [SerializeField] float _initialGravity;
+    bool _canRoll;
+    bool _canMove;
+    bool _canJump;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _initialGravity = _rb.gravityScale;
 
     }
     private void Update()
     {
         Move(_movement);
-       
+
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
-     
+
     }
     void FixedUpdate()
     {
@@ -39,7 +46,7 @@ public class PlayerController : Entity
 
     protected override void Attack()
     {
-        
+
     }
 
     protected override void Move(Vector2 direction)
@@ -59,5 +66,26 @@ public class PlayerController : Entity
         {
             myGameManager.LoadPosition();
         }
+        if (Input.GetKeyDown(KeyCode.Space) && _canRoll)
+        {
+            StartCoroutine(Roll());
+        }
+    }
+
+    IEnumerator Roll()
+    {
+        _canMove = false;
+        _canJump = false;
+        _canRoll = false;
+        _rb.gravityScale = 0;
+        _rb.velocity = new Vector2(_speedRoll, 0);
+
+        yield return new WaitForSeconds(_timeRoll);
+
+        _canMove = true;
+        _canJump = true;
+        _canRoll = true;
+        _rb.gravityScale = _initialGravity;
+
     }
 }

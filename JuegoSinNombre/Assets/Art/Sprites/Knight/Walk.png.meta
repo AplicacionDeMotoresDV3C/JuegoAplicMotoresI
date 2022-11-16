@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 26536dea8e7e586429929f4b399ba1aa
+guid: 1e5e6b0d4f53d6c4296492fc56c9a20a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2094173765588758402
-    second: spr_ArcherIdle_strip_NoBkg_0
+      213: 4642488333796919354
+    second: noBKG_KnightRun_strip_0
   - first:
-      213: 6186148728254529291
-    second: spr_ArcherIdle_strip_NoBkg_1
+      213: 495554865105711156
+    second: noBKG_KnightRun_strip_1
   - first:
-      213: -8566011410936821065
-    second: spr_ArcherIdle_strip_NoBkg_2
+      213: 2538924062860662314
+    second: noBKG_KnightRun_strip_2
   - first:
-      213: 6682560192602085873
-    second: spr_ArcherIdle_strip_NoBkg_3
+      213: 8279640131836260173
+    second: noBKG_KnightRun_strip_3
   - first:
-      213: 8958829500029004487
-    second: spr_ArcherIdle_strip_NoBkg_4
+      213: 8690424439161563917
+    second: noBKG_KnightRun_strip_4
   - first:
-      213: -7083488126287164150
-    second: spr_ArcherIdle_strip_NoBkg_5
+      213: 2414606530831258917
+    second: noBKG_KnightRun_strip_5
   - first:
-      213: 491904992813365871
-    second: spr_ArcherIdle_strip_NoBkg_6
+      213: -7988999087367062319
+    second: noBKG_KnightRun_strip_6
   - first:
-      213: -806107622674688865
-    second: spr_ArcherIdle_strip_NoBkg_7
+      213: -5332772850423390575
+    second: noBKG_KnightRun_strip_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,29 +111,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_0
+      name: noBKG_KnightRun_strip_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28f2cd3c1ffff0d10800000000000000
-      internalID: 2094173765588758402
+      spriteID: a384cd9ea8e6d6040800000000000000
+      internalID: 4642488333796919354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_1
+      name: noBKG_KnightRun_strip_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0f78532e7d99d550800000000000000
-      internalID: 6186148728254529291
+      spriteID: 430b755368090e600800000000000000
+      internalID: 495554865105711156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_2
+      name: noBKG_KnightRun_strip_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 192
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +171,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba0b25a10a6f1980800000000000000
-      internalID: -8566011410936821065
+      spriteID: a26508ebbf11c3320800000000000000
+      internalID: 2538924062860662314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_3
+      name: noBKG_KnightRun_strip_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f2b2e15d037e270800000000000000
+      internalID: 8279640131836260173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noBKG_KnightRun_strip_4
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f99636e6193dbc50800000000000000
-      internalID: 6682560192602085873
+      spriteID: d0b299bcbf69a9870800000000000000
+      internalID: 8690424439161563917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_4
+      name: noBKG_KnightRun_strip_5
       rect:
         serializedVersion: 2
-        x: 512
+        x: 480
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cae480e6f7245c70800000000000000
-      internalID: 8958829500029004487
+      spriteID: 525198eb8d7628120800000000000000
+      internalID: 2414606530831258917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_5
+      name: noBKG_KnightRun_strip_6
       rect:
         serializedVersion: 2
-        x: 640
+        x: 576
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0dc4fd341562bd90800000000000000
-      internalID: -7083488126287164150
+      spriteID: 1dcf09658af512190800000000000000
+      internalID: -7988999087367062319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_6
+      name: noBKG_KnightRun_strip_7
       rect:
         serializedVersion: 2
-        x: 768
+        x: 672
         y: 0
-        width: 128
-        height: 128
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,29 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6ab1e71cf893d600800000000000000
-      internalID: 491904992813365871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_ArcherIdle_strip_NoBkg_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f949dbb536120d4f0800000000000000
-      internalID: -806107622674688865
+      spriteID: 19e9aa6c85f2ef5b0800000000000000
+      internalID: -5332772850423390575
       vertices: []
       indices: 
       edges: []
