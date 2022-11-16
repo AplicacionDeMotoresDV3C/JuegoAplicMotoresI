@@ -22,6 +22,7 @@ public class PlayerController : Entity
     bool _canMove;
     bool _canJump;
     float xInput;
+    [SerializeField] Animator _ani;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class PlayerController : Entity
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
+        _ani.SetFloat("Horizontal", xInput);
 
     }
     void FixedUpdate()
