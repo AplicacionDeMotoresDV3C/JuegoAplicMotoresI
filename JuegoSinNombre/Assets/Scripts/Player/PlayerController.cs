@@ -19,6 +19,11 @@ public class PlayerController : Entity
 
     [Header("Roll")]
     float _gravity;
+    public bool dash;
+    [SerializeField] float dashTime;
+    [SerializeField] float speedDash;
+    [SerializeField] Collider2D _colission;
+
 
 
     bool _canJump;
@@ -36,10 +41,11 @@ public class PlayerController : Entity
     {
         Move(_movement,move);
         VoltearPersonaje();
+        dashing();
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
-        _ani.SetFloat("Horizontal", xInput);
+        _ani.SetFloat("Horizontal", Mathf.Abs(xInput));
 
     }
     void FixedUpdate()
@@ -71,20 +77,40 @@ public class PlayerController : Entity
         {
             myGameManager.LoadPosition();
         }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-
-        }
-
+       
     }
+    void dashing()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            dashTime += 1 * Time.deltaTime;
+            if (dashTime < 0.35f)
+            {   
+                dash = true;
+                _ani.SetBool("Roll", true);
+                transform.Translate(Vector3.right * speedDash * Time.fixedDeltaTime);
 
+            }
+            else
+            {
+                dash = false;
+                _ani.SetBool("Roll", false);
+            }
+        }
+        else
+        {
+            dash = false;
+            _ani.SetBool("Roll", false);
+            dashTime = 0f;
+        }
+    }
     void VoltearPersonaje()
     {
         if (xInput < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else
+        else if(xInput > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
