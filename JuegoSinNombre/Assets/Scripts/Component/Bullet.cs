@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float _speed;
     [SerializeField] float _lifeTime;
+    Vector3 _direction;
 
     private void Start()
     {
@@ -19,6 +20,15 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
-        transform.position += transform.right * _speed * Time.deltaTime;
+        transform.position += _direction * _speed * Time.deltaTime;
+    }
+
+    public void SetDirection(Vector3 value)
+    {
+        _direction = value.normalized;
+
+        var r = transform.localScale;
+        r.x = _direction.x;
+        transform.localScale = r;
     }
 }
