@@ -365,7 +365,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.44, y: 0.64}
+    oldSize: {x: 0.96, y: 0.64}
     newSize: {x: 0.96, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ani: {fileID: 920441979}
+  _playerController: {fileID: 920441980}
 --- !u!212 &920441977
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -523,6 +524,7 @@ MonoBehaviour:
   dashTime: 0
   speedDash: -2
   _colission: {fileID: 920441974}
+  xInput: 0
   _ani: {fileID: 920441979}
 --- !u!1 &985785855
 GameObject:

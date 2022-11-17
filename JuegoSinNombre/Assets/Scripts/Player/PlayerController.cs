@@ -27,7 +27,7 @@ public class PlayerController : Entity
 
 
     bool _canJump;
-    float xInput;
+    public float xInput;
     [SerializeField] Animator _ani;
 
     private void Awake()
@@ -44,8 +44,8 @@ public class PlayerController : Entity
 
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
+        _aniPlayer.Walk();
 
-        _ani.SetFloat("Horizontal", Mathf.Abs(xInput));
 
     }
     void FixedUpdate()
@@ -83,7 +83,7 @@ public class PlayerController : Entity
             if (dashTime < 0.35f)
             {
                 dash = true;
-                _ani.SetBool("Roll", true);
+                _aniPlayer.Roll();
                 if (_lookRight == true)
                 {
                     transform.Translate(Vector3.right * -speedDash * Time.fixedDeltaTime);
@@ -96,13 +96,13 @@ public class PlayerController : Entity
             else
             {
                 dash = false;
-                _ani.SetBool("Roll", false);
+                _aniPlayer.rollEnd();
             }
         }
         else
         {
             dash = false;
-            _ani.SetBool("Roll", false);
+            _aniPlayer.rollEnd();
             dashTime = 0f;
         }
     }
