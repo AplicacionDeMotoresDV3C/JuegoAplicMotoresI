@@ -23,7 +23,7 @@ public class PlayerController : Entity
     [SerializeField] float dashTime;
     [SerializeField] float speedDash;
     [SerializeField] Collider2D _colission;
-
+    bool _lookRight;
 
 
     bool _canJump;
@@ -39,9 +39,9 @@ public class PlayerController : Entity
     }
     private void Update()
     {
-        Move(_movement,move);
+        Move(_movement, move);
         VoltearPersonaje();
-        dashing();
+
 
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
@@ -53,7 +53,6 @@ public class PlayerController : Entity
         float xVelocity = _movement.normalized.x * speed;
         _rb.velocity = new Vector2(xVelocity, _rb.velocity.y);
     }
-
 
     protected override void Attack()
     {
@@ -77,19 +76,22 @@ public class PlayerController : Entity
         {
             myGameManager.LoadPosition();
         }
-       
-    }
-    void dashing()
-    {
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            xInput = 0f;
             dashTime += 1 * Time.deltaTime;
             if (dashTime < 0.35f)
-            {   
+            {
                 dash = true;
                 _ani.SetBool("Roll", true);
-                transform.Translate(Vector3.right * speedDash * Time.fixedDeltaTime);
-
+                if (_lookRight == true)
+                {
+                    transform.Translate(Vector3.right * -speedDash * Time.fixedDeltaTime);
+                }
+                else if (_lookRight == false)
+                {
+                    transform.Translate(Vector3.right * speedDash * Time.fixedDeltaTime);
+                }
             }
             else
             {
@@ -104,14 +106,17 @@ public class PlayerController : Entity
             dashTime = 0f;
         }
     }
+
     void VoltearPersonaje()
     {
         if (xInput < 0)
         {
+            _lookRight = false;
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if(xInput > 0)
+        else if (xInput > 0)
         {
+            _lookRight = true;
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
