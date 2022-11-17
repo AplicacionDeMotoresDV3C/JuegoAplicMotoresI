@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerController : Entity
 {
-    Rigidbody2D _rb;
+    Rigidbody2D _rb; // Aca me equivoque yo, este deberia estar en el Entity
     Vector2 _movement;
     [SerializeField] Transform _floorCheck;
     [SerializeField] LayerMask _floorLayer;
-    [SerializeField, Range(0, 10)] float _floorCheckRadius;
+    [SerializeField, Range(0, 10)] float _floorCheckRadius; //todo esto parece lo que iba a estar en el busy checker si lo incorporas al player acordate de modificar el UML
     bool _isFloor;
     [SerializeField] InteractionDetector _interactable;
     public GameManager myGameManager;
@@ -32,7 +32,7 @@ public class PlayerController : Entity
 
     private void Awake()
     {
-
+        //no usemos el Awake ya que estariamos sobreescribiendo el del Entity, si necesitamos setear algo lo hacemos en Start, por otro lado el _rb lo podemos hacer serializable en Entity
         _rb = GetComponent<Rigidbody2D>();
         _gravity = _rb.gravityScale;
 
@@ -64,6 +64,8 @@ public class PlayerController : Entity
         xInput = Input.GetAxisRaw("Horizontal");
         _movement = new Vector2(xInput, 0f);
 
+        //si este metodo es para chequear inputs no lo llamemos Move, que el move sea para cuando el pj se desplace horizontalmente
+        //por otroa lado si el parametro float move que recibe es el mismo que la variable move que tenes arriba no necesitas pasarsela por parametro y creo que no la estas usando
         if (Input.GetButtonDown("Jump") && _isFloor)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
@@ -76,7 +78,7 @@ public class PlayerController : Entity
         {
             myGameManager.LoadPosition();
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift)) //deberia ser un GetKeyDown o GetButtonDown
         {
             xInput = 0f;
             dashTime += 1 * Time.deltaTime;
