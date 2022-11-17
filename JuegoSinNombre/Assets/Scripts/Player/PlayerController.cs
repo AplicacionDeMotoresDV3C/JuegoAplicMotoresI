@@ -39,7 +39,7 @@ public class PlayerController : Entity
     }
     private void Update()
     {
-        Move(_movement, move);
+        Move(_movement);
         VoltearPersonaje();
 
 
@@ -59,7 +59,7 @@ public class PlayerController : Entity
 
     }
 
-    protected override void Move(Vector2 direction, float move)
+    protected override void Move(Vector2 direction)
     {
         xInput = Input.GetAxisRaw("Horizontal");
         _movement = new Vector2(xInput, 0f);

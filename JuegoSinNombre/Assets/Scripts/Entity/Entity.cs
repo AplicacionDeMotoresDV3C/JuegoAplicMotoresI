@@ -8,6 +8,7 @@ public abstract class Entity : MonoBehaviour
     public HealthComponent Health { get; }
 
     [SerializeField] protected float speed;
+    [SerializeField] protected AnimManager myAnim;
 
     // Start is called before the first frame update
     void Awake()
@@ -16,6 +17,6 @@ public abstract class Entity : MonoBehaviour
     }
 
     protected abstract void Attack();
-    protected abstract void Move(Vector2 direction,float move);
+    protected abstract void Move(Vector2 direction);
    
 }

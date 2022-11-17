@@ -317,7 +317,7 @@ Animator:
   m_GameObject: {fileID: 568609119}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ecb38ae2943ad4849a0348265c27849c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2ab5a4c3bc8ef8940a9f71d15c7eb7de, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -511,6 +511,7 @@ MonoBehaviour:
   _health:
     _maxHealth: 0
   speed: 3
+  myAnim: {fileID: 0}
   _floorCheck: {fileID: 1962045004}
   _floorLayer:
     serializedVersion: 2
