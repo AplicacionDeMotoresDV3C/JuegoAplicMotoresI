@@ -7,7 +7,7 @@ public class EnemyRanged : EnemyPatrol
     [SerializeField] GameObject _bullet;
     void Start()
     {
-
+        myAnim.SetEvent("Shot", Shot);
     }
 
     void Update()
@@ -33,5 +33,10 @@ public class EnemyRanged : EnemyPatrol
     protected override void WaitPatrol()
     {
         throw new System.NotImplementedException();
+    }
+
+    void Shot()
+    {
+
     }
 }
