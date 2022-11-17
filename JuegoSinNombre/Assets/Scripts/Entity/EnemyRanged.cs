@@ -27,7 +27,7 @@ public class EnemyRanged : EnemyPatrol
 
     protected override void Patrol()
     {
-        
+        throw new System.NotImplementedException();
     }
 
     protected override void WaitPatrol()

@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109276, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
       propertyPath: m_RootOrder
       value: 3

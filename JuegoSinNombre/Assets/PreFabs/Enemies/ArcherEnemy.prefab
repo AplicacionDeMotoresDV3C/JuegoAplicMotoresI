@@ -199,8 +199,8 @@ MonoBehaviour:
   _health:
     _maxHealth: 30
   speed: 5
-  _attackCooldown: 5
-  _attackDistance: 10
+  attackCooldown: 3
+  attackDistance: 5
   _bullet: {fileID: 7960608989826608558, guid: dea29b42c6d524441955dd9570f50acc, type: 3}
 --- !u!1 &2003932312332740937
 GameObject:
