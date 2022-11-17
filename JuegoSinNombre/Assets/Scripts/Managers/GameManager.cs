@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    public Vector3 playerPosition;
+
+    private void Start()
     {
-        
+        playerPosition = player.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SavePosition()
     {
-        
+        playerPosition = player.transform.position;
     }
+
+    public void LoadPosition()
+    {
+        player.transform.position = playerPosition;
+    }
+
 }
