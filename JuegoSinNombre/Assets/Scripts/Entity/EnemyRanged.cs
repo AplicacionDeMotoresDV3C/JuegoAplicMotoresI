@@ -20,7 +20,7 @@ public class EnemyRanged : EnemyPatrol
         throw new System.NotImplementedException();
     }
 
-    protected override void Move(Vector3 direction)
+    protected override void Move(Vector2 direction)
     {
         throw new System.NotImplementedException();
     }

@@ -352,6 +352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2003932312177109272, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2003932313775973544}
     - target: {fileID: 2003932312177109276, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy
@@ -406,6 +410,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+--- !u!1 &2003932313775973542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2003932312177109276, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+  m_PrefabInstance: {fileID: 2003932313775973541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2003932313775973543 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2003932311919589960, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+  m_PrefabInstance: {fileID: 2003932313775973541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003932313775973544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003932313775973542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298eca0f6ff7ee646ba37f64b0540b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAnim: {fileID: 2003932313775973543}
 --- !u!1001 &7960608989827539431
 PrefabInstance:
   m_ObjectHideFlags: 0
