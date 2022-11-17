@@ -183,6 +183,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &508082843 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2003932312177109273, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+  m_PrefabInstance: {fileID: 2003932313775973541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +417,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2003932312177109272, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: _rb
+      value: 
+      objectReference: {fileID: 508082843}
+    - target: {fileID: 2003932312177109272, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: _health
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2003932312177109272, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
