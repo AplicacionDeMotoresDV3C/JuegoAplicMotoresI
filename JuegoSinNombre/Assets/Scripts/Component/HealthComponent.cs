@@ -21,7 +21,7 @@ public class HealthComponent
     {
         _health -= damage;
 
-        OnTakeDamage();
+        OnTakeDamage?.Invoke();
 
         if (_health <= 0)
         {
@@ -36,12 +36,12 @@ public class HealthComponent
         if (_health > _maxHealth)
             _health = _maxHealth;
 
-        OnHeal();
+        OnHeal?.Invoke();
     }
 
     private void Death()
     {
-        OnDeath();
+        OnDeath?.Invoke();
     }
 
 }
