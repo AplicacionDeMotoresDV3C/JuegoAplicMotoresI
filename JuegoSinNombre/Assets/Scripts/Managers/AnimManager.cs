@@ -7,14 +7,10 @@ public class AnimManager : MonoBehaviour
 {
     [SerializeField] Entity _entity;
     [SerializeField] Animator _myAnim;
-    [SerializeField] GameObject _hitbox;
-
-    Dictionary<string, Action> _events;
+    Dictionary<string, Action> _events = new Dictionary<string, Action>();
 
     private void Start()
     {
-        _hitbox.SetActive(false);
-
         _entity.Health.OnTakeDamage += HitAnimation;
         _entity.Health.OnDeath += DeathAnimation;
     }

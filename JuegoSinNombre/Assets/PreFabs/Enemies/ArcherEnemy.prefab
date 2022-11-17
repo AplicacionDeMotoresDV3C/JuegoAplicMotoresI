@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2003932311919589962}
   - component: {fileID: 2003932311919589963}
   - component: {fileID: 2003932311919589960}
+  - component: {fileID: 11283619945169860}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -102,6 +103,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &11283619945169860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003932311919589961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298eca0f6ff7ee646ba37f64b0540b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: 2003932312177109272}
+  _myAnim: {fileID: 2003932311919589960}
+  _hitbox: {fileID: 0}
 --- !u!1 &2003932312177109276
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +130,6 @@ GameObject:
   - component: {fileID: 2003932312177109279}
   - component: {fileID: 2003932312177109273}
   - component: {fileID: 2003932312177109272}
-  - component: {fileID: 2003932313775973544}
   m_Layer: 0
   m_Name: ArcherEnemy
   m_TagString: Untagged
@@ -200,25 +215,17 @@ MonoBehaviour:
   _health:
     _maxHealth: 30
   speed: 5
-  anim: {fileID: 2003932313775973544}
-  _attackCooldown: 0
+  myAnim: {fileID: 11283619945169860}
+  _attackCooldown: 5
   _cooldownTimer: 0
-  _attackDistance: 0
+  _attackDistance: 7
   _checkDistancePlayer: 0
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  waytime: 1
   _bullet: {fileID: 7960608989826608558, guid: dea29b42c6d524441955dd9570f50acc, type: 3}
---- !u!114 &2003932313775973544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003932312177109276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298eca0f6ff7ee646ba37f64b0540b7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAnim: {fileID: 2003932311919589960}
+  _firePoint: {fileID: 2003932312332740936}
 --- !u!1 &2003932312332740937
 GameObject:
   m_ObjectHideFlags: 0

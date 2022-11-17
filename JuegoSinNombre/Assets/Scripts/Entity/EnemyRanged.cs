@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyRanged : EnemyPatrol
 {
     [SerializeField] GameObject _bullet;
+    [SerializeField] Transform _firePoint;
     void Start()
     {
         myAnim.SetEvent("Shot", Shot);
@@ -37,6 +38,8 @@ public class EnemyRanged : EnemyPatrol
 
     void Shot()
     {
-
+        var b = Instantiate(_bullet);
+        b.transform.position = _firePoint.position;
+        b.transform.right = transform.right;
     }
 }
