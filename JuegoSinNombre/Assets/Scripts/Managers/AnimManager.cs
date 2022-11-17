@@ -1,15 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimManager : MonoBehaviour
 {
+    [SerializeField] Entity _entity;
     [SerializeField] Animator _myAnim;
     [SerializeField] GameObject _hitbox;
+
+    Dictionary<string, Action> _events;
 
     private void Start()
     {
         _hitbox.SetActive(false);
+
+        _entity.Health.OnTakeDamage += HitAnimation;
+        _entity.Health.OnDeath += DeathAnimation;
     }
 
     public void AttackAnimation()
@@ -24,15 +31,6 @@ public class AnimManager : MonoBehaviour
     {
         _myAnim.SetFloat("Speed", speed);
     }
-    public void HitAnimation()
-    {
-        _myAnim.SetTrigger("Hit");
-    }
-    public void DeathAnimation()
-    {
-        _myAnim.SetTrigger("Death");
-        this.enabled = false;
-    }
     public void JumpAnimation()
     {
         _myAnim.SetTrigger("Jump");
@@ -41,12 +39,33 @@ public class AnimManager : MonoBehaviour
     {
         _myAnim.SetTrigger("Roll");
     }
-    public void EventHitBox(bool enable)
+    void HitAnimation()
     {
-        _hitbox?.SetActive(enabled);
+        _myAnim.SetTrigger("Hit");
     }
-    public void EventInstanceBullet(Bullet bullet)
+    void DeathAnimation()
     {
-        Debug.Log("Shot");
+        _myAnim.SetTrigger("Death");
+        this.enabled = false;
+    }
+
+    public void SetEvent(string key, Action method)
+    {
+        if (_events.ContainsKey(key)) 
+            return;
+        else
+            _events.Add(key, method);
+    }
+
+    public void RemoveEvent(string key)
+    {
+        if (_events.ContainsKey(key))
+            _events.Remove(key);
+    }
+
+    public void ExecuteEvent(string key)
+    {
+        if (_events.ContainsKey(key))
+            _events[key]();
     }
 }
