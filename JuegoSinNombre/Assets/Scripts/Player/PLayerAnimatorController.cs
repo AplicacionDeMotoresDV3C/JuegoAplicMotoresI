@@ -5,7 +5,7 @@ using UnityEngine;
 public class PLayerAnimatorController : MonoBehaviour
 {
     [SerializeField] Animator _ani;
-    [SerializeField] PlayerController _playerController;
+    [SerializeField] Player _playerController;
 
 
     public void Walk()

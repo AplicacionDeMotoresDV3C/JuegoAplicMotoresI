@@ -326,6 +326,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &877977910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2003932312177109276, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_Name
+      value: ArcherEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
 --- !u!1 &920441973
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,8 +396,8 @@ GameObject:
   - component: {fileID: 920441975}
   - component: {fileID: 920441974}
   - component: {fileID: 920441980}
-  - component: {fileID: 920441976}
   - component: {fileID: 920441979}
+  - component: {fileID: 920441976}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -365,7 +422,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.64}
+    oldSize: {x: 1.44, y: 0.64}
     newSize: {x: 0.96, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -404,11 +461,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 920441973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fef32fbf10083644955f5e927b68167, type: 3}
+  m_Script: {fileID: 11500000, guid: 298eca0f6ff7ee646ba37f64b0540b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ani: {fileID: 920441979}
-  _playerController: {fileID: 920441980}
+  _entity: {fileID: 920441980}
+  _myAnim: {fileID: 920441979}
 --- !u!212 &920441977
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -505,28 +562,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 920441973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825948afd3b1cd94488c9104ae22dd48, type: 3}
+  m_Script: {fileID: 11500000, guid: 64880e710ac451343a4da0b6f837da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health:
     _maxHealth: 0
-  speed: 3
-  myAnim: {fileID: 0}
+  _rb: {fileID: 920441975}
+  speed: 5
+  myAnim: {fileID: 920441976}
   _floorCheck: {fileID: 1962045004}
   _floorLayer:
     serializedVersion: 2
     m_Bits: 64
-  _floorCheckRadius: 0.67
+  _floorCheckRadius: 0
   _interactable: {fileID: 568609122}
   myGameManager: {fileID: 1455085546}
-  _aniPlayer: {fileID: 920441976}
-  _jumpForce: 5
+  _jumpForce: 4.73
   dash: 0
   dashTime: 0
-  speedDash: -2
-  _colission: {fileID: 920441974}
+  speedDash: 100
   xInput: 0
-  _ani: {fileID: 920441979}
 --- !u!1 &985785855
 GameObject:
   m_ObjectHideFlags: 0
