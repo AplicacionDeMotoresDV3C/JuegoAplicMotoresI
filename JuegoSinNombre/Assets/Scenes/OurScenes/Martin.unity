@@ -598,6 +598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DamageTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 1285826841808230032, guid: de45c568f103308409dbee150edaa9cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1285826841808230034, guid: de45c568f103308409dbee150edaa9cb, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -608,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285826841808230034, guid: de45c568f103308409dbee150edaa9cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1285826841808230034, guid: de45c568f103308409dbee150edaa9cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -734,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6143184765747066928, guid: 7c8c1ce7ba8e3d74d950ebc0504290cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.19
       objectReference: {fileID: 0}
     - target: {fileID: 6143184765747066928, guid: 7c8c1ce7ba8e3d74d950ebc0504290cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -771,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 6143184765747066931, guid: 7c8c1ce7ba8e3d74d950ebc0504290cc, type: 3}
       propertyPath: m_Name
       value: Warp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143184765747066931, guid: 7c8c1ce7ba8e3d74d950ebc0504290cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c8c1ce7ba8e3d74d950ebc0504290cc, type: 3}
