@@ -6,29 +6,28 @@ using UnityEngine;
 public class Player : Entity
 {
     Vector2 _movement;
-    [SerializeField] Transform _floorCheck;
-    [SerializeField] LayerMask _floorLayer;
-    [SerializeField, Range(0, 10)] float _floorCheckRadius; //todo esto parece lo que iba a estar en el busy checker si lo incorporas al player acordate de modificar el UML
-    bool _isFloor;
+    
+    
+    
     [SerializeField] InteractionDetector _interactable;
     public GameManager myGameManager;
     [SerializeField, Range(0, 10)] float _jumpForce;
     float move;
+    [SerializeField] BusyChecker _busy;
 
     [Header("Roll")]
     float _gravity;
-    public bool dash;
-    [SerializeField] float dashTime;
-    [SerializeField] float speedDash;
+    public bool roll;
+    [SerializeField] float rollTime;
+    [SerializeField] float speedRoll;
     //[SerializeField] Collider2D _colission;
     bool _lookRight;
     public float xInput;
 
 
-    private void Awake()
+    private void Start()
     {
         _gravity = _rb.gravityScale;
-
     }
     private void Update()
     {
@@ -36,9 +35,8 @@ public class Player : Entity
         VoltearPersonaje();
         Inputs();
 
-        _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
+       
         myAnim.MoveAnimation(xInput);
-
 
     }
     void FixedUpdate()
@@ -54,19 +52,15 @@ public class Player : Entity
 
     protected override void Move(Vector2 direction)
     {
-
         _movement = new Vector2(xInput, 0f);
-
-      
-
     }
     void Inputs()
     {
 
         xInput = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && _isFloor)
-        {
+        if (Input.GetButtonDown("Jump") && _busy.CanJump())
+        {           
             myAnim.JumpAnimation();
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
@@ -81,31 +75,31 @@ public class Player : Entity
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             xInput = 0f;
-            dashTime += 1 * Time.deltaTime;
-            if (dashTime < 0.35f)
+            rollTime += 1 * Time.deltaTime;
+            if (rollTime < 0.35f)
             {
-                dash = true;
+                roll = true;
                 // _aniPlayer.Roll();
                 if (_lookRight == true)
                 {
-                    transform.Translate(Vector3.right * speedDash * Time.fixedDeltaTime);
+                    transform.Translate(Vector3.right * speedRoll * Time.fixedDeltaTime);
                 }
                 else if (_lookRight == false)
                 {
-                    transform.Translate(Vector3.right * -speedDash * Time.fixedDeltaTime);
+                    transform.Translate(Vector3.right * -speedRoll * Time.fixedDeltaTime);
                 }
             }
             else
             {
-                dash = false;
+                roll = false;
                 //_aniPlayer.rollEnd();
             }
         }
         else
         {
-            dash = false;
-           //_aniPlayer.rollEnd();
-            dashTime = 0f;
+            roll = false;
+            //_aniPlayer.rollEnd();
+            rollTime = 0f;
         }
     }
     void VoltearPersonaje()

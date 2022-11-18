@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 920441977}
   - component: {fileID: 920441975}
   - component: {fileID: 920441974}
+  - component: {fileID: 920441981}
   - component: {fileID: 920441980}
   - component: {fileID: 920441979}
   - component: {fileID: 920441976}
@@ -422,7 +423,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.44, y: 0.64}
+    oldSize: {x: 0.96, y: 0.64}
     newSize: {x: 0.96, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -570,18 +571,34 @@ MonoBehaviour:
   _rb: {fileID: 920441975}
   speed: 5
   myAnim: {fileID: 920441976}
+  _interactable: {fileID: 568609122}
+  myGameManager: {fileID: 1455085546}
+  _jumpForce: 4.73
+  _busy: {fileID: 920441981}
+  roll: 0
+  rollTime: 0
+  speedRoll: 30
+  xInput: 0
+--- !u!114 &920441981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920441973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d995689d83e60b849ae2d9923d1d41f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isJumping: 0
+  _isRolling: 0
+  _isAttacking: 0
   _floorCheck: {fileID: 1962045004}
   _floorLayer:
     serializedVersion: 2
     m_Bits: 64
-  _floorCheckRadius: 0
-  _interactable: {fileID: 568609122}
-  myGameManager: {fileID: 1455085546}
-  _jumpForce: 4.73
-  dash: 0
-  dashTime: 0
-  speedDash: 100
-  xInput: 0
+  _floorCheckRadius: 1.41
 --- !u!1 &985785855
 GameObject:
   m_ObjectHideFlags: 0
