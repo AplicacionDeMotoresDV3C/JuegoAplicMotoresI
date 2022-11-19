@@ -7,29 +7,63 @@ public class BusyChecker : MonoBehaviour
     bool _isGrounded;
     float _coyoteTime;
     float _maxCoyoteTime;
-    public bool _isJumping = false;
-    public bool _isRolling = false;
-    public bool _isAttacking = false;
-    bool _isFloor;
+    public bool isJumping = false;
+    bool _isRolling = false;
+  
+    public bool isAttacking = false;
+    [SerializeField] bool _isFloor;
     [SerializeField] Transform _floorCheck;
     [SerializeField] LayerMask _floorLayer;
+    [SerializeField] float _coolDownRollMax;
     [SerializeField, Range(0, 10)] float _floorCheckRadius;
+    const float _rollingTime = 1.01f;
+    float _time;
+    bool _coolDownFinish = true;
+
+    public bool IsRolling => _isRolling;
     private void Update()
     {
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
-    }
 
+        if (_time < _coolDownRollMax + _rollingTime)
+        {
+            _time += 1 * Time.deltaTime;
+            if (_time > _rollingTime) _isRolling = false;
+        }
+        else _coolDownFinish = true;
+    }
     public bool CanJump()
     {
-        if (!_isAttacking && !_isRolling && _isFloor)
+        if (_isFloor)
         {
-            _isJumping = true;
             return true;
         }
         return false;
+
     }
-    public void CanRoll()
+    public bool CanRoll()
     {
 
+        if (_isFloor && !_isRolling && _coolDownFinish)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    public void Roll()
+    {
+        _coolDownFinish = false;
+        _isRolling = true;
+        _time = 0;
+    }
+
+    public bool CanAttacking()
+    {
+        if (!_isRolling)
+        {
+            return true;
+        }
+        return false;
     }
 }

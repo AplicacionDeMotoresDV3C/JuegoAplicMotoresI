@@ -6,9 +6,9 @@ using UnityEngine;
 public class Player : Entity
 {
     Vector2 _movement;
-    
-    
-    
+
+
+
     [SerializeField] InteractionDetector _interactable;
     public GameManager myGameManager;
     [SerializeField, Range(0, 10)] float _jumpForce;
@@ -17,8 +17,7 @@ public class Player : Entity
 
     [Header("Roll")]
     float _gravity;
-    public bool roll;
-    [SerializeField] float rollTime;
+
     [SerializeField] float speedRoll;
     //[SerializeField] Collider2D _colission;
     bool _lookRight;
@@ -34,9 +33,7 @@ public class Player : Entity
         Move(_movement);
         VoltearPersonaje();
         Inputs();
-
-       
-        myAnim.MoveAnimation(xInput);
+        Rolling();
 
     }
     void FixedUpdate()
@@ -47,20 +44,25 @@ public class Player : Entity
 
     protected override void Attack()
     {
-
+        Move(Vector2.zero);
+        myAnim.AttackAnimation();
     }
 
     protected override void Move(Vector2 direction)
     {
         _movement = new Vector2(xInput, 0f);
+        myAnim.MoveAnimationPlayer(xInput);
     }
     void Inputs()
     {
-
         xInput = Input.GetAxisRaw("Horizontal");
+        if (xInput == 0)
+        {
+
+        }
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
-        {           
+        {
             myAnim.JumpAnimation();
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
@@ -72,34 +74,14 @@ public class Player : Entity
         {
             myGameManager.LoadPosition();
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            xInput = 0f;
-            rollTime += 1 * Time.deltaTime;
-            if (rollTime < 0.35f)
-            {
-                roll = true;
-                // _aniPlayer.Roll();
-                if (_lookRight == true)
-                {
-                    transform.Translate(Vector3.right * speedRoll * Time.fixedDeltaTime);
-                }
-                else if (_lookRight == false)
-                {
-                    transform.Translate(Vector3.right * -speedRoll * Time.fixedDeltaTime);
-                }
-            }
-            else
-            {
-                roll = false;
-                //_aniPlayer.rollEnd();
-            }
+            Attack();
         }
-        else
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _busy.CanRoll())
         {
-            roll = false;
-            //_aniPlayer.rollEnd();
-            rollTime = 0f;
+            _busy.Roll();
+            myAnim.RollAnimation();
         }
     }
     void VoltearPersonaje()
@@ -114,5 +96,19 @@ public class Player : Entity
             _lookRight = true;
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+    void Rolling()
+    {
+        if (!_busy.IsRolling) return;
+        if (_lookRight)
+        {
+            transform.Translate(Vector3.right * speedRoll * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector3.right * -speedRoll * Time.deltaTime);
+        }
+
+
     }
 }

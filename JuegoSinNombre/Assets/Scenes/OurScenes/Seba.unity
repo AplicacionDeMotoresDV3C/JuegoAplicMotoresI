@@ -326,63 +326,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &877977910
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2003932312177109276, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_Name
-      value: ArcherEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
 --- !u!1 &920441973
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 920441980}
+  _player: {fileID: 920441980}
   _myAnim: {fileID: 920441979}
 --- !u!212 &920441977
 SpriteRenderer:
@@ -526,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920441973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.39, y: -0.83, z: 0}
+  m_LocalPosition: {x: -2.063, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1962045004}
@@ -575,9 +519,7 @@ MonoBehaviour:
   myGameManager: {fileID: 1455085546}
   _jumpForce: 4.73
   _busy: {fileID: 920441981}
-  roll: 0
-  rollTime: 0
-  speedRoll: 30
+  speedRoll: 0.05
   xInput: 0
 --- !u!114 &920441981
 MonoBehaviour:
@@ -591,13 +533,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d995689d83e60b849ae2d9923d1d41f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isJumping: 0
-  _isRolling: 0
-  _isAttacking: 0
+  isJumping: 0
+  isAttacking: 0
+  _isFloor: 0
   _floorCheck: {fileID: 1962045004}
   _floorLayer:
     serializedVersion: 2
     m_Bits: 64
+  _coolDownRollMax: 1
   _floorCheckRadius: 1.41
 --- !u!1 &985785855
 GameObject:
