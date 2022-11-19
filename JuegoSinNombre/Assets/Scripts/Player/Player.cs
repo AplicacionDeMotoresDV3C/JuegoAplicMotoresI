@@ -5,29 +5,17 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    Vector2 _movement;
-
-
-
     [SerializeField] InteractionDetector _interactable;
-    public GameManager myGameManager;
+    [SerializeField] BusyChecker _busy; 
     [SerializeField, Range(0, 10)] float _jumpForce;
-    float move;
-    [SerializeField] BusyChecker _busy;
-
-    [Header("Roll")]
-    float _gravity;
-
     [SerializeField] float speedRoll;
-    //[SerializeField] Collider2D _colission;
-    bool _lookRight;
+
+    public GameManager myGameManager;
     public float xInput;
 
+    bool _lookRight;
+    Vector2 _movement;
 
-    private void Start()
-    {
-        _gravity = _rb.gravityScale;
-    }
     private void Update()
     {
         Move(_movement);
@@ -56,10 +44,7 @@ public class Player : Entity
     void Inputs()
     {
         xInput = Input.GetAxisRaw("Horizontal");
-        if (xInput == 0)
-        {
 
-        }
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
         {
@@ -108,7 +93,9 @@ public class Player : Entity
         {
             transform.Translate(Vector3.right * -speedRoll * Time.deltaTime);
         }
-
-
+    }
+    void Death()
+    {
+        Destroy(this, 1.02f);
     }
 }
