@@ -5,8 +5,9 @@ using UnityEngine;
 public class BusyChecker : MonoBehaviour
 {
     bool _isGrounded;
-    float _coyoteTime;
-    float _maxCoyoteTime;
+    [SerializeField] float _coyoteTime;
+    [SerializeField] float _maxCoyoteTime = 0.1f;
+    bool coyoteCheck = false;
     public bool isJumping = false;
     bool _isRolling = false;
   
@@ -23,8 +24,8 @@ public class BusyChecker : MonoBehaviour
     public bool IsRolling => _isRolling;
     private void Update()
     {
-        _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
+        checkFloor();
         if (_time < _coolDownRollMax + _rollingTime)
         {
             _time += 1 * Time.deltaTime;
@@ -65,5 +66,15 @@ public class BusyChecker : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    void checkFloor()
+    {
+        _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
+        if (_isFloor)
+        {
+            coyoteCheck = true;
+            _coyoteTime = 0;
+        }
     }
 }

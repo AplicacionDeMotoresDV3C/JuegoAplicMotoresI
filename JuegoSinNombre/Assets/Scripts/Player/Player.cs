@@ -15,7 +15,10 @@ public class Player : Entity
 
     bool _lookRight;
     Vector2 _movement;
-
+    private void Start()
+    {
+        Health.OnDeath += Death;
+    }
     private void Update()
     {
         Move(_movement);
