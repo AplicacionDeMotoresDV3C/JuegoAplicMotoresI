@@ -6,10 +6,11 @@ using UnityEngine;
 public class Player : Entity
 {
     [SerializeField] InteractionDetector _interactable;
-    [SerializeField] BusyChecker _busy; 
+    [SerializeField] BusyChecker _busy;
     [SerializeField, Range(0, 10)] float _jumpForce;
     [SerializeField] float speedRoll;
     [SerializeField] Collider2D _collider;
+    bool deadh = false;
 
     public GameManager myGameManager;
     public float xInput;
@@ -22,9 +23,12 @@ public class Player : Entity
     }
     private void Update()
     {
-        Move(_movement);
         VoltearPersonaje();
-        Inputs();
+        if (!deadh)
+        {
+            Inputs();
+            Move(_movement);
+        }          
         Rolling();
 
     }
@@ -36,9 +40,8 @@ public class Player : Entity
 
     protected override void Attack()
     {
-        Move(Vector2.zero);
         myAnim.AttackAnimation();
-        
+
     }
     public void HeatBoxAttack()
     {
@@ -50,7 +53,7 @@ public class Player : Entity
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemies"))
+        if (collision.gameObject.CompareTag("Enemies"))
         {
             _collider.enabled = false;
         }
@@ -69,7 +72,7 @@ public class Player : Entity
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
         {
             myAnim.JumpAnimation();
-            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            Jump();
         }
         if (Input.GetKey(KeyCode.E) && _interactable._interatablesInRange.Count > 0)
         {
@@ -114,9 +117,13 @@ public class Player : Entity
             transform.Translate(Vector3.right * -speedRoll * Time.deltaTime);
         }
     }
+    void Jump()
+    {
+        _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    }
     void Death()
     {
-        Move(Vector2.zero);
-        Destroy(this, 1.02f);
+        deadh = true;
+        Destroy(gameObject, 2f);
     }
 }

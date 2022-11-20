@@ -7,10 +7,10 @@ public class BusyChecker : MonoBehaviour
     bool _isGrounded;
     [SerializeField] float _coyoteTime;
     [SerializeField] float _maxCoyoteTime = 0.1f;
-    bool coyoteCheck = false;
+    bool _alReadyJump = false;
     public bool isJumping = false;
     bool _isRolling = false;
-  
+
     public bool isAttacking = false;
     [SerializeField] bool _isFloor;
     [SerializeField] Transform _floorCheck;
@@ -24,8 +24,15 @@ public class BusyChecker : MonoBehaviour
     public bool IsRolling => _isRolling;
     private void Update()
     {
+        _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
-        checkFloor();
+        if (!_isFloor)
+        {
+            _coyoteTime += 1 * Time.deltaTime;
+        }
+        else _coyoteTime = 0;
+
+        if (_alReadyJump) return;
         if (_time < _coolDownRollMax + _rollingTime)
         {
             _time += 1 * Time.deltaTime;
@@ -35,7 +42,7 @@ public class BusyChecker : MonoBehaviour
     }
     public bool CanJump()
     {
-        if (_isFloor)
+        if (_isFloor || (!_isFloor && _coyoteTime <= _maxCoyoteTime))
         {
             return true;
         }
@@ -49,7 +56,6 @@ public class BusyChecker : MonoBehaviour
         {
             return true;
         }
-
         return false;
     }
     public void Roll()
@@ -66,15 +72,5 @@ public class BusyChecker : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    void checkFloor()
-    {
-        _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
-        if (_isFloor)
-        {
-            coyoteCheck = true;
-            _coyoteTime = 0;
-        }
     }
 }
