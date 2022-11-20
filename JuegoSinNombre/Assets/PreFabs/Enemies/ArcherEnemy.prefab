@@ -4965,7 +4965,7 @@ Animator:
   m_GameObject: {fileID: 2003932311919589961}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eed88d110dcba59469e890b98b3d65bf, type: 2}
+  m_Controller: {fileID: 9100000, guid: fa6cef5a2a134ea4399eb3b5cd26f495, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5086,6 +5086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health:
     _maxHealth: 30
+    isInvunerable: 0
   _rb: {fileID: 2003932312177109273}
   speed: 2
   myAnim: {fileID: 11283619945169860}
