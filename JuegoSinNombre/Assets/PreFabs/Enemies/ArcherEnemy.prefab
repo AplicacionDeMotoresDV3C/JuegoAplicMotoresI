@@ -4987,6 +4987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 2003932312177109272}
+  _player: {fileID: 0}
   _myAnim: {fileID: 2003932311919589960}
 --- !u!1 &2003932312177109276
 GameObject:
@@ -5002,7 +5003,7 @@ GameObject:
   - component: {fileID: 2003932312177109272}
   m_Layer: 0
   m_Name: ArcherEnemy
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

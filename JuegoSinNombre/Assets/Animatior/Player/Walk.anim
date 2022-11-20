@@ -6,11 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:JuegoSinNombre/Assets/Animatior/Player/Walk.anim
   m_Name: Walk
-========
-  m_Name: Idle
->>>>>>>> test:JuegoSinNombre/Assets/Art/Animations/Archer/Idle.anim
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

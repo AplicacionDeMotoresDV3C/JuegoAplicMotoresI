@@ -1,40 +1,79 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Entity
 {
-
-    Vector3 posPj;
     [SerializeField] InteractionDetector _interactable;
-    public GameManager myGameManager;
-    float movementX;
+    [SerializeField] BusyChecker _busy;
+    [SerializeField, Range(0, 10)] float _jumpForce;
+    [SerializeField] float speedRoll;
+    [SerializeField] Collider2D _collider;
+    bool deadh = false;
 
+    public GameManager myGameManager;
+    public float xInput;
+
+    bool _lookRight;
+    Vector2 _movement;
+    private void Start()
+    {
+        Health.OnDeath += Death;
+    }
+    private void Update()
+    {
+        VoltearPersonaje();
+        if (!deadh)
+        {
+            Inputs();
+            Move(_movement);
+        }          
+        Rolling();
+
+    }
     void FixedUpdate()
     {
-        Move(posPj);
-        InputPlayer();
+        float xVelocity = _movement.normalized.x * speed;
+        _rb.velocity = new Vector2(xVelocity, _rb.velocity.y);
     }
-    protected override void Attack() { }
 
+    protected override void Attack()
+    {
+        myAnim.AttackAnimation();
+
+    }
+    public void HeatBoxAttack()
+    {
+        _collider.enabled = true;
+    }
+    public void HeatBoxAttackEnd()
+    {
+        _collider.enabled = false;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemies"))
+        {
+            _collider.enabled = false;
+        }
+    }
 
     protected override void Move(Vector2 direction)
     {
-        
-        posPj = transform.position;
-
-        posPj += new Vector3(movementX, 0f, 0) * speed * Time.deltaTime;
-
-        transform.position = posPj;
-       
-        
+        _movement = new Vector2(xInput, 0f);
+        myAnim.MoveAnimationPlayer(xInput);
     }
-    void InputPlayer()
+    void Inputs()
     {
+        xInput = Input.GetAxisRaw("Horizontal");
 
-        posPj = Vector3.zero;
-        movementX = Input.GetAxisRaw("Horizontal");
 
+        if (Input.GetButtonDown("Jump") && _busy.CanJump())
+        {
+            myAnim.JumpAnimation();
+            Jump();
+        }
         if (Input.GetKey(KeyCode.E) && _interactable._interatablesInRange.Count > 0)
         {
             _interactable.Interatable();
@@ -43,7 +82,48 @@ public class Player : Entity
         {
             myGameManager.LoadPosition();
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Attack();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _busy.CanRoll())
+        {
+            _busy.Roll();
+            myAnim.RollAnimation();
+        }
     }
-
-
+    void VoltearPersonaje()
+    {
+        if (xInput < 0)
+        {
+            _lookRight = false;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (xInput > 0)
+        {
+            _lookRight = true;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+    void Rolling()
+    {
+        if (!_busy.IsRolling) return;
+        if (_lookRight)
+        {
+            transform.Translate(Vector3.right * speedRoll * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector3.right * -speedRoll * Time.deltaTime);
+        }
+    }
+    void Jump()
+    {
+        _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    }
+    void Death()
+    {
+        deadh = true;
+        Destroy(gameObject, 2f);
+    }
 }
