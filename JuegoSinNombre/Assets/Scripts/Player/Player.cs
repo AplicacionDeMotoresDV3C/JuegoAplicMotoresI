@@ -62,7 +62,7 @@ public class Player : Entity
     protected override void Move(Vector2 direction)
     {
         _movement = new Vector2(xInput, 0f);
-        myAnim.MoveAnimationPlayer(xInput);
+        myAnim.MoveAnimation(xInput);
     }
     void Inputs()
     {
