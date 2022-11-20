@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1426885872}
   - component: {fileID: 1426885874}
   - component: {fileID: 1426885873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlodEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4883,7 +4883,7 @@ GameObject:
   - component: {fileID: 2003932311919589963}
   - component: {fileID: 2003932311919589960}
   - component: {fileID: 11283619945169860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5001,7 +5001,7 @@ GameObject:
   - component: {fileID: 2003932312177109279}
   - component: {fileID: 2003932312177109273}
   - component: {fileID: 2003932312177109272}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArcherEnemy
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -5071,7 +5071,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2003932312177109272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5089,7 +5089,7 @@ MonoBehaviour:
   _rb: {fileID: 2003932312177109273}
   speed: 2
   myAnim: {fileID: 11283619945169860}
-  _attackCooldown: 2
+  _attackCooldown: 1.5
   _attackDistance: 3
   _wayPoints:
   - {fileID: 0}
@@ -5108,7 +5108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2003932312332740936}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
