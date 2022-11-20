@@ -12,6 +12,8 @@ public abstract class Entity : MonoBehaviour
     private void Awake()
     {
         _health.SetHealth();
+        Health.OnTakeDamage += myAnim.HitAnimation;
+       Health.OnDeath += myAnim.DeathAnimation;
     }
 
     protected abstract void Attack();
