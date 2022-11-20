@@ -38,7 +38,14 @@ public class HealthComponent
 
         OnHeal?.Invoke();
     }
-
+    public int GetMaxHeal()
+    {
+        return _maxHealth;
+    }
+    public int GetHealth()
+    {
+        return _health;
+    }
     private void Death()
     {
         OnDeath?.Invoke();
