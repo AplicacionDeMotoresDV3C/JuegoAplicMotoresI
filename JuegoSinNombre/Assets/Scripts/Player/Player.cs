@@ -28,9 +28,8 @@ public class Player : Entity
         {
             Inputs();
             Move(_movement);
-        }          
-        Rolling();
-
+            Rolling();
+        }
     }
     void FixedUpdate()
     {
@@ -123,7 +122,8 @@ public class Player : Entity
     }
     void Death()
     {
+        speed = 0;
         deadh = true;
-        Destroy(gameObject, 2f);
+       
     }
 }
