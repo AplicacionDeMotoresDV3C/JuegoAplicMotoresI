@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 0f3c7e46f1db0b649b8ad47129cc7079
+guid: d621305cc80b65c419a49eb4fe7d540b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -784764465384757967
-    second: KnightShield_strip_0
+      213: -6324355165507055617
+    second: noBKG_KnightShield_strip_0
   - first:
-      213: 6926513679054909358
-    second: KnightShield_strip_1
+      213: 5087255962602976411
+    second: noBKG_KnightShield_strip_1
   - first:
-      213: 1315864108972599594
-    second: KnightShield_strip_2
+      213: -2965027034253015942
+    second: noBKG_KnightShield_strip_2
   - first:
-      213: -4787238866769743979
-    second: KnightShield_strip_3
+      213: -8013928443498110186
+    second: noBKG_KnightShield_strip_3
   - first:
-      213: -4415486963607829285
-    second: KnightShield_strip_4
+      213: 4569066965244418331
+    second: noBKG_KnightShield_strip_4
   - first:
-      213: 1116783835580375740
-    second: KnightShield_strip_5
+      213: -3293585557555654072
+    second: noBKG_KnightShield_strip_5
   - first:
-      213: 6699221599258970431
-    second: KnightShield_strip_6
+      213: -6514837133666252962
+    second: noBKG_KnightShield_strip_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KnightShield_strip_0
+      name: noBKG_KnightShield_strip_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,14 +126,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 135646860e4fb15f0800000000000000
-      internalID: -784764465384757967
+      spriteID: fff8b8e1c706b38a0800000000000000
+      internalID: -6324355165507055617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightShield_strip_1
+      name: noBKG_KnightShield_strip_1
       rect:
         serializedVersion: 2
         x: 96
@@ -147,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eafa3fb2e7bef1060800000000000000
-      internalID: 6926513679054909358
+      spriteID: b9430743850999640800000000000000
+      internalID: 5087255962602976411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightShield_strip_2
+      name: noBKG_KnightShield_strip_2
       rect:
         serializedVersion: 2
         x: 192
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a296ff37f63e24210800000000000000
-      internalID: 1315864108972599594
+      spriteID: a744be92f9b1ad6d0800000000000000
+      internalID: -2965027034253015942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightShield_strip_3
+      name: noBKG_KnightShield_strip_3
       rect:
         serializedVersion: 2
         x: 288
@@ -189,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59fee335d9f409db0800000000000000
-      internalID: -4787238866769743979
+      spriteID: 61365ed4a8ec8c090800000000000000
+      internalID: -8013928443498110186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightShield_strip_4
+      name: noBKG_KnightShield_strip_4
       rect:
         serializedVersion: 2
         x: 384
@@ -210,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd489c7300a09b2c0800000000000000
-      internalID: -4415486963607829285
+      spriteID: b199d5a6236986f30800000000000000
+      internalID: 4569066965244418331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightShield_strip_5
+      name: noBKG_KnightShield_strip_5
       rect:
         serializedVersion: 2
         x: 480
@@ -231,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb2aaa24bfc9f7f00800000000000000
-      internalID: 1116783835580375740
+      spriteID: 842d984b265da42d0800000000000000
+      internalID: -3293585557555654072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightShield_strip_6
+      name: noBKG_KnightShield_strip_6
       rect:
         serializedVersion: 2
         x: 576
@@ -252,8 +252,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f39847fec8a68fc50800000000000000
-      internalID: 6699221599258970431
+      spriteID: e578c4ed426a695a0800000000000000
+      internalID: -6514837133666252962
       vertices: []
       indices: 
       edges: []

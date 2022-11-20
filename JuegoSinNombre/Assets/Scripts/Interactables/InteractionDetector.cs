@@ -7,7 +7,7 @@ public class InteractionDetector : MonoBehaviour
     public List<IInteractable> _interatablesInRange = new List<IInteractable>();
     void Update()
     {
-        Debug.Log(_interatablesInRange.Count);
+       
         //if (Input.GetKeyDown(KeyCode.E) && _interatablesInRange.Count > 0)
         
     }
