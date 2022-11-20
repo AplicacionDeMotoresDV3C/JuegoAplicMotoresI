@@ -9,6 +9,7 @@ public class Player : Entity
     [SerializeField] BusyChecker _busy; 
     [SerializeField, Range(0, 10)] float _jumpForce;
     [SerializeField] float speedRoll;
+    [SerializeField] Collider2D _collider;
 
     public GameManager myGameManager;
     public float xInput;
@@ -37,6 +38,22 @@ public class Player : Entity
     {
         Move(Vector2.zero);
         myAnim.AttackAnimation();
+        
+    }
+    public void HeatBoxAttack()
+    {
+        _collider.enabled = true;
+    }
+    public void HeatBoxAttackEnd()
+    {
+        _collider.enabled = false;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemies"))
+        {
+            _collider.enabled = false;
+        }
     }
 
     protected override void Move(Vector2 direction)
@@ -99,6 +116,7 @@ public class Player : Entity
     }
     void Death()
     {
+        Move(Vector2.zero);
         Destroy(this, 1.02f);
     }
 }
