@@ -109,10 +109,12 @@ public class Player : Entity
         if (!_busy.IsRolling) return;
         if (_lookRight)
         {
+            speed = 0;
             transform.Translate(Vector3.right * speedRoll * Time.deltaTime);
         }
         else
         {
+            speed = 0;
             transform.Translate(Vector3.right * -speedRoll * Time.deltaTime);
         }
     }
