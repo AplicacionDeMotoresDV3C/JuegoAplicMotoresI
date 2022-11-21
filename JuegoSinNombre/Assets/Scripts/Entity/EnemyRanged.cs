@@ -17,7 +17,7 @@ public class EnemyRanged : EnemyPatrol
         Health.OnTakeDamage += () => { _bloodEffect.Play(); };
         
         myAnim.SetEvent("Shot", Shot);
-        myAnim.SetEvent("InvunerableOff", InvunerableOff);
+        
 
         //CAMBIAR caundo este el GameManager
         _player = FindObjectOfType<Player>();
@@ -102,11 +102,6 @@ public class EnemyRanged : EnemyPatrol
         var b = Instantiate(_bullet).GetComponent<Bullet>();
         b.transform.position = _firePoint.position;
         b.SetDirection(new Vector3(transform.localScale.x,0,0));
-    }
-
-    void InvunerableOff()
-    {
-        Health.isInvunerable = false;
     }
 
     void DeathBehavior()
