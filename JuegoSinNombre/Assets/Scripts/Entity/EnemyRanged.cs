@@ -12,15 +12,12 @@ public class EnemyRanged : EnemyPatrol
     void Start()
     {
         Health.OnDeath += DeathBehavior;
+        myAnim.SetEvent("Shot", Shot);
 
         //Efecto de sangre... se puede descartar, estaba jugando no mas
         Health.OnTakeDamage += () => { _bloodEffect.Play(); };
         
-        myAnim.SetEvent("Shot", Shot);
-        
-
-        //CAMBIAR caundo este el GameManager
-        _player = FindObjectOfType<Player>();
+        _player = GameManager.Instance.player.GetComponent<Player>();
     }
 
     void Update()

@@ -130,6 +130,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 281253996637730960, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 281253996637730966, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.26184356
+      objectReference: {fileID: 0}
+    - target: {fileID: 281253996637730966, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25698
+      objectReference: {fileID: 0}
+    - target: {fileID: 281253996637730966, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.20758528
+      objectReference: {fileID: 0}
+    - target: {fileID: 281253996637730966, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.023678929
+      objectReference: {fileID: 0}
+    - target: {fileID: 281253997464763061, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.19570303
+      objectReference: {fileID: 0}
+    - target: {fileID: 281253997464763061, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.012225866
+      objectReference: {fileID: 0}
     - target: {fileID: 281253997464763062, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -184,6 +212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+--- !u!1 &12165825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 281253997464763062, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+  m_PrefabInstance: {fileID: 12165824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &204166992
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 208219883}
+  - component: {fileID: 208219884}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -244,6 +278,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208219884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208219882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9344865e5bd41e4795dd9b296169a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actualLevel: 0
+  checkpointPlayerPosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 12165825}
 --- !u!1 &339676791
 GameObject:
   m_ObjectHideFlags: 0
