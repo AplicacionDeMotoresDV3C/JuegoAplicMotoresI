@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Image _lifeBar;
+    [SerializeField] Player _player;
+    float _health;
+    float _maxHealth;
+    private void Start()
     {
-        
+        _player.Health.OnTakeDamage += UpdateHealthBar;
     }
-
-    // Update is called once per frame
-    void Update()
+    void UpdateHealthBar()
     {
-        
+        _health = _player.Health.GetHealth();
+        _maxHealth = _player.Health.GetMaxHeal();
+
+        _health = Mathf.Clamp(_health, 0, 100);
+
+        _lifeBar.fillAmount = _health / 100;
     }
 }

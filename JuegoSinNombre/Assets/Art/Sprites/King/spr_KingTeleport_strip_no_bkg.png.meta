@@ -1,7 +1,328 @@
 fileFormatVersion: 2
 guid: 9f7e41cb0bf52404fbfcbf039b33fa66
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5417442917104082681
+    second: spr_KingTeleport_strip_no_bkg_0
+  - first:
+      213: 6624763282508260520
+    second: spr_KingTeleport_strip_no_bkg_1
+  - first:
+      213: -4891446920680473493
+    second: spr_KingTeleport_strip_no_bkg_2
+  - first:
+      213: 1562185342082760488
+    second: spr_KingTeleport_strip_no_bkg_3
+  - first:
+      213: -2313889986728133796
+    second: spr_KingTeleport_strip_no_bkg_4
+  - first:
+      213: 5281864719813286560
+    second: spr_KingTeleport_strip_no_bkg_5
+  - first:
+      213: -1094374811839024578
+    second: spr_KingTeleport_strip_no_bkg_6
+  - first:
+      213: -2098946023494936521
+    second: spr_KingTeleport_strip_no_bkg_7
+  - first:
+      213: -6393976038432097256
+    second: spr_KingTeleport_strip_no_bkg_8
+  - first:
+      213: -4948760418906511579
+    second: spr_KingTeleport_strip_no_bkg_9
+  - first:
+      213: -5476789631950314176
+    second: spr_KingTeleport_strip_no_bkg_10
+  - first:
+      213: -8217375365023963966
+    second: spr_KingTeleport_strip_no_bkg_11
+  - first:
+      213: 6369635755726342345
+    second: spr_KingTeleport_strip_no_bkg_12
+  - first:
+      213: 2433888984911913015
+    second: spr_KingTeleport_strip_no_bkg_13
+  - first:
+      213: -6037256911930631092
+    second: spr_KingTeleport_strip_no_bkg_14
+  - first:
+      213: 2778534686790025243
+    second: spr_KingTeleport_strip_no_bkg_15
+  - first:
+      213: -7463520446313071630
+    second: spr_KingTeleport_strip_no_bkg_16
+  - first:
+      213: 131638466188859338
+    second: spr_KingTeleport_strip_no_bkg_17
+  - first:
+      213: 1989647771248055859
+    second: spr_KingTeleport_strip_no_bkg_18
+  - first:
+      213: 3573172980974054407
+    second: spr_KingTeleport_strip_no_bkg_19
+  - first:
+      213: 1944858717162861688
+    second: spr_KingTeleport_strip_no_bkg_20
+  - first:
+      213: -2323696258904524815
+    second: spr_KingTeleport_strip_no_bkg_21
+  - first:
+      213: 7555849612727793778
+    second: spr_KingTeleport_strip_no_bkg_22
+  - first:
+      213: -214648131273553758
+    second: spr_KingTeleport_strip_no_bkg_23
+  - first:
+      213: -6591813965487606122
+    second: spr_KingTeleport_strip_no_bkg_24
+  - first:
+      213: -8296026362726155995
+    second: spr_KingTeleport_strip_no_bkg_25
+  - first:
+      213: -7124765923965224578
+    second: spr_KingTeleport_strip_no_bkg_26
+  - first:
+      213: 1622824103102243899
+    second: spr_KingTeleport_strip_no_bkg_27
+  - first:
+      213: 8346461189929157058
+    second: spr_KingTeleport_strip_no_bkg_28
+  - first:
+      213: 8162169631895300585
+    second: spr_KingTeleport_strip_no_bkg_29
+  - first:
+      213: 6324059087359781292
+    second: spr_KingTeleport_strip_no_bkg_30
+  - first:
+      213: 416283750959957967
+    second: spr_KingTeleport_strip_no_bkg_31
+  - first:
+      213: 1169678235082074930
+    second: spr_KingTeleport_strip_no_bkg_32
+  - first:
+      213: -1247514177120012897
+    second: spr_KingTeleport_strip_no_bkg_33
+  - first:
+      213: -8788111524838870742
+    second: spr_KingTeleport_strip_no_bkg_34
+  - first:
+      213: 7969870428890949070
+    second: spr_KingTeleport_strip_no_bkg_35
+  - first:
+      213: 3526838198743692582
+    second: spr_KingTeleport_strip_no_bkg_36
+  - first:
+      213: -4391411177348824540
+    second: spr_KingTeleport_strip_no_bkg_37
+  - first:
+      213: 6468853887706603577
+    second: spr_KingTeleport_strip_no_bkg_38
+  - first:
+      213: 8941945389866439264
+    second: spr_KingTeleport_strip_no_bkg_39
+  - first:
+      213: 4500686039136510652
+    second: spr_KingTeleport_strip_no_bkg_40
+  - first:
+      213: 3131188855306718231
+    second: spr_KingTeleport_strip_no_bkg_41
+  - first:
+      213: -7030333698449084251
+    second: spr_KingTeleport_strip_no_bkg_42
+  - first:
+      213: -8673622706148614388
+    second: spr_KingTeleport_strip_no_bkg_43
+  - first:
+      213: -2014188161048961999
+    second: spr_KingTeleport_strip_no_bkg_44
+  - first:
+      213: 6403838648836896659
+    second: spr_KingTeleport_strip_no_bkg_45
+  - first:
+      213: 7063987740726059598
+    second: spr_KingTeleport_strip_no_bkg_46
+  - first:
+      213: 2268505308698220798
+    second: spr_KingTeleport_strip_no_bkg_47
+  - first:
+      213: -390789087934050275
+    second: spr_KingTeleport_strip_no_bkg_48
+  - first:
+      213: 2678307161650899190
+    second: spr_KingTeleport_strip_no_bkg_49
+  - first:
+      213: 5457643978221174311
+    second: spr_KingTeleport_strip_no_bkg_50
+  - first:
+      213: 4363669679764956193
+    second: spr_KingTeleport_strip_no_bkg_51
+  - first:
+      213: -2653743436632123040
+    second: spr_KingTeleport_strip_no_bkg_52
+  - first:
+      213: 2716432080663995460
+    second: spr_KingTeleport_strip_no_bkg_53
+  - first:
+      213: -6158498207584433492
+    second: spr_KingTeleport_strip_no_bkg_54
+  - first:
+      213: -423172426937576546
+    second: spr_KingTeleport_strip_no_bkg_55
+  - first:
+      213: -4415500614569769931
+    second: spr_KingTeleport_strip_no_bkg_56
+  - first:
+      213: -2325586548692037084
+    second: spr_KingTeleport_strip_no_bkg_57
+  - first:
+      213: -8496990485863441421
+    second: spr_KingTeleport_strip_no_bkg_58
+  - first:
+      213: 7831570368325061367
+    second: spr_KingTeleport_strip_no_bkg_59
+  - first:
+      213: -7325734892536047712
+    second: spr_KingTeleport_strip_no_bkg_60
+  - first:
+      213: -5240586591157173896
+    second: spr_KingTeleport_strip_no_bkg_61
+  - first:
+      213: 84046222619335175
+    second: spr_KingTeleport_strip_no_bkg_62
+  - first:
+      213: 3053142717233794956
+    second: spr_KingTeleport_strip_no_bkg_63
+  - first:
+      213: -2466049481746697834
+    second: spr_KingTeleport_strip_no_bkg_64
+  - first:
+      213: -7202724284929084336
+    second: spr_KingTeleport_strip_no_bkg_65
+  - first:
+      213: -3933634194369423596
+    second: spr_KingTeleport_strip_no_bkg_66
+  - first:
+      213: 405653588816352219
+    second: spr_KingTeleport_strip_no_bkg_67
+  - first:
+      213: 6813409691649692344
+    second: spr_KingTeleport_strip_no_bkg_68
+  - first:
+      213: -9135145009347288425
+    second: spr_KingTeleport_strip_no_bkg_69
+  - first:
+      213: 5264772656577861893
+    second: spr_KingTeleport_strip_no_bkg_70
+  - first:
+      213: 156077583030146352
+    second: spr_KingTeleport_strip_no_bkg_71
+  - first:
+      213: -3361642228184099546
+    second: spr_KingTeleport_strip_no_bkg_72
+  - first:
+      213: -1560188648538128500
+    second: spr_KingTeleport_strip_no_bkg_73
+  - first:
+      213: -8549619379267558360
+    second: spr_KingTeleport_strip_no_bkg_74
+  - first:
+      213: 6926935172916422320
+    second: spr_KingTeleport_strip_no_bkg_75
+  - first:
+      213: 4216514318738333255
+    second: spr_KingTeleport_strip_no_bkg_76
+  - first:
+      213: -4435463413460652747
+    second: spr_KingTeleport_strip_no_bkg_77
+  - first:
+      213: 7004433768430540047
+    second: spr_KingTeleport_strip_no_bkg_78
+  - first:
+      213: 4828255058262868111
+    second: spr_KingTeleport_strip_no_bkg_79
+  - first:
+      213: 2228677757048179950
+    second: spr_KingTeleport_strip_no_bkg_80
+  - first:
+      213: -6985338066206561110
+    second: spr_KingTeleport_strip_no_bkg_81
+  - first:
+      213: -1105162457378847531
+    second: spr_KingTeleport_strip_no_bkg_82
+  - first:
+      213: -4581622780530489644
+    second: spr_KingTeleport_strip_no_bkg_83
+  - first:
+      213: 4563682663539899601
+    second: spr_KingTeleport_strip_no_bkg_84
+  - first:
+      213: -2632862368369040346
+    second: spr_KingTeleport_strip_no_bkg_85
+  - first:
+      213: 3221315845044036055
+    second: spr_KingTeleport_strip_no_bkg_86
+  - first:
+      213: 5149735127779691105
+    second: spr_KingTeleport_strip_no_bkg_87
+  - first:
+      213: 3546787086725177164
+    second: spr_KingTeleport_strip_no_bkg_88
+  - first:
+      213: -5064857170163558831
+    second: spr_KingTeleport_strip_no_bkg_89
+  - first:
+      213: -1457774590215538533
+    second: spr_KingTeleport_strip_no_bkg_90
+  - first:
+      213: 4532385726410572007
+    second: spr_KingTeleport_strip_no_bkg_91
+  - first:
+      213: 7070223996781672128
+    second: spr_KingTeleport_strip_no_bkg_92
+  - first:
+      213: -7797142367846127451
+    second: spr_KingTeleport_strip_no_bkg_93
+  - first:
+      213: 5003270536493857971
+    second: spr_KingTeleport_strip_no_bkg_94
+  - first:
+      213: 92883653765339456
+    second: spr_KingTeleport_strip_no_bkg_95
+  - first:
+      213: -9142424752325361892
+    second: spr_KingTeleport_strip_no_bkg_96
+  - first:
+      213: -859594565628367287
+    second: spr_KingTeleport_strip_no_bkg_97
+  - first:
+      213: -9092128444019153095
+    second: spr_KingTeleport_strip_no_bkg_98
+  - first:
+      213: -7263772301103379658
+    second: spr_KingTeleport_strip_no_bkg_99
+  - first:
+      213: 5624039532906317405
+    second: spr_KingTeleport_strip_no_bkg_100
+  - first:
+      213: -6143110303855520031
+    second: spr_KingTeleport_strip_no_bkg_101
+  - first:
+      213: 5614933490368320752
+    second: spr_KingTeleport_strip_no_bkg_102
+  - first:
+      213: -9063522176100535520
+    second: spr_KingTeleport_strip_no_bkg_103
+  - first:
+      213: -9216326870420521615
+    second: spr_KingTeleport_strip_no_bkg_104
+  - first:
+      213: -5598072987205281136
+    second: spr_KingTeleport_strip_no_bkg_105
+  - first:
+      213: -4283998674533154321
+    second: spr_KingTeleport_strip_no_bkg_106
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +362,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,7 +386,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -77,7 +410,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fed1f851af9e2b40800000000000000
+      internalID: 5417442917104082681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4a4fe1b13efeb50800000000000000
+      internalID: 6624763282508260520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c792f01f61e1cb0800000000000000
+      internalID: -4891446920680473493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f3a24ba4ffda510800000000000000
+      internalID: 1562185342082760488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b7cbb015963efd0800000000000000
+      internalID: -2313889986728133796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa93286af3fc4940800000000000000
+      internalID: 5281864719813286560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32333928efffc0f0800000000000000
+      internalID: -1094374811839024578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7389dda56bb0fd2e0800000000000000
+      internalID: -2098946023494936521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c35e67ba80447a0800000000000000
+      internalID: -6393976038432097256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52760906e98725bb0800000000000000
+      internalID: -4948760418906511579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0452f06d8d88ef3b0800000000000000
+      internalID: -5476789631950314176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c463bd94a406fd80800000000000000
+      internalID: -8217375365023963966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c802b8d8fd756850800000000000000
+      internalID: 6369635755726342345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_KingTeleport_strip_no_bkg_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7302960f229e6c120800000000000000
+      internalID: 2433888984911913015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

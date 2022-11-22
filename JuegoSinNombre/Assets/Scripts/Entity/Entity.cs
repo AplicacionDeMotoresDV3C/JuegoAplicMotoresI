@@ -12,9 +12,15 @@ public abstract class Entity : MonoBehaviour
     private void Awake()
     {
         _health.SetHealth();
+        myAnim.SetEvent("InvunerableOff", InvunerableOff);
     }
 
     protected abstract void Attack();
     protected abstract void Move(Vector2 direction);
-   
+
+    void InvunerableOff()
+    {
+        Health.isInvunerable = false;
+    }
+
 }
