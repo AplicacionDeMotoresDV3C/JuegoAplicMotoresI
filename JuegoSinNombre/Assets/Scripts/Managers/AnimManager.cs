@@ -6,9 +6,14 @@ using UnityEngine;
 public class AnimManager : MonoBehaviour
 {
     [SerializeField] Entity _entity;
-    [SerializeField] Player _player;
     [SerializeField] Animator _myAnim;
     Dictionary<string, Action> _events = new Dictionary<string, Action>();
+
+    private void Start()
+    {
+        _entity.Health.OnTakeDamage += HitAnimation;
+        _entity.Health.OnDeath += DeathAnimation;
+    }
 
     public void AttackAnimation()
     {
