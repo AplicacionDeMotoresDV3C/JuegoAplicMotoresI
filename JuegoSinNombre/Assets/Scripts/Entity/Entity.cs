@@ -12,6 +12,7 @@ public abstract class Entity : MonoBehaviour
     private void Awake()
     {
         _health.SetHealth();
+        _health.OnTakeDamage += ShowDamage;
         myAnim.SetEvent("InvunerableOff", InvunerableOff);
     }
 
@@ -23,4 +24,9 @@ public abstract class Entity : MonoBehaviour
         Health.isInvunerable = false;
     }
 
+    void ShowDamage(DamageData data)
+    {
+        var o = ObjectPool.instace.GetNextObject();
+        o.GetComponent<DamageNumber>().Display(data);
+    }
 }

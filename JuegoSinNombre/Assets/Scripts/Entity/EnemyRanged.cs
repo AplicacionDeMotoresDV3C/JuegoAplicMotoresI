@@ -7,6 +7,7 @@ public class EnemyRanged : EnemyPatrol
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _firePoint;
 
+    //Efecto de sangre... se puede descartar, estaba jugando no mas
     [SerializeField] ParticleSystem _bloodEffect;
 
     void Start()
@@ -15,7 +16,7 @@ public class EnemyRanged : EnemyPatrol
         myAnim.SetEvent("Shot", Shot);
 
         //Efecto de sangre... se puede descartar, estaba jugando no mas
-        Health.OnTakeDamage += () => { _bloodEffect.Play(); };
+        Health.OnTakeDamage += (DamageData data) => { _bloodEffect.Play(); };
         
         _player = GameManager.Instance.player.GetComponent<Player>();
     }

@@ -10,7 +10,7 @@ public class CanvasManager : MonoBehaviour
     {
         _player.Health.OnTakeDamage += UpdateHealthBar;
     }
-    void UpdateHealthBar()
+    void UpdateHealthBar(DamageData data)
     {
         _health = _player.Health.GetHealth();
         _maxHealth = _player.Health.GetMaxHeal();
