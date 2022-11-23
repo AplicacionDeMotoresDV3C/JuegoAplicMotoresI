@@ -8,9 +8,10 @@ public class Player : Entity
     [SerializeField] InteractionDetector _interactable;
     [SerializeField] BusyChecker _busy;
     [SerializeField, Range(0, 10)] float _jumpForce;
-    [SerializeField] float speedRoll;
+    [SerializeField] float speedRoll = 0;
     [SerializeField] Collider2D _collider;
     bool deadh = false;
+    float _speedMove;
 
     public GameManager myGameManager;
     public float xInput;
@@ -20,6 +21,7 @@ public class Player : Entity
     private void Start()
     {
         Health.OnDeath += Death;
+        _speedMove = speed;
     }
     private void Update()
     {
@@ -60,6 +62,7 @@ public class Player : Entity
 
     protected override void Move(Vector2 direction)
     {
+        speed = _speedMove;
         _movement = new Vector2(xInput, 0f);
         myAnim.MoveAnimation(xInput);
     }
@@ -116,16 +119,17 @@ public class Player : Entity
         {
             speed = 0;
             transform.Translate(Vector3.right * -speedRoll * Time.deltaTime);
-        }
+        } 
     }
     void Jump()
     {
         _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        _busy.isJumping = true;
     }
     void Death()
     {
         speed = 0;
         deadh = true;
-       
+
     }
 }
