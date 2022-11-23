@@ -6,7 +6,6 @@ using UnityEngine;
 public class AnimManager : MonoBehaviour
 {
     [SerializeField] Entity _entity;
-    [SerializeField] Player _player;
     [SerializeField] Animator _myAnim;
     Dictionary<string, Action> _events = new Dictionary<string, Action>();
 
@@ -26,16 +25,7 @@ public class AnimManager : MonoBehaviour
     }
     public void MoveAnimation(float speed)
     {
-        _myAnim.SetFloat("Speed", speed);
-    }
-    public void MoveAnimationPlayer(float speed)
-    {
-        if (speed != 0)
-        {
-            _myAnim.SetFloat("Horizontal", Mathf.Abs(_player.xInput));
-        }
-        else
-            _myAnim.SetFloat("Horizontal", 0);
+        _myAnim.SetFloat("Speed", Mathf.Abs(speed));
     }
     public void JumpAnimation()
     {
@@ -45,11 +35,11 @@ public class AnimManager : MonoBehaviour
     {
         _myAnim.SetTrigger("Roll");
     }
-    void HitAnimation()
+    public void HitAnimation()
     {
         _myAnim.SetTrigger("Hit");
     }
-    void DeathAnimation()
+    public void DeathAnimation()
     {
         _myAnim.SetTrigger("Death");
         this.enabled = false;
