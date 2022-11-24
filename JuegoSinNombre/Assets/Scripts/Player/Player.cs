@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] GameManager gm;
     [SerializeField] InteractionDetector _interactable;
     [SerializeField] BusyChecker _busy;
     [SerializeField, Range(0, 10)] float _jumpForce;
@@ -28,7 +29,7 @@ public class Player : Entity
         {
             Inputs();
             Move(_movement);
-        }          
+        }
         Rolling();
 
     }
@@ -91,6 +92,8 @@ public class Player : Entity
             _busy.Roll();
             myAnim.RollAnimation();
         }
+
+
     }
     void VoltearPersonaje()
     {
