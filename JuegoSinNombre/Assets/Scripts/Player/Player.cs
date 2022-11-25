@@ -12,7 +12,10 @@ public class Player : Entity
     [SerializeField] float speedRoll;
     [SerializeField] Collider2D _collider;
     bool deadh = false;
-
+    public float _stamina;
+    public float _maxStamina = 10f;
+    public Action OnStaminaCHange;
+    
     public GameManager myGameManager;
     public float xInput;
 
@@ -21,6 +24,7 @@ public class Player : Entity
     private void Start()
     {
         Health.OnDeath += Death;
+        _stamina = _maxStamina;
     }
     private void Update()
     {
@@ -31,7 +35,7 @@ public class Player : Entity
             Move(_movement);
         }
         Rolling();
-
+        StaminaRecovery();
     }
     void FixedUpdate()
     {
@@ -41,7 +45,12 @@ public class Player : Entity
 
     protected override void Attack()
     {
-        myAnim.AttackAnimation();
+        if (_stamina >= 3)
+        {
+            _stamina -= 3;
+            OnStaminaCHange?.Invoke();
+            myAnim.AttackAnimation();
+        }
 
     }
     public void HeatBoxAttack()
@@ -67,8 +76,8 @@ public class Player : Entity
     }
     void Inputs()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-
+       
+            xInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
         {
@@ -89,8 +98,13 @@ public class Player : Entity
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && _busy.CanRoll())
         {
-            _busy.Roll();
-            myAnim.RollAnimation();
+            if (_stamina >= 2)
+            {
+                _stamina -= 2;
+                OnStaminaCHange?.Invoke();
+                _busy.Roll();
+                myAnim.RollAnimation();
+            }
         }
 
 
@@ -122,7 +136,27 @@ public class Player : Entity
     }
     void Jump()
     {
-        _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        if (_stamina >= 1)
+        {
+            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _stamina--;
+            OnStaminaCHange?.Invoke();
+
+        }
+    }
+    public void StaminaRecovery()
+    {
+        if (_stamina < _maxStamina)
+        {
+            _stamina += 1 * Time.deltaTime;
+            OnStaminaCHange?.Invoke();
+        }
+        else
+        {
+            _stamina = _maxStamina;
+            OnStaminaCHange?.Invoke();
+
+        }
     }
     void Death()
     {
