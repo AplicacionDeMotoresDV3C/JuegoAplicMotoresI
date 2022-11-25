@@ -12,15 +12,18 @@ public class Player : Entity
     [SerializeField] float speedRoll;
     [SerializeField] Collider2D _collider;
     bool deadh = false;
-    public float _stamina;
-    public float _maxStamina = 10f;
+    float _stamina;
+    float _maxStamina = 10f;
     public Action OnStaminaCHange;
-    
+
     public GameManager myGameManager;
     public float xInput;
 
     bool _lookRight;
     Vector2 _movement;
+
+    public float Stamina { get { return _stamina; } }
+    public float MaxStamina { get { return _maxStamina; } }
     private void Start()
     {
         Health.OnDeath += Death;
@@ -45,12 +48,20 @@ public class Player : Entity
 
     protected override void Attack()
     {
-        if (_stamina >= 3)
+        if (_stamina < 2) return;
+        
+        if (!_busy.isAttacking)
         {
-            _stamina -= 3;
+            _busy.isAttacking = true;
+            _stamina -= 2;
             OnStaminaCHange?.Invoke();
             myAnim.AttackAnimation();
         }
+        else
+        {
+            _busy.isAttacking = false;
+        }
+
 
     }
     public void HeatBoxAttack()
@@ -76,8 +87,8 @@ public class Player : Entity
     }
     void Inputs()
     {
-       
-            xInput = Input.GetAxisRaw("Horizontal");
+
+        xInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
         {

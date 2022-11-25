@@ -73,8 +73,10 @@ public class BusyChecker : MonoBehaviour
     {
         if (!_isRolling)
         {
+            isAttacking = true;
             return true;
         }
+        isAttacking = false;
         return false;
     }
 }

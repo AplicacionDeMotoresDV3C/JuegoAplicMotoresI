@@ -25,8 +25,9 @@ public class CanvasManager : MonoBehaviour
     }
     void UpdateStaminaBar()
     {
-        _stamina = _player._stamina;
-        _maxStamina = _player._maxStamina;
+        _stamina = _player.Stamina;
+
+        _maxStamina = _player.MaxStamina;
 
         _stamina = Mathf.Clamp(_stamina, 0, 10);
 
