@@ -22,7 +22,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 5417442917104082681, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
     - time: 0.083333336
-      value: {fileID: 6624763282508260520, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
+      value: {fileID: 0}
     - time: 0.16666667
       value: {fileID: -4891446920680473493, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
     - time: 0.25
@@ -67,7 +67,7 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 5417442917104082681, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
-    - {fileID: 6624763282508260520, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
+    - {fileID: 0}
     - {fileID: -4891446920680473493, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
     - {fileID: 1562185342082760488, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
     - {fileID: -2313889986728133796, guid: 9f7e41cb0bf52404fbfcbf039b33fa66, type: 3}
@@ -105,23 +105,9 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: TeleportInitialAnimation
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.6666667
-    functionName: TeleportActionInAnimation
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.0833334
-    functionName: TeleportFinishAnimation
-    data: 
+    functionName: ExecuteEvent
+    data: Teleport
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

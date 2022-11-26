@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBoss : Enemy
+public class EnemyBoss2 : Enemy
 {
-    //public List<Transform> teleportWaypoints = new List<Transform>();
+
     [SerializeField] Transform[] teleportWaypoints;
     int randomWaypointToTeleport;
     int lastWaypoint;
 
     [SerializeField] float _minDistanceToMove;
     [SerializeField] float _teleportCooldown;
+    [SerializeField] GameObject _damaging;
     float _cooldownTimerToTeleport;
     bool _isWaitingToTeleport;
 
@@ -21,6 +22,10 @@ public class EnemyBoss : Enemy
         _cooldownTimerToTeleport = _teleportCooldown;
         lastWaypoint = 0;
         randomWaypointToTeleport = Random.Range(0,teleportWaypoints.Length);
+        myAnim.SetEvent("AttackDamaginActivate", AttackDamaginActivate);
+        myAnim.SetEvent("AttackDamagindDesactivate", AttackDamagingDesactivate);
+        myAnim.SetEvent("Teleport", TeleportActionInAnimation);
+
     }
 
     private void Update()
@@ -32,15 +37,17 @@ public class EnemyBoss : Enemy
         {
             if (_attackCooldown < _cooldownTimer)
             {
-                Attack();            
+                Attack();
             }
             else if (_teleportCooldown <= _cooldownTimerToTeleport) //Deberia poder hacer un teleport  atras del otro
             {
                 myAnim.SecondaryAniamtion();
             }
+            else
+                Move(Vector2.zero);
         }
-        //else if (_checkDistancePlayer <= _minDistanceToMove)
-        //    LookAtPlayer();
+        else if (_checkDistancePlayer <= _minDistanceToMove)
+            LookAtPlayer();
         else
             Move(Vector2.zero);
     }
@@ -52,10 +59,20 @@ public class EnemyBoss : Enemy
         _cooldownTimer = 0;
     }
 
-    void AttackFinishAnimation()
+    protected override void Move(Vector2 direction)
     {
-        _cooldownTimer = 0;
+        direction.Normalize();
+        direction.x = direction.x * speed;
+        direction.y = _rb.velocity.y;
 
+        _rb.velocity = direction;
+
+        if (direction.x < 0 && transform.localScale.x > 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        if (direction.x > 0 && transform.localScale.x < 0)
+            transform.localScale = new Vector3(1, 1, 1);
+
+        myAnim.MoveAnimation(direction.x * direction.x);
     }
 
     void LookAtPlayer()
@@ -70,22 +87,9 @@ public class EnemyBoss : Enemy
     {
         Move(Vector2.zero);
         transform.position = newPosition.transform.position;
-        //_cooldownTimerToTeleport = 0;
-    }
-
-    void TeleportFinishAnimation()
-    {
-        Debug.Log("Animacion teleport terminada");
-        Move(Vector2.zero);
-        _cooldownTimerToTeleport = _teleportCooldown;
-    }
-
-    void TeleportInitialAnimation()
-    {
-        Debug.Log("Animacion comienza");
-        Move(Vector2.zero);
         _cooldownTimerToTeleport = 0;
     }
+
 
     void DefineRandomWaypoint()
     {
@@ -104,21 +108,16 @@ public class EnemyBoss : Enemy
         Teleport(teleportWaypoints[randomWaypointToTeleport]);
     }
 
-    protected override void Move(Vector2 direction)
+    void AttackDamaginActivate()
     {
-        direction.Normalize();
-        direction.x = direction.x * speed;
-        direction.y = _rb.velocity.y;
-
-        _rb.velocity = direction;
-
-        if (direction.x < 0 && transform.localScale.x > 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        if (direction.x > 0 && transform.localScale.x < 0)
-            transform.localScale = new Vector3(1, 1, 1);
-
-        myAnim.MoveAnimation(direction.x * direction.x);
+        _damaging.SetActive(true);
     }
+
+    void AttackDamagingDesactivate()
+    {
+        _damaging.SetActive(false);
+    }
+
 
 
 
