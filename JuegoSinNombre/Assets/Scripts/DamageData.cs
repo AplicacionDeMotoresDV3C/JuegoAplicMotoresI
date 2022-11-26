@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageData
+public struct DamageData
 {
     public int value;
     public string target;
