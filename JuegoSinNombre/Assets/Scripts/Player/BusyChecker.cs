@@ -39,10 +39,14 @@ public class BusyChecker : MonoBehaviour
             if (_time > _rollingTime) _isRolling = false;
         }
         else _coolDownFinish = true;
+        if (_isFloor)
+        {
+            isJumping = false;
+        }
     }
     public bool CanJump()
     {
-        if (_isFloor || (!_isFloor && _coyoteTime <= _maxCoyoteTime))
+        if ((_isFloor || (!_isFloor && _coyoteTime <= _maxCoyoteTime)) && !_isRolling)
         {
             return true;
         }
@@ -69,8 +73,10 @@ public class BusyChecker : MonoBehaviour
     {
         if (!_isRolling)
         {
+            isAttacking = true;
             return true;
         }
+        isAttacking = false;
         return false;
     }
 }

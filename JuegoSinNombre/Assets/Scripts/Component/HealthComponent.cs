@@ -9,9 +9,9 @@ public class HealthComponent
     [SerializeField]int _maxHealth;
     int _health;
     public bool isInvunerable = false;
-    public Action<DamageData> OnTakeDamage;
-    public Action OnHeal;
-    public Action OnDeath;
+    public event Action OnTakeDamage;
+    public event Action OnHeal;
+    public event Action OnDeath;
 
     public void SetHealth()
     {
