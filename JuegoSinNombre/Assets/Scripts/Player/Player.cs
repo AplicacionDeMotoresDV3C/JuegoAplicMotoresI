@@ -10,7 +10,7 @@ public class Player : Entity
     [SerializeField] BusyChecker _busy;
     [SerializeField, Range(0, 10)] float _jumpForce;
     [SerializeField] float speedRoll;
-    [SerializeField] Collider2D _collider;
+    [SerializeField] Collider2D _colliderAttack;
     bool deadh = false;
     float _stamina;
     float _maxStamina = 10f;
@@ -26,6 +26,7 @@ public class Player : Entity
     public float MaxStamina { get { return _maxStamina; } }
     private void Start()
     {
+        Health.OnTakeDamage += IsAttacked;
         Health.OnDeath += Death;
         _stamina = _maxStamina;
     }
@@ -49,7 +50,7 @@ public class Player : Entity
     protected override void Attack()
     {
         if (_stamina < 2) return;
-        
+
         if (!_busy.isAttacking)
         {
             _busy.isAttacking = true;
@@ -66,17 +67,25 @@ public class Player : Entity
     }
     public void HeatBoxAttack()
     {
-        _collider.enabled = true;
+        _colliderAttack.enabled = true;
     }
     public void HeatBoxAttackEnd()
     {
-        _collider.enabled = false;
+        _colliderAttack.enabled = false;
+    }
+    public void ShieldEvent()
+    {
+        Health.isInvunerable = true;
+    }
+    public void ShieldEndEvent()
+    {
+        Health.isInvunerable = false;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemies"))
         {
-            _collider.enabled = false;
+            _colliderAttack.enabled = false;
         }
     }
 
@@ -117,8 +126,10 @@ public class Player : Entity
                 myAnim.RollAnimation();
             }
         }
-
-
+        if (Input.GetKeyDown(KeyCode.L))
+        {        
+            myAnim.ShieldAnimation();
+        }
     }
     void VoltearPersonaje()
     {
@@ -132,6 +143,10 @@ public class Player : Entity
             _lookRight = true;
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+    public void IsAttacked()
+    {
+        _stamina--;
     }
     void Rolling()
     {
