@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public int _actualLevel = 0;
     public Vector3 checkpointPlayerPosition;
-    bool _isPause = false;
+    public bool _isPause = false;
+    [SerializeField] GameObject menuPausa;
     public GameObject player;
     static GameManager _instance;
     public static GameManager Instance
@@ -33,7 +34,15 @@ public class GameManager : MonoBehaviour
         checkpointPlayerPosition = player.transform.position;
 
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _isPause = !_isPause;
+            Pause();
+        }
+        
+    }
 
     #region PLAYER
     public void SavePosition()
@@ -50,14 +59,26 @@ public class GameManager : MonoBehaviour
     #region GAMEPLAY_UI
     public void Pause()
     {
-        _isPause = true;
-        Time.timeScale = 0;
+        //_isPause = true;
+        if (_isPause)
+        {
+            Time.timeScale = 0;
+            menuPausa.SetActive(true);
+        }
+        else
+        {
+            menuPausa.SetActive(false);
+            Time.timeScale = 1;
+        }
+
     }
 
     public void Resume()
     {
         _isPause = false;
         Time.timeScale = 1;
+        menuPausa.SetActive(false);
+
     }
     #endregion
 
@@ -76,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeScene("MainMenu");
     }
-    
+
     public void Quit()
     {
         Application.Quit();

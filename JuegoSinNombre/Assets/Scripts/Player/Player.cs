@@ -5,21 +5,29 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] GameManager gm;
     [SerializeField] InteractionDetector _interactable;
     [SerializeField] BusyChecker _busy;
     [SerializeField, Range(0, 10)] float _jumpForce;
     [SerializeField] float speedRoll;
     [SerializeField] Collider2D _collider;
     bool deadh = false;
+    float _stamina;
+    float _maxStamina = 10f;
+    public Action OnStaminaCHange;
 
     public GameManager myGameManager;
     public float xInput;
 
     bool _lookRight;
     Vector2 _movement;
+
+    public float Stamina { get { return _stamina; } }
+    public float MaxStamina { get { return _maxStamina; } }
     private void Start()
     {
         Health.OnDeath += Death;
+        _stamina = _maxStamina;
     }
     private void Update()
     {
@@ -28,9 +36,9 @@ public class Player : Entity
         {
             Inputs();
             Move(_movement);
-        }          
+        }
         Rolling();
-
+        StaminaRecovery();
     }
     void FixedUpdate()
     {
@@ -40,7 +48,20 @@ public class Player : Entity
 
     protected override void Attack()
     {
-        myAnim.AttackAnimation();
+        if (_stamina < 2) return;
+        
+        if (!_busy.isAttacking)
+        {
+            _busy.isAttacking = true;
+            _stamina -= 2;
+            OnStaminaCHange?.Invoke();
+            myAnim.AttackAnimation();
+        }
+        else
+        {
+            _busy.isAttacking = false;
+        }
+
 
     }
     public void HeatBoxAttack()
@@ -66,8 +87,8 @@ public class Player : Entity
     }
     void Inputs()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
 
+        xInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
         {
@@ -88,9 +109,16 @@ public class Player : Entity
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && _busy.CanRoll())
         {
-            _busy.Roll();
-            myAnim.RollAnimation();
+            if (_stamina >= 2)
+            {
+                _stamina -= 2;
+                OnStaminaCHange?.Invoke();
+                _busy.Roll();
+                myAnim.RollAnimation();
+            }
         }
+
+
     }
     void VoltearPersonaje()
     {
@@ -119,7 +147,27 @@ public class Player : Entity
     }
     void Jump()
     {
-        _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        if (_stamina >= 1)
+        {
+            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _stamina--;
+            OnStaminaCHange?.Invoke();
+
+        }
+    }
+    public void StaminaRecovery()
+    {
+        if (_stamina < _maxStamina)
+        {
+            _stamina += 1 * Time.deltaTime;
+            OnStaminaCHange?.Invoke();
+        }
+        else
+        {
+            _stamina = _maxStamina;
+            OnStaminaCHange?.Invoke();
+
+        }
     }
     void Death()
     {
