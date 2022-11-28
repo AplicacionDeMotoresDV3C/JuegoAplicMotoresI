@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2003932312177109276, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2003932312177109278, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -474,7 +478,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1455085546}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2346,11 +2350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204639595732957099, guid: 96e8c364f54264e4faff1930fa414d59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4204639595732957099, guid: 96e8c364f54264e4faff1930fa414d59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.489
       objectReference: {fileID: 0}
     - target: {fileID: 4204639595732957099, guid: 96e8c364f54264e4faff1930fa414d59, type: 3}
       propertyPath: m_LocalPosition.z

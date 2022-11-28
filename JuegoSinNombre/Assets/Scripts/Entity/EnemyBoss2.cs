@@ -13,15 +13,19 @@ public class EnemyBoss2 : Enemy
     [SerializeField] float _teleportCooldown;
     [SerializeField] GameObject _damaging;
     float _cooldownTimerToTeleport;
-    bool _isWaitingToTeleport;
 
     private void Start()
     {
-        _player = FindObjectOfType<Player>();
+        _player = GameManager.Instance.player.GetComponent<Player>();
+
         _cooldownTimer = _attackCooldown;
         _cooldownTimerToTeleport = _teleportCooldown;
+
         lastWaypoint = 0;
         randomWaypointToTeleport = Random.Range(0,teleportWaypoints.Length);
+
+        Health.OnDeath += DeathBehavior;
+
         myAnim.SetEvent("AttackDamaginActivate", AttackDamaginActivate);
         myAnim.SetEvent("AttackDamagindDesactivate", AttackDamagingDesactivate);
         myAnim.SetEvent("Teleport", TeleportActionInAnimation);
@@ -102,7 +106,17 @@ public class EnemyBoss2 : Enemy
         _damaging.SetActive(false);
     }
 
+    void DeathBehavior()
+    {
+        _rb.velocity = Vector2.zero;
+        _rb.isKinematic = true;
 
+        GetComponent<Collider2D>().enabled = false;
+
+        Destroy(gameObject, 2.5f);
+
+        this.enabled = false;
+    }
 
 
 }

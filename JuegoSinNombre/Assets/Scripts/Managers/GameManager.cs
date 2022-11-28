@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     #region GAMEPLAY_UI
     public void Pause()
     {
-        //_isPause = true;
+        
         if (_isPause)
         {
             Time.timeScale = 0;
@@ -96,6 +96,13 @@ public class GameManager : MonoBehaviour
     public void BackToMainMenu()
     {
         ChangeScene("MainMenu");
+    }
+
+    public void Restart()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        Debug.Log(scene.name);
+        ChangeScene(scene.name);
     }
 
     public void Quit()
