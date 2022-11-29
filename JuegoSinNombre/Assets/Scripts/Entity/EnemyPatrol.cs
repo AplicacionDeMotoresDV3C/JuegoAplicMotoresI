@@ -11,8 +11,31 @@ public abstract class EnemyPatrol : Enemy
     protected int _wayPointID = 0;
     protected bool _isWaiting;
 
-    protected abstract void Patrol();
-    protected abstract void WaitPatrol();
+    protected void Patrol()
+    {
+        if (Vector2.Distance(transform.position, _wayPoints[_wayPointID].position) > _wayPointMinDistance)
+        {
+            if (transform.position.x < _wayPoints[_wayPointID].position.x)
+                Move(transform.right);
+            else
+                Move(transform.right * -1);
+        }
+        else
+            _isWaiting = true;
+    }
+    protected void WaitPatrol()
+    {
+        Move(Vector2.zero);
+
+        _waitTimer += Time.deltaTime;
+
+        if (_waitTimer > _waitTime)
+        {
+            _isWaiting = false;
+            _waitTimer = 0;
+            NextWayPoint();
+        }
+    }
 
     protected void NextWayPoint()
     {

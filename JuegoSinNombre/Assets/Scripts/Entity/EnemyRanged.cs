@@ -51,33 +51,6 @@ public class EnemyRanged : EnemyPatrol
         }
     }
 
-    protected override void Patrol()
-    {
-        if (Vector2.Distance(transform.position, _wayPoints[_wayPointID].position) > _wayPointMinDistance)
-        {
-            if (transform.position.x < _wayPoints[_wayPointID].position.x)
-                Move(transform.right);
-            else
-                Move(transform.right * -1);
-        }
-        else
-            _isWaiting = true;
-    }
-
-    protected override void WaitPatrol()
-    {
-        Move(Vector2.zero);
-
-        _waitTimer += Time.deltaTime;
-
-        if(_waitTimer > _waitTime)
-        {
-            _isWaiting = false;
-            _waitTimer = 0;
-            NextWayPoint();
-        }
-    }
-
     void Shot()
     {
         var b = Instantiate(_bullet).GetComponent<Bullet>();
