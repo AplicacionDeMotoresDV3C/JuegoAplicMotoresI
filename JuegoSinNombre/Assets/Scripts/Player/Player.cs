@@ -50,20 +50,9 @@ public class Player : Entity
     protected override void Attack()
     {
         if (_stamina < 2) return;
-
-        if (!_busy.isAttacking)
-        {
-            _busy.isAttacking = true;
-            _stamina -= 2;
-            OnStaminaCHange?.Invoke();
-            myAnim.AttackAnimation();
-        }
-        else
-        {
-            _busy.isAttacking = false;
-        }
-
-
+        _stamina -= 2;
+        OnStaminaCHange?.Invoke();
+        myAnim.AttackAnimation();
     }
     public void HeatBoxAttack()
     {
@@ -72,6 +61,7 @@ public class Player : Entity
     public void HeatBoxAttackEnd()
     {
         _colliderAttack.enabled = false;
+        _busy.isAttacking = false;
     }
     public void ShieldEvent()
     {
@@ -112,7 +102,7 @@ public class Player : Entity
         {
             myGameManager.LoadPosition();
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && _busy.CanAttacking())
         {
             Attack();
         }
@@ -127,7 +117,7 @@ public class Player : Entity
             }
         }
         if (Input.GetKeyDown(KeyCode.L))
-        {        
+        {
             myAnim.ShieldAnimation();
         }
     }
