@@ -7,64 +7,39 @@ public class MeleeEnemy : EnemyPatrol
 {
 
     [SerializeField] AnimManager _animManager;
+    Vector2 _direction;
+    [SerializeField] GameObject _damaging;
+
 
     private void Start()
     {
+        _player = GameManager.Instance.player.GetComponent<Player>();
 
+        myAnim.SetEvent("AttackHeatBoxPlay", AttackHeatBoxPlay);
+        myAnim.SetEvent("AttackHeatBoxExit", AttackHeatBoxExit);
     }
     private void Update()
     {
-        if (_isWaiting)
+        _checkDistancePlayer = Vector2.Distance(transform.position, _player.transform.position);
+
+        if (_checkDistancePlayer <= _attackDistance)
+            Attack();
+        else if (_isWaiting)
             WaitPatrol();
         else
             Patrol();
     }
     protected override void Attack()
     {
-    
-    }
-
-    protected override void Move(Vector2 direction)
-    {
-        direction.Normalize();
-
-        direction.x = direction.x * speed;
-        direction.y = _rb.velocity.y;
-
-        _rb.velocity = direction;
-
-        if (direction.x < 0 && transform.localScale.x > 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        if (direction.x > 0 && transform.localScale.x < 0)
-            transform.localScale = new Vector3(1, 1, 1);
-
-        myAnim.MoveAnimation(direction.x * direction.x);
-    }
-
-    protected override void Patrol()
-    {
-        if (Vector2.Distance(transform.position, _wayPoints[_wayPointID].position) > _wayPointMinDistance)
-        {
-            if (transform.position.x < _wayPoints[_wayPointID].position.x)
-                Move(transform.right);
-            else
-                Move(transform.right * -1);
-        }
-        else
-            _isWaiting = true;
-    }
-
-    protected override void WaitPatrol()
-    {
         Move(Vector2.zero);
-
-        _waitTimer += Time.deltaTime;
-
-        if (_waitTimer > _waitTime)
-        {
-            _isWaiting = false;
-            _waitTimer = 0;
-            NextWayPoint();
-        }
+        myAnim.AttackAnimation();
+    }
+    void AttackHeatBoxPlay()
+    {
+        _damaging.SetActive(true);
+    }
+    void AttackHeatBoxExit()
+    {
+        _damaging.SetActive(false);
     }
 }

@@ -71,7 +71,7 @@ public class BusyChecker : MonoBehaviour
 
     public bool CanAttacking()
     {
-        if (!_isRolling)
+        if (!_isRolling && !isAttacking)
         {
             isAttacking = true;
             return true;
