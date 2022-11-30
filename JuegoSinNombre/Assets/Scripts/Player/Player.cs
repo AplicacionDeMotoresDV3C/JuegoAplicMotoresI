@@ -29,6 +29,10 @@ public class Player : Entity
         Health.OnTakeDamage += IsAttacked;
         Health.OnDeath += Death;
         _stamina = _maxStamina;
+        myAnim.SetEvent("ShieldEvent", ShieldEvent);
+        myAnim.SetEvent("ShieldEndEvent", ShieldEndEvent);
+        myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
+        myAnim.SetEvent("HeatBoxAttackEnd", HeatBoxAttackEnd);
     }
     private void Update()
     {
