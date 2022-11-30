@@ -11,11 +11,6 @@ public class DamageTrap : Trap
         _damageComponent.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Activate();
-    }
-
     protected override void Activate()
     {
         base.Activate();
