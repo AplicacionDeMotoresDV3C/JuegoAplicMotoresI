@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int _actualLevel = 0;
+    public int _nextLevel = 0;
     public Vector3 checkpointPlayerPosition;
     public bool _isPause = false;
     [SerializeField] GameObject menuPausa;
@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = GameObject.FindObjectOfType<GameManager>();
-            }
             return _instance;
         }
     }
@@ -90,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        ChangeScene($"Level{_actualLevel}");
+        ChangeScene($"Level{_nextLevel}");
     }
 
     public void BackToMainMenu()
@@ -110,9 +106,10 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ChangeScene(string SceneName)
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(SceneName);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneName);
     }
     #endregion
 }
