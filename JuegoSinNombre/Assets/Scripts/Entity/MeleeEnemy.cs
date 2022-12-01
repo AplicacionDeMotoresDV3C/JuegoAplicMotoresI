@@ -29,6 +29,7 @@ public class MeleeEnemy : EnemyPatrol
         else
             Patrol();
     }
+
     protected override void Attack()
     {
         Move(Vector2.zero);
