@@ -16490,6 +16490,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 281253997464763071, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1737026072}
+    - target: {fileID: 281253997464763071, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
       propertyPath: speed
       value: 3.37
       objectReference: {fileID: 0}
@@ -16497,6 +16501,10 @@ PrefabInstance:
       propertyPath: _jumpForce
       value: 4.7
       objectReference: {fileID: 0}
+    - target: {fileID: 281253997464763071, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
+      propertyPath: myGameManager
+      value: 
+      objectReference: {fileID: 1737026072}
     - target: {fileID: 281253997666797761, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.14901961
