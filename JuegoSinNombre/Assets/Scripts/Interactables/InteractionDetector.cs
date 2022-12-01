@@ -5,12 +5,7 @@ using UnityEngine;
 public class InteractionDetector : MonoBehaviour
 {
     public List<IInteractable> _interatablesInRange = new List<IInteractable>();
-    void Update()
-    {
-       
-        //if (Input.GetKeyDown(KeyCode.E) && _interatablesInRange.Count > 0)
-        
-    }
+
     public void Interatable()
     {
         var interactable = _interatablesInRange[0];

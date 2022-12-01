@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class EnemyPatrol : Enemy
 {
     [SerializeField] protected Transform[] _wayPoints;
-    [SerializeField] protected float _wayPointMinDistance;
     [SerializeField] protected float _waitTime;
     protected float _waitTimer;
+    [SerializeField] protected float _wayPointMinDistance;
     protected int _wayPointID = 0;
     protected bool _isWaiting;
 
