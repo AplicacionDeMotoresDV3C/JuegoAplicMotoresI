@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Entity
@@ -10,26 +8,28 @@ public class Player : Entity
     [SerializeField, Range(0, 10)] float _jumpForce;
     [SerializeField] float speedRoll;
     [SerializeField] Collider2D _colliderAttack;
+
     bool deadh = false;
     float _stamina;
     float _maxStamina = 10f;
-    public Action OnStaminaCHange;
     float _speedSave;
-    public GameManager myGameManager;
-    public float xInput;
-
     bool _lookRight;
     Vector2 _movement;
     bool _canMove = true;
 
+    public Action OnStaminaCHange;
+    public GameManager myGameManager;
+    public float xInput;
+
     public float Stamina { get { return _stamina; } }
     public float MaxStamina { get { return _maxStamina; } }
+
+
     private void Start()
     {
         _speedSave = speed;
-        // Health.OnTakeDamage += IsAttacked;
-        Health.OnDeath += Death;
         _stamina = _maxStamina;
+        Health.OnDeath += Death;
         myAnim.SetEvent("InvulnerableEvent", InvulnerableEvent);
         myAnim.SetEvent("InvulnerableEventEnd", InvulnerableEventEnd);
         myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
@@ -38,13 +38,13 @@ public class Player : Entity
     }
     private void Update()
     {
-        VoltearPersonaje();
         if (!deadh)
         {
+            VoltearPersonaje();
             Inputs();
             Move(new Vector2(xInput, 0f));
         }
-        Rolling();
+        Roll();
         StaminaRecovery();
         if (!_canMove)
         {
@@ -69,7 +69,6 @@ public class Player : Entity
     protected override void Attack()
     {
         if (_stamina < 2) return;
-        //_canMove = false;
         _busy.IsAttacking = true;
         _stamina -= 2;
         OnStaminaCHange?.Invoke();
@@ -86,7 +85,6 @@ public class Player : Entity
     }
     void Inputs()
     {
-
         xInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
@@ -112,7 +110,7 @@ public class Player : Entity
             {
                 _stamina -= 2;
                 OnStaminaCHange?.Invoke();
-                _busy.Roll();
+                _busy.Rolling();
                 myAnim.RollAnimation();
             }
         }
@@ -135,7 +133,7 @@ public class Player : Entity
         }
     }
 
-    void Rolling()
+    void Roll()
     {
         if (!_busy.IsRolling) return;
         if (_lookRight)

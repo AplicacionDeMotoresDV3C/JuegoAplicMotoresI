@@ -54,14 +54,13 @@ public class BusyChecker : MonoBehaviour
     }
     public bool CanRoll()
     {
-
-        if (_isFloor && !_isRolling && _coolDownFinish)
+        if (_isFloor && !_isRolling && _coolDownFinish && !isAttacking)
         {
             return true;
         }
         return false;
     }
-    public void Roll()
+    public void Rolling()
     {
         _coolDownFinish = false;
         _isRolling = true;
