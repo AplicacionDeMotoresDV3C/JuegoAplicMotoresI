@@ -15,7 +15,6 @@ public class Player : Entity
     float _speedSave;
     bool _lookRight;
     Vector2 _movement;
-    bool _canMove = true;
 
     public Action OnStaminaCHange;
     public GameManager myGameManager;
@@ -46,19 +45,12 @@ public class Player : Entity
         }
         Roll();
         StaminaRecovery();
-        if (!_canMove)
+        if (!_busy.CanMove)
         {
             speed = 0;
         }
         else speed = _speedSave;
-        if (_busy.isJumping)
-        {
-            _canMove = true;
-        }
-        else if (!_busy.isJumping && _busy.IsAttacking)
-        {
-            _canMove = false;
-        }
+
     }
     void FixedUpdate()
     {
@@ -77,7 +69,7 @@ public class Player : Entity
 
     protected override void Move(Vector2 direction)
     {
-        if (_canMove)
+        if (_busy.CanMove)
         {
             _movement = direction;
             myAnim.MoveAnimation(Mathf.Abs(_movement.x));
@@ -114,9 +106,18 @@ public class Player : Entity
                 myAnim.RollAnimation();
             }
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        
+        if (Input.GetKeyDown(KeyCode.L) && _busy.CanShield())
         {
-            myAnim.ShieldAnimation();
+            _busy.IsBlocking = true;
+            myAnim.ShieldAnimation(_busy.IsBlocking);
+        }
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            _busy.CanMove = true;
+            _busy.IsBlocking = false;
+            myAnim.ShieldAnimation(_busy.IsBlocking);
+            Health.isInvunerable = false;
         }
     }
     void VoltearPersonaje()
@@ -183,17 +184,17 @@ public class Player : Entity
     {
         _colliderAttack.enabled = false;
         _busy.IsAttacking = false;
-        _canMove = true;
+        _busy.CanMove = true;
     }
     public void InvulnerableEvent()
     {
         Health.isInvunerable = true;
-        _canMove = false;
+        _busy.CanMove = false;
     }
     public void InvulnerableEventEnd()
     {
         Health.isInvunerable = false;
-        _canMove = true;
+        _busy.CanMove = true;
     }
     public void IsJumping()
     {
