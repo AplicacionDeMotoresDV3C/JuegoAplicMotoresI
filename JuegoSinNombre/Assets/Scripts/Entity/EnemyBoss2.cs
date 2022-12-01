@@ -17,7 +17,6 @@ public class EnemyBoss2 : Enemy
     private void Start()
     {
         _player = GameManager.Instance.player.GetComponent<Player>();
-
         _cooldownTimer = _attackCooldown;
         _cooldownTimerToTeleport = _teleportCooldown;
 
