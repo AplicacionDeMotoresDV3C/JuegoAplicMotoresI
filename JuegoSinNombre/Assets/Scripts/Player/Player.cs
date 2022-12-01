@@ -21,6 +21,7 @@ public class Player : Entity
 
     bool _lookRight;
     Vector2 _movement;
+    bool _canMove = true;
 
     public float Stamina { get { return _stamina; } }
     public float MaxStamina { get { return _maxStamina; } }
@@ -29,8 +30,8 @@ public class Player : Entity
         Health.OnTakeDamage += IsAttacked;
         Health.OnDeath += Death;
         _stamina = _maxStamina;
-        myAnim.SetEvent("ShieldEvent", ShieldEvent);
-        myAnim.SetEvent("ShieldEndEvent", ShieldEndEvent);
+        myAnim.SetEvent("InvulnerableEvent", InvulnerableEvent);
+        myAnim.SetEvent("InvulnerableEventEnd", InvulnerableEventEnd);
         myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
         myAnim.SetEvent("HeatBoxAttackEnd", HeatBoxAttackEnd);
     }
@@ -40,7 +41,7 @@ public class Player : Entity
         if (!deadh)
         {
             Inputs();
-            Move(_movement);
+            Move(new Vector2(xInput, 0f));
         }
         Rolling();
         StaminaRecovery();
@@ -54,39 +55,19 @@ public class Player : Entity
     protected override void Attack()
     {
         if (_stamina < 2) return;
+        _canMove = false;
         _stamina -= 2;
         OnStaminaCHange?.Invoke();
         myAnim.AttackAnimation();
     }
-    public void HeatBoxAttack()
-    {
-        _colliderAttack.enabled = true;
-    }
-    public void HeatBoxAttackEnd()
-    {
-        _colliderAttack.enabled = false;
-        _busy.isAttacking = false;
-    }
-    public void ShieldEvent()
-    {
-        Health.isInvunerable = true;
-    }
-    public void ShieldEndEvent()
-    {
-        Health.isInvunerable = false;
-    }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemies"))
-        {
-            _colliderAttack.enabled = false;
-        }
-    }
 
     protected override void Move(Vector2 direction)
     {
-        _movement = new Vector2(xInput, 0f);
-        myAnim.MoveAnimation(Mathf.Abs(xInput));
+        if (_canMove)
+        {
+            _movement = direction;
+            myAnim.MoveAnimation(Mathf.Abs(_movement.x));
+        }
     }
     void Inputs()
     {
@@ -182,5 +163,32 @@ public class Player : Entity
     {
         deadh = true;
         Destroy(gameObject, 2f);
+    }
+    public void HeatBoxAttack()
+    {
+        _colliderAttack.enabled = true;
+    }
+    public void HeatBoxAttackEnd()
+    {
+        _colliderAttack.enabled = false;
+        _busy.isAttacking = false;
+        _canMove = true;
+    }
+    public void InvulnerableEvent()
+    {
+        Health.isInvunerable = true;
+        _canMove = false;
+    }
+    public void InvulnerableEventEnd()
+    {
+        Health.isInvunerable = false;
+        _canMove = true;
+    } 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemies"))
+        {
+            _colliderAttack.enabled = false;
+        }
     }
 }
