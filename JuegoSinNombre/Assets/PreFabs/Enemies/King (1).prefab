@@ -211,14 +211,14 @@ MonoBehaviour:
   speed: 1.5
   myAnim: {fileID: 4204639594644143218}
   _attackCooldown: 5
-  _attackDistance: 0.81
+  _attackDistance: 0.69
   teleportWaypoints:
   - {fileID: 4204639595671798666}
   - {fileID: 4204639594630208405}
   - {fileID: 4204639595207897201}
   - {fileID: 4204639596068711517}
-  _minDistanceToMove: 5
-  _teleportCooldown: 4.15
+  _minDistanceToMove: 8
+  _teleportCooldown: 6
   _damaging: {fileID: 642057216025323283}
 --- !u!50 &2417524201747144749
 Rigidbody2D:
