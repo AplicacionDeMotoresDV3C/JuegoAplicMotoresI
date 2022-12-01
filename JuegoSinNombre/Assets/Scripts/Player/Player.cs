@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] GameManager gm;
     [SerializeField] InteractionDetector _interactable;
     [SerializeField] BusyChecker _busy;
     [SerializeField, Range(0, 10)] float _jumpForce;
@@ -15,7 +14,7 @@ public class Player : Entity
     float _stamina;
     float _maxStamina = 10f;
     public Action OnStaminaCHange;
-
+    float _speedSave;
     public GameManager myGameManager;
     public float xInput;
 
@@ -27,13 +26,15 @@ public class Player : Entity
     public float MaxStamina { get { return _maxStamina; } }
     private void Start()
     {
-        Health.OnTakeDamage += IsAttacked;
+        _speedSave = speed;
+        // Health.OnTakeDamage += IsAttacked;
         Health.OnDeath += Death;
         _stamina = _maxStamina;
         myAnim.SetEvent("InvulnerableEvent", InvulnerableEvent);
         myAnim.SetEvent("InvulnerableEventEnd", InvulnerableEventEnd);
         myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
         myAnim.SetEvent("HeatBoxAttackEnd", HeatBoxAttackEnd);
+        myAnim.SetEvent("IsJumping", IsJumping);
     }
     private void Update()
     {
@@ -45,6 +46,19 @@ public class Player : Entity
         }
         Rolling();
         StaminaRecovery();
+        if (!_canMove)
+        {
+            speed = 0;
+        }
+        else speed = _speedSave;
+        if (_busy.isJumping)
+        {
+            _canMove = true;
+        }
+        else if (!_busy.isJumping && _busy.IsAttacking)
+        {
+            _canMove = false;
+        }
     }
     void FixedUpdate()
     {
@@ -55,7 +69,8 @@ public class Player : Entity
     protected override void Attack()
     {
         if (_stamina < 2) return;
-        _canMove = false;
+        //_canMove = false;
+        _busy.IsAttacking = true;
         _stamina -= 2;
         OnStaminaCHange?.Invoke();
         myAnim.AttackAnimation();
@@ -76,8 +91,8 @@ public class Player : Entity
 
         if (Input.GetButtonDown("Jump") && _busy.CanJump())
         {
-            myAnim.JumpAnimation();
             Jump();
+            myAnim.JumpAnimation();
         }
         if (Input.GetKey(KeyCode.E) && _interactable._interatablesInRange.Count > 0)
         {
@@ -119,10 +134,7 @@ public class Player : Entity
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
-    public void IsAttacked()
-    {
-        _stamina--;
-    }
+
     void Rolling()
     {
         if (!_busy.IsRolling) return;
@@ -139,6 +151,7 @@ public class Player : Entity
     {
         if (_stamina >= 1)
         {
+            _busy.isJumping = true;
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _stamina--;
             OnStaminaCHange?.Invoke();
@@ -171,7 +184,7 @@ public class Player : Entity
     public void HeatBoxAttackEnd()
     {
         _colliderAttack.enabled = false;
-        _busy.isAttacking = false;
+        _busy.IsAttacking = false;
         _canMove = true;
     }
     public void InvulnerableEvent()
@@ -183,7 +196,15 @@ public class Player : Entity
     {
         Health.isInvunerable = false;
         _canMove = true;
-    } 
+    }
+    public void IsJumping()
+    {
+        if (_busy.IsFloor)
+        {
+            _busy.isJumping = false;
+        }
+
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemies"))

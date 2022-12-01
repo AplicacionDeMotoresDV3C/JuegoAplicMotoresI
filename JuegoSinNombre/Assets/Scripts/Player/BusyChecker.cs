@@ -10,8 +10,7 @@ public class BusyChecker : MonoBehaviour
     bool _alReadyJump = false;
     public bool isJumping = false;
     bool _isRolling = false;
-
-    public bool isAttacking = false;
+    private bool isAttacking = false;
     [SerializeField] bool _isFloor;
     [SerializeField] Transform _floorCheck;
     [SerializeField] LayerMask _floorLayer;
@@ -22,6 +21,10 @@ public class BusyChecker : MonoBehaviour
     bool _coolDownFinish = true;
 
     public bool IsRolling => _isRolling;
+
+    public bool IsAttacking { get => isAttacking; set => isAttacking = value; }
+    public bool IsFloor { get => _isFloor; set => _isFloor = value; }
+
     private void Update()
     {
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
@@ -38,11 +41,7 @@ public class BusyChecker : MonoBehaviour
             _time += 1 * Time.deltaTime;
             if (_time > _rollingTime) _isRolling = false;
         }
-        else _coolDownFinish = true;
-        if (_isFloor)
-        {
-            isJumping = false;
-        }
+        else _coolDownFinish = true;    
     }
     public bool CanJump()
     {
@@ -71,12 +70,10 @@ public class BusyChecker : MonoBehaviour
 
     public bool CanAttacking()
     {
-        if (!_isRolling && !isAttacking)
+        if (!_isRolling && !IsAttacking)
         {
-            isAttacking = true;
             return true;
         }
-        isAttacking = false;
         return false;
     }
 }
