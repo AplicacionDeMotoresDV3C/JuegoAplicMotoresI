@@ -179,12 +179,14 @@ public class Player : Entity
     public void HeatBoxAttack()
     {
         _colliderAttack.enabled = true;
+        Health.isInvunerable = true;
     }
     public void HeatBoxAttackEnd()
     {
         _colliderAttack.enabled = false;
         _busy.IsAttacking = false;
         _busy.CanMove = true;
+        Health.isInvunerable = false;
     }
     public void InvulnerableEvent()
     {
