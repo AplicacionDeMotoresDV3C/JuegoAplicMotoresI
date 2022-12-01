@@ -118,7 +118,7 @@ public class EnemyBoss : Enemy
         _damaging.SetActive(false);
     }
 
-    public override void DeathBehavior()
+    protected override void DeathBehavior()
     {
         base.DeathBehavior();
         GameManager.Instance.Victory();
