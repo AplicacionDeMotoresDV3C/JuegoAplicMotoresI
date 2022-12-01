@@ -14,6 +14,8 @@ public class EnemyBoss2 : Enemy
     [SerializeField] GameObject _damaging;
     float _cooldownTimerToTeleport;
 
+    bool isAttacking;
+
     private void Start()
     {
         _player = GameManager.Instance.player.GetComponent<Player>();
@@ -36,6 +38,7 @@ public class EnemyBoss2 : Enemy
         _checkDistancePlayer = Vector3.Distance(transform.position, _player.transform.position);
         _cooldownTimer += Time.deltaTime;
         _cooldownTimerToTeleport += Time.deltaTime;
+
         if (_checkDistancePlayer < _attackDistance)
         {
             if (_attackCooldown < _cooldownTimer)
@@ -46,10 +49,8 @@ public class EnemyBoss2 : Enemy
             {
                 myAnim.SecondaryAniamtion();
             }
-            else
-                Move(Vector2.zero);
         }
-        else if (_checkDistancePlayer <= _minDistanceToMove)
+        else if (_checkDistancePlayer <= _minDistanceToMove && !isAttacking)
             LookAtPlayer();
         else
             Move(Vector2.zero);
@@ -57,9 +58,14 @@ public class EnemyBoss2 : Enemy
 
     protected override void Attack()
     {
-        Move(Vector2.zero);
+        isAttacking = true;
         myAnim.AttackAnimation();
         _cooldownTimer = 0;
+    }
+
+    void endAttacking()
+    {
+        isAttacking = false;
     }
 
     void LookAtPlayer()
@@ -86,7 +92,10 @@ public class EnemyBoss2 : Enemy
             DefineRandomWaypoint();
         }
         else
+        {
+            lastWaypoint = randomWaypointToTeleport;
             return;
+        }
     }
 
     void TeleportActionInAnimation()
