@@ -174,6 +174,7 @@ public class Player : Entity
     void Death()
     {
         deadh = true;
+        GameManager.Instance.GameOver();
         Destroy(gameObject, 2f);
     }
     public void HeatBoxAttack()
