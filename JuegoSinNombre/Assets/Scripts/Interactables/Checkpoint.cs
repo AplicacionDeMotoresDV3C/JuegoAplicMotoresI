@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour, IInteractable
 {
     bool canUseCheckpoint;
-    public GameManager myGameManager;
+    GameManager myGameManager;
 
     private void Start()
     {
@@ -13,6 +13,7 @@ public class Checkpoint : MonoBehaviour, IInteractable
     }
     public void Activate()
     {
+        myGameManager = GameManager.Instance;
         myGameManager.SavePosition();
     }
 

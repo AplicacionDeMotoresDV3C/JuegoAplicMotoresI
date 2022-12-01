@@ -17,7 +17,6 @@ public class EnemyBoss2 : Enemy
     private void Start()
     {
         _player = GameManager.Instance.player.GetComponent<Player>();
-
         _cooldownTimer = _attackCooldown;
         _cooldownTimerToTeleport = _teleportCooldown;
 
@@ -43,7 +42,7 @@ public class EnemyBoss2 : Enemy
             {
                 Attack();
             }
-            else if (_teleportCooldown <= _cooldownTimerToTeleport) //Deberia poder hacer un teleport  atras del otro
+            else if (_teleportCooldown <= _cooldownTimerToTeleport)
             {
                 myAnim.SecondaryAniamtion();
             }
@@ -106,17 +105,10 @@ public class EnemyBoss2 : Enemy
         _damaging.SetActive(false);
     }
 
-    void DeathBehavior()
+    public override void DeathBehavior()
     {
-        _rb.velocity = Vector2.zero;
-        _rb.isKinematic = true;
-
-        GetComponent<Collider2D>().enabled = false;
-
-        Destroy(gameObject, 2.5f);
-
-        this.enabled = false;
+        base.DeathBehavior();
+        GameManager.Instance.BackToMainMenu();
     }
-
 
 }
