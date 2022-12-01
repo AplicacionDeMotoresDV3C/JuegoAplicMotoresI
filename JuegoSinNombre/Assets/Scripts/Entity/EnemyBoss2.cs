@@ -105,17 +105,17 @@ public class EnemyBoss2 : Enemy
         _damaging.SetActive(false);
     }
 
-    void DeathBehavior()
-    {
-        _rb.velocity = Vector2.zero;
-        _rb.isKinematic = true;
+    //void DeathBehavior()
+    //{
+    //    _rb.velocity = Vector2.zero;
+    //    _rb.isKinematic = true;
 
-        GetComponent<Collider2D>().enabled = false;
+    //    GetComponent<Collider2D>().enabled = false;
 
-        Destroy(gameObject, 2.5f);
+    //    Destroy(gameObject, 2.5f);
 
-        this.enabled = false;
-    }
+    //    this.enabled = false;
+    //}
 
 
 }

@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health:
-    _maxHealth: 100
+    _maxHealth: 20
     isInvunerable: 0
   _rb: {fileID: 2417524201747144749}
   speed: 1.5

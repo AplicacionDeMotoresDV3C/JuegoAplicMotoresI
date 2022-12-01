@@ -19,6 +19,18 @@ public abstract class Entity : MonoBehaviour
     protected abstract void Attack();
     protected abstract void Move(Vector2 direction);
 
+    public virtual void DeathBehavior()
+    {
+        _rb.velocity = Vector2.zero;
+        _rb.isKinematic = true;
+
+        GetComponent<Collider2D>().enabled = false;
+
+        Destroy(gameObject, 2.5f);
+
+        this.enabled = false;
+    }
+
     void InvunerableOn()
     {
         Health.isInvunerable = true;
