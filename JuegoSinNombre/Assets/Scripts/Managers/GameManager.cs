@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        checkpointPlayerPosition = player.transform.position;
-
+        if(player != null)
+            checkpointPlayerPosition = player.transform.position;
     }
     private void Update()
     {
