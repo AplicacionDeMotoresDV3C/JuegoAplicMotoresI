@@ -2137,12 +2137,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
+      propertyPath: _foolowPlayar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: _attackCooldown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: _health._maxHealth
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
+      propertyPath: _distanceFromPlayer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: _wayPoints.Array.data[0]

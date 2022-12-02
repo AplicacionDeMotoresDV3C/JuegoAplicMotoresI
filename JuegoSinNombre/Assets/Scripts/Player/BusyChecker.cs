@@ -33,6 +33,10 @@ public class BusyChecker : MonoBehaviour
     {
         _isFloor = Physics2D.OverlapCircle(_floorCheck.position, _floorCheckRadius, _floorLayer);
 
+        if(_isFloor)
+        {
+            isJumping = false;
+        }
         if (isJumping)
         {
             _canMove = true;
