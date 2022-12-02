@@ -2164,6 +2164,10 @@ PrefabInstance:
       propertyPath: _wayPoints.Array.data[1]
       value: 
       objectReference: {fileID: 2050862486}
+    - target: {fileID: 8076151355136529885, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
+      propertyPath: _damage
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8076151355136529887, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -16907,11 +16911,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 281253997464763065, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 40.52
       objectReference: {fileID: 0}
     - target: {fileID: 281253997464763065, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 281253997464763065, guid: 32d9a3eb724188143836d64c34da3dc3, type: 3}
       propertyPath: m_LocalPosition.z
