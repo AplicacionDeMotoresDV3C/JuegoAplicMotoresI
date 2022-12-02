@@ -49,7 +49,11 @@ public class Player : Entity
         {
             speed = 0;
         }
-        else speed = _speedSave;
+        else
+        {
+            _busy.isJumping = false;
+            speed = _speedSave;
+        }
 
     }
     void FixedUpdate()
@@ -154,7 +158,6 @@ public class Player : Entity
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _stamina--;
             OnStaminaCHange?.Invoke();
-
         }
     }
     public void StaminaRecovery()
@@ -171,13 +174,6 @@ public class Player : Entity
 
         }
     }
-    //void Death()
-    //{
-    //    deadh = true;
-    //    GameManager.Instance.GameOver();
-    //    Destroy(gameObject, 2f);
-    //}
-
     protected override void DeathBehavior()
     {
         base.DeathBehavior();
@@ -212,7 +208,6 @@ public class Player : Entity
         {
             _busy.isJumping = false;
         }
-
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
