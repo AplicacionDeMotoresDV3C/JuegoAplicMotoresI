@@ -28,7 +28,7 @@ public class Player : Entity
     {
         _speedSave = speed;
         _stamina = _maxStamina;
-        Health.OnDeath += Death;
+        Health.OnDeath += DeathBehavior;
         myAnim.SetEvent("InvulnerableEvent", InvulnerableEvent);
         myAnim.SetEvent("InvulnerableEventEnd", InvulnerableEventEnd);
         myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
@@ -49,7 +49,11 @@ public class Player : Entity
         {
             speed = 0;
         }
-        else speed = _speedSave;
+        else
+        {
+            _busy.isJumping = false;
+            speed = _speedSave;
+        }
 
     }
     void FixedUpdate()
@@ -154,7 +158,6 @@ public class Player : Entity
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _stamina--;
             OnStaminaCHange?.Invoke();
-
         }
     }
     public void StaminaRecovery()
@@ -171,11 +174,11 @@ public class Player : Entity
 
         }
     }
-    void Death()
+    protected override void DeathBehavior()
     {
+        base.DeathBehavior();
         deadh = true;
         GameManager.Instance.GameOver();
-        Destroy(gameObject, 2f);
     }
     public void HeatBoxAttack()
     {
@@ -205,7 +208,6 @@ public class Player : Entity
         {
             _busy.isJumping = false;
         }
-
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

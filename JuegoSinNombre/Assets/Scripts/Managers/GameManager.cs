@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
     #region GAMEPLAY_FLOW
     public void NewGame()
     {
+        Time.timeScale = 1;
         ChangeScene("Level0");
     }
 
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1;
         Scene scene = SceneManager.GetActiveScene();
         Debug.Log(scene.name);
         ChangeScene(scene.name);
@@ -136,6 +138,9 @@ public class GameManager : MonoBehaviour
         if (playerWins)
             victoryCanvas.SetActive(true);
         else
+        {
             gameOverCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

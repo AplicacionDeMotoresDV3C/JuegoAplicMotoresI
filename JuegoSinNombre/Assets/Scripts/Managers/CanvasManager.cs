@@ -19,9 +19,9 @@ public class CanvasManager : MonoBehaviour
         _health = _player.Health.GetHealth();
         _maxHealth = _player.Health.GetMaxHeal();
 
-        _health = Mathf.Clamp(_health, 0, 100);
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
 
-        _lifeBar.fillAmount = _health / 100;
+        _lifeBar.fillAmount = _health / _maxHealth;
     }
     void UpdateStaminaBar()
     {
@@ -29,8 +29,8 @@ public class CanvasManager : MonoBehaviour
 
         _maxStamina = _player.MaxStamina;
 
-        _stamina = Mathf.Clamp(_stamina, 0, 10);
+        _stamina = Mathf.Clamp(_stamina, 0, _maxStamina);
 
-        _staminBar.fillAmount = _stamina / 10;
+        _staminBar.fillAmount = _stamina / _maxStamina;
     }
 }

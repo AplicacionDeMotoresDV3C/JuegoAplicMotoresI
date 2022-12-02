@@ -7,8 +7,9 @@ public class MeleeEnemy : EnemyPatrol
 {
 
     [SerializeField] AnimManager _animManager;
-    Vector2 _direction;
     [SerializeField] GameObject _damaging;
+    [SerializeField] float _foolowPlayar;
+    Vector2 _direction;
 
 
     private void Start()
@@ -20,16 +21,33 @@ public class MeleeEnemy : EnemyPatrol
     }
     private void Update()
     {
-        _checkDistancePlayer = Vector2.Distance(transform.position, _player.transform.position);
+        if (_player.transform.position.x < transform.position.x)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, 1, 1);
 
-        if (_checkDistancePlayer <= _attackDistance)
-            Attack();
+        checkDistanceFromPlayer();
+        if(_checkDistancePlayer <= _attackDistance)
+        {
+            Attack();         
+        }
+        else if(_checkDistancePlayer <= _foolowPlayar)
+        {
+            FollowPlayer();
+        }
         else if (_isWaiting)
             WaitPatrol();
         else
             Patrol();
     }
-
+    void FollowPlayer()
+    {
+            transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, speed * Time.deltaTime);       
+    }
+    void checkDistanceFromPlayer()
+    {
+        _checkDistancePlayer = Vector2.Distance(transform.position, _player.transform.position);
+    }
     protected override void Attack()
     {
         Move(Vector2.zero);

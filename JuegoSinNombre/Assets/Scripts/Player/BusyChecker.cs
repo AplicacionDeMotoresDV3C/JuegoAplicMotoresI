@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BusyChecker : MonoBehaviour
 {
-    bool _isGrounded;
     [SerializeField] float _coyoteTime;
     [SerializeField] float _maxCoyoteTime = 0.1f;
-    bool _alReadyJump = false;
     public bool isJumping = false;
     bool _isRolling = false;
     bool _isBlocking = false;
@@ -48,7 +46,6 @@ public class BusyChecker : MonoBehaviour
         }
         else _coyoteTime = 0;
 
-        if (_alReadyJump) return;
         if (_time < _coolDownRollMax + _rollingTime)
         {
             _time += 1 * Time.deltaTime;
