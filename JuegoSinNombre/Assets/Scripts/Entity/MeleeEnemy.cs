@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class MeleeEnemy : EnemyPatrol
 {
@@ -42,6 +39,7 @@ public class MeleeEnemy : EnemyPatrol
     }
     void FollowPlayer()
     {
+        Move(Vector2.zero);
             transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, speed * Time.deltaTime);       
     }
     void checkDistanceFromPlayer()
