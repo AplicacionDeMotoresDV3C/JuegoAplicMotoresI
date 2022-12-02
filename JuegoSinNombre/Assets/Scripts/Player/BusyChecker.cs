@@ -93,4 +93,8 @@ public class BusyChecker : MonoBehaviour
         _isRolling = true;
         _time = 0;
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position, _floorCheckRadius);
+    }
 }
