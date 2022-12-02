@@ -8,9 +8,12 @@ public class GameManager : MonoBehaviour
     public int _nextLevel = 0;
     public Vector3 checkpointPlayerPosition;
     public bool _isPause = false;
-    [SerializeField] GameObject menuPausa;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject gameOverCanvas;
+    [SerializeField] GameObject victoryCanvas;
     public GameObject player;
     static GameManager _instance;
+    bool playerWins;
     public static GameManager Instance
     {
         get
@@ -59,11 +62,11 @@ public class GameManager : MonoBehaviour
         if (_isPause)
         {
             Time.timeScale = 0;
-            menuPausa.SetActive(true);
+            pauseMenu.SetActive(true);
         }
         else
         {
-            menuPausa.SetActive(false);
+            pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
 
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         _isPause = false;
         Time.timeScale = 1;
-        menuPausa.SetActive(false);
+        pauseMenu.SetActive(false);
 
     }
     #endregion
@@ -111,5 +114,28 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
+
+    public void GameOver()
+    {
+        playerWins = false;
+        StartCoroutine(WaitForSeconds());
+        
+    }
+
+    public void Victory()
+    {
+        playerWins = true;
+        StartCoroutine(WaitForSeconds());   
+    }
+
     #endregion
+
+    IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(2.5f);
+        if (playerWins)
+            victoryCanvas.SetActive(true);
+        else
+            gameOverCanvas.SetActive(true);
+    }
 }

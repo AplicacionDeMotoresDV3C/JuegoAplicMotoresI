@@ -28,7 +28,7 @@ public class Player : Entity
     {
         _speedSave = speed;
         _stamina = _maxStamina;
-        Health.OnDeath += Death;
+        Health.OnDeath += DeathBehavior;
         myAnim.SetEvent("InvulnerableEvent", InvulnerableEvent);
         myAnim.SetEvent("InvulnerableEventEnd", InvulnerableEventEnd);
         myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
@@ -171,10 +171,18 @@ public class Player : Entity
 
         }
     }
-    void Death()
+    //void Death()
+    //{
+    //    deadh = true;
+    //    GameManager.Instance.GameOver();
+    //    Destroy(gameObject, 2f);
+    //}
+
+    protected override void DeathBehavior()
     {
+        base.DeathBehavior();
         deadh = true;
-        Destroy(gameObject, 2f);
+        GameManager.Instance.GameOver();
     }
     public void HeatBoxAttack()
     {

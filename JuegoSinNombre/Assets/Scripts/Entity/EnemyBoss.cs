@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBoss2 : Enemy
+public class EnemyBoss : Enemy
 {
 
     [SerializeField] Transform[] teleportWaypoints;
@@ -30,30 +30,34 @@ public class EnemyBoss2 : Enemy
         myAnim.SetEvent("AttackDamaginActivate", AttackDamaginActivate);
         myAnim.SetEvent("AttackDamagindDesactivate", AttackDamagingDesactivate);
         myAnim.SetEvent("Teleport", TeleportActionInAnimation);
+        myAnim.SetEvent("End Attack", endAttacking);
 
     }
 
     private void Update()
     {
-        _checkDistancePlayer = Vector3.Distance(transform.position, _player.transform.position);
-        _cooldownTimer += Time.deltaTime;
-        _cooldownTimerToTeleport += Time.deltaTime;
-
-        if (_checkDistancePlayer < _attackDistance)
+        if (_player != null)
         {
-            if (_attackCooldown < _cooldownTimer)
+            _checkDistancePlayer = Vector3.Distance(transform.position, _player.transform.position);
+            _cooldownTimer += Time.deltaTime;
+            _cooldownTimerToTeleport += Time.deltaTime;
+
+            if (_checkDistancePlayer < _attackDistance)
             {
-                Attack();
+                if (_attackCooldown < _cooldownTimer)
+                {
+                    Attack();
+                }
+                else if (_teleportCooldown <= _cooldownTimerToTeleport)
+                {
+                    myAnim.SecondaryAniamtion();
+                }
             }
-            else if (_teleportCooldown <= _cooldownTimerToTeleport)
-            {
-                myAnim.SecondaryAniamtion();
-            }
+            else if (_checkDistancePlayer <= _minDistanceToMove && !isAttacking)
+                LookAtPlayer();
+            else
+                Move(Vector2.zero);
         }
-        else if (_checkDistancePlayer <= _minDistanceToMove && !isAttacking)
-            LookAtPlayer();
-        else
-            Move(Vector2.zero);
     }
 
     protected override void Attack()
@@ -114,10 +118,10 @@ public class EnemyBoss2 : Enemy
         _damaging.SetActive(false);
     }
 
-    public override void DeathBehavior()
+    protected override void DeathBehavior()
     {
         base.DeathBehavior();
-        GameManager.Instance.BackToMainMenu();
+        GameManager.Instance.Victory();
     }
 
 }

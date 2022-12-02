@@ -3396,6 +3396,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1296640510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1161736247777078047, guid: 574cc6fa11e10a041a49895fac3600b8, type: 3}
+  m_PrefabInstance: {fileID: 32348322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1298389466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +3971,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1285826841808230034, guid: de45c568f103308409dbee150edaa9cb, type: 3}
   m_PrefabInstance: {fileID: 1437609745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1474785597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3088645437554331644, guid: 574cc6fa11e10a041a49895fac3600b8, type: 3}
+  m_PrefabInstance: {fileID: 32348322}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1484160549
 PrefabInstance:
@@ -15944,7 +15954,9 @@ MonoBehaviour:
   _nextLevel: 1
   checkpointPlayerPosition: {x: 0, y: 0, z: 0}
   _isPause: 0
-  menuPausa: {fileID: 453722572}
+  pauseMenu: {fileID: 453722572}
+  gameOverCanvas: {fileID: 1474785597}
+  victoryCanvas: {fileID: 1296640510}
   player: {fileID: 2041193563}
 --- !u!4 &1737026073
 Transform:
