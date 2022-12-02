@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class InteractionDetector : MonoBehaviour
 {
     public List<IInteractable> _interatablesInRange = new List<IInteractable>();
+    public Action<int> OnInteractuableChange;
 
     public void Interatable()
     {
@@ -13,6 +15,7 @@ public class InteractionDetector : MonoBehaviour
         if (!interactable.CanInteract())
         {
             _interatablesInRange.Remove(interactable);
+            OnInteractuableChange?.Invoke(_interatablesInRange.Count);
         }
     }
 
@@ -22,6 +25,7 @@ public class InteractionDetector : MonoBehaviour
         if (interactable != null && interactable.CanInteract())
         {
             _interatablesInRange.Add(interactable);
+            OnInteractuableChange?.Invoke(_interatablesInRange.Count);
         }
     }
 
@@ -32,6 +36,7 @@ public class InteractionDetector : MonoBehaviour
         {
             interactable.Desactivate();
             _interatablesInRange.Remove(interactable);
+            OnInteractuableChange?.Invoke(_interatablesInRange.Count);
         }
     }
 }

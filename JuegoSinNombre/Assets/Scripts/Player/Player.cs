@@ -17,7 +17,6 @@ public class Player : Entity
     Vector2 _movement;
 
     public Action OnStaminaCHange;
-    public GameManager myGameManager;
     public float xInput;
 
     public float Stamina { get { return _stamina; } }
@@ -94,7 +93,7 @@ public class Player : Entity
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            myGameManager.LoadPosition();
+            GameManager.Instance.LoadPosition();
         }
         if (Input.GetKeyDown(KeyCode.K) && _busy.CanAttacking())
         {

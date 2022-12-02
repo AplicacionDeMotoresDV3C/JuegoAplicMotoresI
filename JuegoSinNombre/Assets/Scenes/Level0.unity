@@ -2087,6 +2087,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6395717616205770110, guid: 96e8c364f54264e4faff1930fa414d59, type: 3}
+      propertyPath: _health._maxHealth
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e8c364f54264e4faff1930fa414d59, type: 3}
 --- !u!1001 &718800784
@@ -2158,11 +2162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: _attackCooldown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: _health._maxHealth
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8076151355022649115, guid: af1372ddb18f0a84891b1972a7c5cb18, type: 3}
       propertyPath: _distanceFromPlayer
@@ -4011,6 +4015,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2003932312177109272, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
+      propertyPath: _health._maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2003932312177109272, guid: 22fc224639f5d614ca4c8e356b1b87e3, type: 3}
       propertyPath: _wayPoints.Array.size
       value: 3

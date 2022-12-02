@@ -1,18 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
-    public Image _lifeBar;
+    [SerializeField] Image _lifeBar;
     [SerializeField] Image _staminBar;
+    [SerializeField] GameObject _interactCommand;
     [SerializeField] Player _player;
     float _health;
     float _stamina;
     float _maxStamina;
     float _maxHealth;
-    private void Start()
+
+private void Start()
     {
         _player.Health.OnTakeDamage += UpdateHealthBar;
-       _player.OnStaminaCHange += UpdateStaminaBar;
+        _player.Health.OnHeal += UpdateHealthBar;
+        _player.OnStaminaCHange += UpdateStaminaBar;
+        _player.GetComponentInChildren<InteractionDetector>().OnInteractuableChange += DisplayInteractiveCommand;
     }
     void UpdateHealthBar()
     {
@@ -32,5 +37,10 @@ public class CanvasManager : MonoBehaviour
         _stamina = Mathf.Clamp(_stamina, 0, _maxStamina);
 
         _staminBar.fillAmount = _stamina / _maxStamina;
+    }
+
+    void DisplayInteractiveCommand(int elements)
+    {
+        _interactCommand.SetActive(elements >= 1);
     }
 }
