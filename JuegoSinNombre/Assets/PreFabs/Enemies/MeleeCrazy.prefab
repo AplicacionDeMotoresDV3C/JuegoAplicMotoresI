@@ -130,10 +130,11 @@ MonoBehaviour:
   _wayPoints:
   - {fileID: 0}
   - {fileID: 0}
-  _wayPointMinDistance: 0.3
   _waitTime: 2
+  _wayPointMinDistance: 0.3
   _animManager: {fileID: 8076151355022649110}
   _damaging: {fileID: 8076151355136529887}
+  _foolowPlayar: 0
 --- !u!50 &8076151355022649108
 Rigidbody2D:
   serializedVersion: 4
@@ -265,4 +266,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89bd68daf43ec499d5b61f0720cb1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _minDamage: 15
+  _maxDamage: 20

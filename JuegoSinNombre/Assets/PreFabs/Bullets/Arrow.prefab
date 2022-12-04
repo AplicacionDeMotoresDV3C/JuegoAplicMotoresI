@@ -286,4 +286,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minDamage: 7
-  _maxDamage: 15
+  _maxDamage: 13
