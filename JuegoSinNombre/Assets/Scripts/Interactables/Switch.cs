@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour, IInteractable
 {
-    //[SerializeField] float timer;
-    //[SerializeField] float timeLimit;
-    //[SerializeField] float timeToLimit;
-    private bool doorIsOpen;
+    private bool doorIsOpen = false;
     Color DoorCloseColor = Color.red;
     Color DoorOpenColor = Color.green;
     Renderer myRenderer;
@@ -24,7 +21,6 @@ public class Switch : MonoBehaviour, IInteractable
 
     public void Activate()
     {
-
         doorIsOpen = true;
         myRenderer.material.color = DoorOpenColor;
         doorCollider.enabled = false;

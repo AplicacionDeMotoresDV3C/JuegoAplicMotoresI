@@ -13,11 +13,28 @@ public abstract class Entity : MonoBehaviour
     {
         _health.SetHealth();
         _health.OnTakeDamage += ShowDamage;
+        myAnim.SetEvent("InvunerableOn", InvunerableOn);
         myAnim.SetEvent("InvunerableOff", InvunerableOff);
+        Health.OnDeath += DeathBehavior;
     }
 
     protected abstract void Attack();
     protected abstract void Move(Vector2 direction);
+
+    protected virtual void DeathBehavior()
+    {
+        _rb.velocity = Vector2.zero;
+        _rb.isKinematic = true;
+
+        GetComponent<Collider2D>().enabled = false;
+
+        this.enabled = false;
+    }
+
+    void InvunerableOn()
+    {
+        Health.isInvunerable = true;
+    }
 
     void InvunerableOff()
     {

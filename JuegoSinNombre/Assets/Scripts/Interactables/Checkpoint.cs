@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour, IInteractable
 {
-    bool canUseCheckpoint;
-    public GameManager myGameManager;
+    bool canUseCheckpoint = true;
+    GameManager myGameManager;
 
-    private void Start()
-    {
-
-    }
     public void Activate()
     {
+        myGameManager = GameManager.Instance;
+        canUseCheckpoint = false;
         myGameManager.SavePosition();
     }
 
     public bool CanInteract()
     {
-        return !canUseCheckpoint;
+        return canUseCheckpoint;
     }
 
     public void Desactivate()

@@ -7,17 +7,9 @@ public class EnemyRanged : EnemyPatrol
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _firePoint;
 
-    //Efecto de sangre... se puede descartar, estaba jugando no mas
-    [SerializeField] ParticleSystem _bloodEffect;
-
     void Start()
     {
-        Health.OnDeath += DeathBehavior;
         myAnim.SetEvent("Shot", Shot);
-
-        //Efecto de sangre... se puede descartar, estaba jugando no mas
-        Health.OnTakeDamage += (DamageData data) => { _bloodEffect.Play(); };
-        
         _player = GameManager.Instance.player.GetComponent<Player>();
     }
 
@@ -31,22 +23,6 @@ public class EnemyRanged : EnemyPatrol
             WaitPatrol();
         else
             Patrol();
-    }
-    protected override void Move(Vector2 direction)
-    {
-        direction.Normalize();
-
-        direction.x = direction.x * speed;
-        direction.y = _rb.velocity.y;
-
-        _rb.velocity = direction;
-
-        if (direction.x < 0 && transform.localScale.x > 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        if(direction.x > 0 && transform.localScale.x < 0)
-            transform.localScale = new Vector3(1, 1, 1);
-
-        myAnim.MoveAnimation(direction.x * direction.x);
     }
 
     protected override void Attack()
@@ -68,49 +44,10 @@ public class EnemyRanged : EnemyPatrol
         }
     }
 
-    protected override void Patrol()
-    {
-        if (Vector2.Distance(transform.position, _wayPoints[_wayPointID].position) > _wayPointMinDistance)
-        {
-            if (transform.position.x < _wayPoints[_wayPointID].position.x)
-                Move(transform.right);
-            else
-                Move(transform.right * -1);
-        }
-        else
-            _isWaiting = true;
-    }
-
-    protected override void WaitPatrol()
-    {
-        Move(Vector2.zero);
-
-        _waitTimer += Time.deltaTime;
-
-        if(_waitTimer > _waitTime)
-        {
-            _isWaiting = false;
-            _waitTimer = 0;
-            NextWayPoint();
-        }
-    }
-
     void Shot()
     {
         var b = Instantiate(_bullet).GetComponent<Bullet>();
         b.transform.position = _firePoint.position;
         b.SetDirection(new Vector3(transform.localScale.x,0,0));
-    }
-
-    void DeathBehavior()
-    {
-        _rb.velocity = Vector2.zero;
-        _rb.isKinematic = true;
-
-        GetComponent<Collider2D>().enabled = false;
-
-        Destroy(gameObject, 2.5f);
-
-        this.enabled = false;
     }
 }
