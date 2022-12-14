@@ -7,6 +7,7 @@ public class Damaging : MonoBehaviour
 {
     [SerializeField] int _minDamage;
     [SerializeField] int _maxDamage;
+    [SerializeField] DamageSource _source;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,9 +20,8 @@ public class Damaging : MonoBehaviour
     void InfictDamage(Entity entity)
     {
         var dam = _minDamage >= _maxDamage ? _minDamage : Random.Range(_minDamage, _maxDamage + 1);
-        var tar = LayerMask.LayerToName(entity.gameObject.layer);
         var pos = entity.transform.position;
-        var data = new DamageData(dam, tar, pos);
+        var data = new DamageData(dam, _source, pos);
 
         entity.Health.TakeDamage(data);
     }

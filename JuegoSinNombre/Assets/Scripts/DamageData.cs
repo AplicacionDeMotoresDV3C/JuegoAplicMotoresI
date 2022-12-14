@@ -5,13 +5,20 @@ using UnityEngine;
 public struct DamageData
 {
     public int value;
-    public string target;
+    public DamageSource source;
     public Vector3 position;
 
-    public DamageData(int value, string target, Vector3 position)
+    public DamageData(int value, DamageSource source, Vector3 position)
     {
         this.value = value;
-        this.target = target;
+        this.source = source;
         this.position = position;
     }
+}
+
+public enum DamageSource
+{
+    Player,
+    Enemy,
+    Trap
 }

@@ -72,6 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDamage: 12
   _maxDamage: 20
+  _source: 1
 --- !u!1 &3803492651800560035
 GameObject:
   m_ObjectHideFlags: 0

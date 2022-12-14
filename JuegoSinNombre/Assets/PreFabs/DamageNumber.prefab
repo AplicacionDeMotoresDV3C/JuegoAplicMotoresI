@@ -268,7 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myText: {fileID: 6294329056659702026}
-  _playerColor: {r: 0.7529412, g: 0.22352941, b: 0.16862746, a: 1}
-  _enemyColor: {r: 0.9254902, g: 0.9411765, b: 0.94509804, a: 1}
+  _playerColor: {r: 0.9254902, g: 0.9411765, b: 0.94509804, a: 1}
+  _enemyColor: {r: 0.7529412, g: 0.22352941, b: 0.16862746, a: 1}
+  _trapColor: {r: 0.9529412, g: 0.6117647, b: 0.07058824, a: 1}
   _yOffset: 0.5
   _xOffset: 0.2

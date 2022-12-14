@@ -9,6 +9,7 @@ public class DamageNumber : MonoBehaviour
     [SerializeField] TextMeshProUGUI _myText;
     [SerializeField] Color _playerColor;
     [SerializeField] Color _enemyColor;
+    [SerializeField] Color _trapColor;
     [SerializeField] float _yOffset;
     [SerializeField] float _xOffset;
 
@@ -16,10 +17,20 @@ public class DamageNumber : MonoBehaviour
     {
         _myText.text = data.value+"";
 
-        if (data.target.Equals("Player"))
-            _myText.color = _playerColor;
-        else
-            _myText.color = _enemyColor;
+        switch (data.source)
+        {
+            case DamageSource.Player:
+                _myText.color = _playerColor;
+                break;
+            case DamageSource.Enemy:
+                _myText.color = _enemyColor;
+                break;
+            case DamageSource.Trap:
+                _myText.color = _trapColor;
+                break;
+            default:
+                break;
+        }
 
         Vector3 offset = new Vector2(Random.Range(-_xOffset, _xOffset), _yOffset);
         transform.position = data.position + offset;
@@ -31,3 +42,4 @@ public class DamageNumber : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
+
