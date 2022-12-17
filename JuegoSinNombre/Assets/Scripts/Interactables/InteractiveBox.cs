@@ -5,7 +5,6 @@ using UnityEngine;
 public class InteractiveBox : MonoBehaviour, IInteractable
 {
     Rigidbody2D myRB;
-    bool canMoveBox = true;
 
 
     private void Start()
@@ -16,7 +15,6 @@ public class InteractiveBox : MonoBehaviour, IInteractable
 
     public void Activate()
     {
-        canMoveBox = true;
         myRB.bodyType = RigidbodyType2D.Dynamic;
     }
 
@@ -27,7 +25,6 @@ public class InteractiveBox : MonoBehaviour, IInteractable
 
     public void Desactivate()
     {
-        canMoveBox = false;
         myRB.bodyType = RigidbodyType2D.Static;
     }
 }

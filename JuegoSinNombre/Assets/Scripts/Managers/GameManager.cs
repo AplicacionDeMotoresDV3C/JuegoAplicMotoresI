@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int _actualLevel = 0;
+    public int _nextLevel = 0;
     public Vector3 checkpointPlayerPosition;
-    bool _isPause = false;
+    public bool _isPause = false;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject gameOverCanvas;
+    [SerializeField] GameObject victoryCanvas;
     public GameObject player;
     static GameManager _instance;
+    bool playerWins;
     public static GameManager Instance
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = GameObject.FindObjectOfType<GameManager>();
-            }
             return _instance;
         }
     }
@@ -30,10 +31,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        checkpointPlayerPosition = player.transform.position;
-
+        if(player != null)
+            checkpointPlayerPosition = player.transform.position;
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _isPause = !_isPause;
+            Pause();
+        }
+        
+    }
 
     #region PLAYER
     public void SavePosition()
@@ -50,41 +59,94 @@ public class GameManager : MonoBehaviour
     #region GAMEPLAY_UI
     public void Pause()
     {
-        _isPause = true;
-        Time.timeScale = 0;
+        
+        if (_isPause)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+
     }
 
     public void Resume()
     {
         _isPause = false;
         Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+
     }
     #endregion
 
     #region GAMEPLAY_FLOW
     public void NewGame()
     {
+        Time.timeScale = 1;
         ChangeScene("Level0");
     }
 
     public void NextLevel()
     {
-        ChangeScene($"Level{_actualLevel}");
+        ChangeScene($"Level{_nextLevel}");
     }
 
     public void BackToMainMenu()
     {
         ChangeScene("MainMenu");
     }
-    
-    public void Quit()
+
+    public void Restart()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        Scene scene = SceneManager.GetActiveScene();
+        Debug.Log(scene.name);
+        ChangeScene(scene.name);
     }
 
-    public void ChangeScene(string SceneName)
+    public void Quit()
     {
-        SceneManager.LoadScene(SceneName);
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#else
+            Application.Quit();
+#endif
+
     }
+
+    public void ChangeScene(string sceneName)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void GameOver()
+    {
+        playerWins = false;
+        StartCoroutine(WaitForSeconds());
+        
+    }
+
+    public void Victory()
+    {
+        playerWins = true;
+        StartCoroutine(WaitForSeconds());   
+    }
+
     #endregion
+
+    IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(2.5f);
+        if (playerWins)
+            victoryCanvas.SetActive(true);
+        else
+        {
+            gameOverCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
 }

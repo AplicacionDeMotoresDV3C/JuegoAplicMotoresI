@@ -39,6 +39,11 @@ public class AnimManager : MonoBehaviour
     {
         _myAnim.SetTrigger("Hit");
     }
+    public void ShieldAnimation(bool isShield)
+    {
+        //_myAnim.SetTrigger("Shield");
+        _myAnim.SetBool("Shield",isShield);
+    }
     public void DeathAnimation()
     {
         _myAnim.SetTrigger("Death");
