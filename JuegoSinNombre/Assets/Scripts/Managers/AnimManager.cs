@@ -35,7 +35,7 @@ public class AnimManager : MonoBehaviour
     {
         _myAnim.SetTrigger("Roll");
     }
-    public void HitAnimation()
+    public void HitAnimation(DamageData data)
     {
         _myAnim.SetTrigger("Hit");
     }

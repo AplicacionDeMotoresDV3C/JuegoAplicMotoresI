@@ -9,7 +9,7 @@ public class HealthComponent
     [SerializeField]int _maxHealth;
     int _health;
     public bool isInvunerable = false;
-    public event Action OnTakeDamage;
+    public event Action<DamageData> OnTakeDamage;
     public event Action OnHeal;
     public event Action OnDeath;
 
@@ -18,13 +18,13 @@ public class HealthComponent
         _health = _maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(DamageData data)
     {
         if (isInvunerable) return;
 
         isInvunerable = true;
-        _health -= damage;
-        OnTakeDamage?.Invoke();
+        _health -= data.value;
+        OnTakeDamage?.Invoke(data);
 
         if (_health <= 0)
         {
