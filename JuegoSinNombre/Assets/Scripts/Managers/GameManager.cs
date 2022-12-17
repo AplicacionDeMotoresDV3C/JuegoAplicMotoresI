@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int _nextLevel = 0;
-    public Vector3 checkpointPlayerPosition;
+    //[SerializeField] Vector3 checkpointPlayerPosition;
     public bool _isPause = false;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverCanvas;
     [SerializeField] GameObject victoryCanvas;
     public GameObject player;
+    [SerializeField] Player _playerData;
     static GameManager _instance;
     bool playerWins;
+    [SerializeField] CheckpointStruct checkpointData = new CheckpointStruct();
     public static GameManager Instance
     {
         get
@@ -27,12 +29,21 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        SavePosition();
     }
 
     private void Start()
     {
+        
         if(player != null)
-            checkpointPlayerPosition = player.transform.position;
+        {
+            //checkpointPlayerPosition = player.transform.position;
+            _playerData.enabled = true;
+            _playerData.Health.SetHealth();
+            player.GetComponent<Collider2D>().enabled = true;
+            LoadPosition();
+        }
+
     }
     private void Update()
     {
@@ -47,12 +58,16 @@ public class GameManager : MonoBehaviour
     #region PLAYER
     public void SavePosition()
     {
-        checkpointPlayerPosition = player.transform.position;
+        //checkpointPlayerPosition = player.transform.position;
+        checkpointData.checkpointPosition = player.transform.position;
     }
 
     public void LoadPosition()
     {
-        player.transform.position = checkpointPlayerPosition;
+        player.transform.position = checkpointData.checkpointPosition;
+        Debug.Log(checkpointData.checkpointPosition.x);
+        Debug.Log(checkpointData.checkpointPosition.y);
+        //player.transform.position = checkpointPlayerPosition;
     }
     #endregion
 
@@ -102,9 +117,8 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
-        Scene scene = SceneManager.GetActiveScene();
-        Debug.Log(scene.name);
-        ChangeScene(scene.name);
+        gameOverCanvas.SetActive(false);
+        LoadPosition();
     }
 
     public void Quit()
