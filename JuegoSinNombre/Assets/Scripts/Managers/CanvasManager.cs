@@ -19,6 +19,15 @@ private void Start()
         _player.OnStaminaCHange += UpdateStaminaBar;
         _player.GetComponentInChildren<InteractionDetector>().OnInteractuableChange += DisplayInteractiveCommand;
     }
+    void UpdateHealthBar(DamageData data)
+    {
+        _health = _player.Health.GetHealth();
+        _maxHealth = _player.Health.GetMaxHeal();
+
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+
+        _lifeBar.fillAmount = _health / _maxHealth;
+    }
     void UpdateHealthBar()
     {
         _health = _player.Health.GetHealth();

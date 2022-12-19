@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:JuegoSinNombre/Assets/Scripts/DamageData.cs.meta
+guid: bccfc3b41cadb1f44afc124baafba81f
+========
 guid: 94cf8a81d0eb5c248b0357f568e1aeaa
+>>>>>>>> test:JuegoSinNombre/Assets/CameraFollow.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
