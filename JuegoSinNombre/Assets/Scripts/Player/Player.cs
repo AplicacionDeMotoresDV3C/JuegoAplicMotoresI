@@ -173,6 +173,16 @@ public class Player : Entity
 
         }
     }
+
+    public void Revive()
+    {
+        deadh = false;
+        Health.Heal(Health.GetMaxHeal());
+        GetComponent<Collider2D>().enabled = true;
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        this.enabled = true;
+    }
+
     protected override void DeathBehavior()
     {
         base.DeathBehavior();

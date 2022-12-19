@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         
         if(player != null)
         {
-            //checkpointPlayerPosition = player.transform.position;
             _playerData.enabled = true;
             _playerData.Health.SetHealth();
             player.GetComponent<Collider2D>().enabled = true;
@@ -58,16 +57,12 @@ public class GameManager : MonoBehaviour
     #region PLAYER
     public void SavePosition()
     {
-        //checkpointPlayerPosition = player.transform.position;
         checkpointData.checkpointPosition = player.transform.position;
     }
 
     public void LoadPosition()
     {
         player.transform.position = checkpointData.checkpointPosition;
-        Debug.Log(checkpointData.checkpointPosition.x);
-        Debug.Log(checkpointData.checkpointPosition.y);
-        //player.transform.position = checkpointPlayerPosition;
     }
     #endregion
 
@@ -119,6 +114,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         gameOverCanvas.SetActive(false);
         LoadPosition();
+        _playerData.Revive();
     }
 
     public void Quit()
