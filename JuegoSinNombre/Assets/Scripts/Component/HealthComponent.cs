@@ -12,6 +12,7 @@ public class HealthComponent
     public event Action<DamageData> OnTakeDamage;
     public event Action OnHeal;
     public event Action OnDeath;
+    public event Action<CheckpointStruct> OnAssignHealth;
 
     public void SetHealth()
     {
@@ -52,6 +53,16 @@ public class HealthComponent
     private void Death()
     {
         OnDeath?.Invoke();
+    }
+
+    public void AssignHealth(CheckpointStruct data)
+    {
+        Debug.Log("Assign Health " + data.playerLife);
+        _health = data.playerLife;
+        if (_health > _maxHealth)
+            _health = _maxHealth;
+
+        OnAssignHealth?.Invoke(data);
     }
 
 }

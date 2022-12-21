@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Player _playerData;
     static GameManager _instance;
     bool playerWins;
-    [SerializeField] CheckpointStruct checkpointData = new CheckpointStruct();
+    CheckpointStruct checkpointData = new CheckpointStruct();
     public static GameManager Instance
     {
         get
@@ -29,18 +29,17 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        SavePosition();
     }
 
     private void Start()
     {
-        
         if(player != null)
         {
             _playerData.enabled = true;
             _playerData.Health.SetHealth();
             player.GetComponent<Collider2D>().enabled = true;
-            LoadPosition();
+            SavePosition();
+            Debug.Log("Start " + checkpointData.playerLife);
         }
 
     }
@@ -51,6 +50,8 @@ public class GameManager : MonoBehaviour
             _isPause = !_isPause;
             Pause();
         }
+
+        Debug.Log("Update Gamemanager " + checkpointData.playerLife);
         
     }
 
@@ -58,11 +59,14 @@ public class GameManager : MonoBehaviour
     public void SavePosition()
     {
         checkpointData.checkpointPosition = player.transform.position;
+        checkpointData.playerLife = _playerData.Health.GetHealth();
+        Debug.Log("Vida checkpoin Data " + checkpointData.playerLife);
     }
 
     public void LoadPosition()
     {
         player.transform.position = checkpointData.checkpointPosition;
+        _playerData.Health.AssignHealth(checkpointData);
     }
     #endregion
 
@@ -114,7 +118,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         gameOverCanvas.SetActive(false);
         LoadPosition();
-        _playerData.Revive();
     }
 
     public void Quit()
@@ -136,8 +139,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         playerWins = false;
-        StartCoroutine(WaitForSeconds());
-        
+        StartCoroutine(WaitForSeconds());   
     }
 
     public void Victory()

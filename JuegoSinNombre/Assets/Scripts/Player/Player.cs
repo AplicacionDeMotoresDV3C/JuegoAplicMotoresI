@@ -28,6 +28,7 @@ public class Player : Entity
         _speedSave = speed;
         _stamina = _maxStamina;
         Health.OnDeath += DeathBehavior;
+        Health.OnAssignHealth += Revive;
         myAnim.SetEvent("InvulnerableEvent", InvulnerableEvent);
         myAnim.SetEvent("InvulnerableEventEnd", InvulnerableEventEnd);
         myAnim.SetEvent("HeatBoxAttack", HeatBoxAttack);
@@ -174,10 +175,9 @@ public class Player : Entity
         }
     }
 
-    public void Revive()
+    public void Revive(CheckpointStruct data)
     {
         deadh = false;
-        Health.Heal(Health.GetMaxHeal());
         GetComponent<Collider2D>().enabled = true;
         _rb.bodyType = RigidbodyType2D.Dynamic;
         this.enabled = true;
