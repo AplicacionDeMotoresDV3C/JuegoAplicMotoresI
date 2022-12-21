@@ -52,4 +52,11 @@ private void Start()
     {
         _interactCommand.SetActive(elements >= 1);
     }
+    private void OnDestroy()
+    {
+        _player.Health.OnTakeDamage -= UpdateHealthBar;
+        _player.Health.OnHeal -= UpdateHealthBar;
+        _player.OnStaminaCHange -= UpdateStaminaBar;
+
+    }
 }
