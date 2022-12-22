@@ -42,6 +42,7 @@ private void Start()
         _lifeBar.fillAmount = _health / _maxHealth;
     }
 
+    //Gabriele Peruilh, Guido
     void UpdateHealthBar(CheckpointStruct data)
     {
         _health = _player.Health.GetHealth();

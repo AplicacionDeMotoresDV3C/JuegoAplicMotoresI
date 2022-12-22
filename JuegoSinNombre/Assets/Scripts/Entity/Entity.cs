@@ -35,11 +35,12 @@ public abstract class Entity : MonoBehaviour
         this.enabled = false;
     }
 
+    //Gabriele Peruilh, Guido
     void InvunerableOn()
     {
         Health.isInvunerable = true;
     }
-
+    //Gabriele Peruilh, Guido
     void InvunerableOff()
     {
         Health.isInvunerable = false;

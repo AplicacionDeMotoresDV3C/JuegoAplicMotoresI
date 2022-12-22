@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gabriele Peruilh, Guido
 public struct CheckpointStruct
 {
     public Vector3 checkpointPosition;

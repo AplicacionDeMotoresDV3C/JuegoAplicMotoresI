@@ -60,6 +60,7 @@ public class HealthComponent
         OnDeath?.Invoke();
     }
 
+    //Gabriele Peruilh, Guido
     public void AssignHealth(CheckpointStruct data)
     {
         Debug.Log("Assign Health " + data.playerLife);
