@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5254208240351099293}
   - component: {fileID: 5254208240351099294}
   - component: {fileID: 5254208240351099295}
-  - component: {fileID: 5254208240351099296}
-  m_Layer: 0
+  - component: {fileID: 764258261}
+  m_Layer: 10
   m_Name: DamageEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5254208240351099297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: -2.2625012, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 1}
+  m_LocalScale: {x: 93.519966, y: 4.337449, z: 2.6938}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5254208240351099296
+--- !u!114 &764258261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,9 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5254208240351099297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f89bd68daf43ec499d5b61f0720cb1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 17c3179b55c003b43ba86697e2b53f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDamage: 999
-  _maxDamage: 999
-  _source: 1
+  myGameManager: {fileID: 0}

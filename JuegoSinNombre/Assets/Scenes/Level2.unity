@@ -5580,21 +5580,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 764258261, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
+      propertyPath: myGameManager
+      value: 
+      objectReference: {fileID: 1697037174}
     - target: {fileID: 5254208240351099293, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099293, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 93.519966
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099293, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.337449
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099293, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.6938
       objectReference: {fileID: 0}
     - target: {fileID: 5254208240351099293, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5636,29 +5628,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099294, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099294, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099296, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: _maxDamage
-      value: 999
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099296, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: _minDamage
-      value: 999
-      objectReference: {fileID: 0}
     - target: {fileID: 5254208240351099297, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
       propertyPath: m_Name
       value: DamageEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254208240351099297, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a223a9730d277b647bcbae7c179f0408, type: 3}
