@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAnim: {fileID: 1285826841808230037}
+  _isResetOnCheckpoint: 1
   _damageComponent: {fileID: 1285826841901275195}
 --- !u!1 &1285826841901275193
 GameObject:

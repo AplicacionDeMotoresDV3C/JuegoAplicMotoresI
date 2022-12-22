@@ -6,7 +6,7 @@ public class DamageTrap : Trap
 {
     [SerializeField] Damaging _damageComponent;
 
-    void Start()
+    void Awake()
     {
         _damageComponent.enabled = false;
     }
@@ -15,5 +15,11 @@ public class DamageTrap : Trap
     {
         base.Activate();
         _damageComponent.enabled = true;
+    }
+
+    protected override void Reset(CheckpointStruct checpointData)
+    {
+        base.Reset(checpointData);
+        _damageComponent.enabled = false;
     }
 }

@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAnim: {fileID: 7666047307712063155}
+  _isResetOnCheckpoint: 1
 --- !u!1 &7666047307984586711
 GameObject:
   m_ObjectHideFlags: 0
