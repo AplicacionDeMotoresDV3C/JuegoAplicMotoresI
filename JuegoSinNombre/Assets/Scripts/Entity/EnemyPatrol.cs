@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+//Rubio, Martín Omar
 public abstract class EnemyPatrol : Enemy
 {
     [SerializeField] protected Transform[] _wayPoints;

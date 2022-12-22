@@ -9,9 +9,11 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected AnimManager myAnim;
 
+
+    //Rubio, Martín Omar
     private void Awake()
     {
-        _health.SetHealth();
+        _health.StartingHealth();
         _health.OnTakeDamage += ShowDamage;
         myAnim.SetEvent("InvunerableOn", InvunerableOn);
         myAnim.SetEvent("InvunerableOff", InvunerableOff);
@@ -21,6 +23,8 @@ public abstract class Entity : MonoBehaviour
     protected abstract void Attack();
     protected abstract void Move(Vector2 direction);
 
+
+    //Rubio, Martín Omar
     protected virtual void DeathBehavior()
     {
         _rb.velocity = Vector2.zero;
@@ -41,6 +45,8 @@ public abstract class Entity : MonoBehaviour
         Health.isInvunerable = false;
     }
 
+
+    //Rubio, Martín Omar
     void ShowDamage(DamageData data)
     {
         var o = ObjectPool.instace.GetNextObject();

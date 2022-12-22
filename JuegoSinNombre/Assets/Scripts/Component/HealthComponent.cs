@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 [Serializable]
 public class HealthComponent
@@ -14,11 +13,14 @@ public class HealthComponent
     public event Action OnDeath;
     public event Action<CheckpointStruct> OnAssignHealth;
 
-    public void SetHealth()
+
+    //Rubio, Martín Omar
+    public void StartingHealth()
     {
         _health = _maxHealth;
     }
 
+    //Rubio, Martín Omar
     public void TakeDamage(DamageData data)
     {
         if (isInvunerable) return;
@@ -33,6 +35,7 @@ public class HealthComponent
         }
     }
 
+    //Rubio, Martín Omar
     public void Heal(int healValue)
     {
         _health += healValue;
@@ -50,6 +53,8 @@ public class HealthComponent
     {
         return _health;
     }
+
+    //Rubio, Martín Omar
     private void Death()
     {
         OnDeath?.Invoke();

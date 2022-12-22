@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+//Rubio, Martín Omar
 public class DamageNumber : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _myText;

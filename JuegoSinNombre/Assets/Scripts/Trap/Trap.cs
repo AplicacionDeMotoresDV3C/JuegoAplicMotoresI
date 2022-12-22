@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Rubio, Martín Omar
 public class Trap : MonoBehaviour
 {
     [SerializeField] protected Animator _myAnim;

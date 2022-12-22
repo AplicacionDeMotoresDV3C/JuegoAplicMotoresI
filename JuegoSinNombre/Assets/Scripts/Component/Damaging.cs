@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+//Rubio, Martín Omar
 [RequireComponent(typeof(Collider2D))]
 public class Damaging : MonoBehaviour
 {

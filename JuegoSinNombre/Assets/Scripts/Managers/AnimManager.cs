@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Rubio, Martín Omar
 public class AnimManager : MonoBehaviour
 {
     [SerializeField] Entity _entity;
@@ -41,7 +41,6 @@ public class AnimManager : MonoBehaviour
     }
     public void ShieldAnimation(bool isShield)
     {
-        //_myAnim.SetTrigger("Shield");
         _myAnim.SetBool("Shield",isShield);
     }
     public void DeathAnimation()

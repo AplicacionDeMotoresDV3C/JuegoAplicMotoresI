@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+//Rubio, Martín Omar
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float _speed;
@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, _lifeTime);
     }
-    // Update is called once per frame
+    
     void Update()
     {
         Move();

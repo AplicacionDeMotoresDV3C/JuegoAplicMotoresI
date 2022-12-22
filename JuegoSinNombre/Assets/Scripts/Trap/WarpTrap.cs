@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Rubio, Martín Omar
 public class WarpTrap : Trap
 {
     [SerializeField] Transform _targetPos;

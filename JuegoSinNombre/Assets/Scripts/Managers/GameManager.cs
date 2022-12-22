@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         if(player != null)
         {
             _playerData.enabled = true;
-            _playerData.Health.SetHealth();
+            _playerData.Health.StartingHealth();
             player.GetComponent<Collider2D>().enabled = true;
             SavePosition();
         }

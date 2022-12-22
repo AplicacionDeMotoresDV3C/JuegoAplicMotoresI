@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Enemy : Entity
@@ -10,6 +8,8 @@ public abstract class Enemy : Entity
     protected float _checkDistancePlayer;
     protected Player _player;
 
+
+    //Rubio, Martín Omar
     protected override void Move(Vector2 direction)
     {
         direction.Normalize();

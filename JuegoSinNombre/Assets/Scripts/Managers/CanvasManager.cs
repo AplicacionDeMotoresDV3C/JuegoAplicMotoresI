@@ -60,6 +60,8 @@ private void Start()
         _staminBar.fillAmount = _stamina / _maxStamina;
     }
 
+
+    //Rubio, Martín Omar
     void DisplayInteractiveCommand(int elements)
     {
         _interactCommand.SetActive(elements >= 1);

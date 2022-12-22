@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+//Rubio, Martín Omar
 public class DamageTrap : Trap
 {
     [SerializeField] Damaging _damageComponent;
