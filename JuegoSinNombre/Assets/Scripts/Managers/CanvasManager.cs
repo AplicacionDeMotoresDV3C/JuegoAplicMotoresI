@@ -16,6 +16,7 @@ private void Start()
     {
         _player.Health.OnTakeDamage += UpdateHealthBar;
         _player.Health.OnHeal += UpdateHealthBar;
+        _player.Health.OnAssignHealth += UpdateHealthBar;
         _player.OnStaminaCHange += UpdateStaminaBar;
         _player.GetComponentInChildren<InteractionDetector>().OnInteractuableChange += DisplayInteractiveCommand;
     }
@@ -37,6 +38,17 @@ private void Start()
 
         _lifeBar.fillAmount = _health / _maxHealth;
     }
+
+    void UpdateHealthBar(CheckpointStruct data)
+    {
+        _health = _player.Health.GetHealth();
+        _maxHealth = _player.Health.GetMaxHeal();
+
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+
+        _lifeBar.fillAmount = _health / _maxHealth;
+    }
+
     void UpdateStaminaBar()
     {
         _stamina = _player.Stamina;
