@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9344865e5bd41e4795dd9b296169a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextLevel: 1
   _isPause: 0
   pauseMenu: {fileID: 0}
   gameOverCanvas: {fileID: 0}

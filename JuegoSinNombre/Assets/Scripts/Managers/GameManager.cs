@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int _nextLevel = 0;
-    //[SerializeField] Vector3 checkpointPlayerPosition;
     public bool _isPause = false;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverCanvas;
@@ -39,7 +37,6 @@ public class GameManager : MonoBehaviour
             _playerData.Health.SetHealth();
             player.GetComponent<Collider2D>().enabled = true;
             SavePosition();
-            Debug.Log("Start " + checkpointData.playerLife);
         }
 
     }
@@ -47,12 +44,9 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _isPause = !_isPause;
             Pause();
         }
-
-        Debug.Log("Update Gamemanager " + checkpointData.playerLife);
-        
+       
     }
 
     #region PLAYER
@@ -60,7 +54,6 @@ public class GameManager : MonoBehaviour
     {
         checkpointData.checkpointPosition = player.transform.position;
         checkpointData.playerLife = _playerData.Health.GetHealth();
-        Debug.Log("Vida checkpoin Data " + checkpointData.playerLife);
     }
 
     public void LoadPosition()
@@ -74,13 +67,15 @@ public class GameManager : MonoBehaviour
     public void Pause()
     {
         
-        if (_isPause)
+        if (!_isPause)
         {
+            _isPause = true;
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
         }
         else
         {
+            _isPause = false;
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
@@ -103,9 +98,9 @@ public class GameManager : MonoBehaviour
         ChangeScene("Level0");
     }
 
-    public void NextLevel()
+    public void NextLevel(string levelSceneName)
     {
-        ChangeScene($"Level{_nextLevel}");
+        ChangeScene(levelSceneName);
     }
 
     public void BackToMainMenu()
@@ -113,11 +108,18 @@ public class GameManager : MonoBehaviour
         ChangeScene("MainMenu");
     }
 
-    public void Restart()
+    public void RestartFromCheckpoint()
     {
         Time.timeScale = 1;
         gameOverCanvas.SetActive(false);
         LoadPosition();
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1;
+        gameOverCanvas.SetActive(false);
+        ChangeScene(SceneManager.GetActiveScene().name);
     }
 
     public void Quit()
