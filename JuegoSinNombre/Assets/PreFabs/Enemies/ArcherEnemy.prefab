@@ -223,11 +223,10 @@ MonoBehaviour:
   _wayPoints:
   - {fileID: 0}
   - {fileID: 0}
-  _wayPointMinDistance: 0.5
   _waitTime: 1
+  _wayPointMinDistance: 0.5
   _bullet: {fileID: 7960608989826608558, guid: dea29b42c6d524441955dd9570f50acc, type: 3}
   _firePoint: {fileID: 2003932312332740936}
-  _bloodEffect: {fileID: 1426885874}
 --- !u!1 &2003932312332740937
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +267,10 @@ PrefabInstance:
     - target: {fileID: 819269623775533902, guid: 095a0e77d0c12f741b2777356c822425, type: 3}
       propertyPath: m_Name
       value: BlodEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 819269623775533902, guid: 095a0e77d0c12f741b2777356c822425, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 819269623775533905, guid: 095a0e77d0c12f741b2777356c822425, type: 3}
       propertyPath: m_RootOrder
@@ -318,10 +321,5 @@ PrefabInstance:
 --- !u!4 &1426885872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819269623775533905, guid: 095a0e77d0c12f741b2777356c822425, type: 3}
-  m_PrefabInstance: {fileID: 819269622382729121}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1426885874 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 819269623775533907, guid: 095a0e77d0c12f741b2777356c822425, type: 3}
   m_PrefabInstance: {fileID: 819269622382729121}
   m_PrefabAsset: {fileID: 0}

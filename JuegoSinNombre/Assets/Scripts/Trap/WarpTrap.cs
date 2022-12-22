@@ -16,7 +16,6 @@ public class WarpTrap : Trap
 
     protected override void Activate()
     {
-        Debug.Log(_target);
         base.Activate();
         _target.enabled = false;
         _target.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -29,6 +28,5 @@ public class WarpTrap : Trap
     {
         _target.transform.position = _targetPos.position;
         _target.enabled = true;
-        //_target = null;
     }
 }

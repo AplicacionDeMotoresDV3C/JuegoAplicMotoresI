@@ -6,7 +6,6 @@ public class Trap : MonoBehaviour
 {
     [SerializeField] protected Animator _myAnim;
     [SerializeField] bool _isResetOnCheckpoint;
-    bool _isActive = false;
 
     private void Start()
     {
@@ -21,19 +20,13 @@ public class Trap : MonoBehaviour
 
     protected virtual void Activate()
     {
-        if (_isActive) return;
-
         _myAnim.SetTrigger("Activate");
-        _isActive = true;
     }
 
     protected virtual void Reset(CheckpointStruct checpointData)
     {
-        if (_isActive)
-        {
-            _myAnim.Rebind();
-            _isActive = false;
-        }
+
+        _myAnim.Rebind();
     }
 
     private void OnDestroy()
