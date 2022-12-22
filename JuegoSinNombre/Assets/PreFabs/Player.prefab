@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDamage: 8
   _maxDamage: 12
+  _source: 0
 --- !u!1 &281253997464763062
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +143,7 @@ GameObject:
   - component: {fileID: 281253997464763067}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +282,7 @@ MonoBehaviour:
   speed: 3.37
   myAnim: {fileID: 281253997464763067}
   _interactable: {fileID: 281253997786113953}
-  _busy: {fileID: 0}
+  _busy: {fileID: 1304178879}
   _jumpForce: 4.7
   speedRoll: 1.3
   _colliderAttack: {fileID: 281253996637730966}

@@ -121,7 +121,7 @@ public class EnemyBoss : Enemy
     protected override void DeathBehavior()
     {
         base.DeathBehavior();
-        GameManager.Instance.Victory();
+        //GameManager.Instance.Victory();
     }
 
 }
