@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//basualdo sebastian
 public class Door : MonoBehaviour
 {
     [SerializeField] GameManager _gm;

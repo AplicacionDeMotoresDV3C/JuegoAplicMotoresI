@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+
+
+//basualdo sebastian
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField] Image _lifeBar;
@@ -66,6 +69,8 @@ private void Start()
     {
         _interactCommand.SetActive(elements >= 1);
     }
+
+
     private void OnDestroy()
     {
         _player.Health.OnTakeDamage -= UpdateHealthBar;

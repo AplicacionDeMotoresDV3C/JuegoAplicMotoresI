@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region GAMEPLAY_UI
+    //basualdo sebastian
     public void Pause()
     {
         
