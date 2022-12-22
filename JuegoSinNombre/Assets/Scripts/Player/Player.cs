@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+//basualdo sebastian
 public class Player : Entity
 {
     [SerializeField] InteractionDetector _interactable;
