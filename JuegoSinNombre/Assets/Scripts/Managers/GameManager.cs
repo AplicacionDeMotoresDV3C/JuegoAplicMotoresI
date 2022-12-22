@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     static GameManager _instance;
     bool playerWins;
     CheckpointStruct checkpointData = new CheckpointStruct();
+    public event Action<CheckpointStruct> OnCheckPointLoad;
+
     public static GameManager Instance
     {
         get
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = checkpointData.checkpointPosition;
         _playerData.Health.AssignHealth(checkpointData);
+        OnCheckPointLoad?.Invoke(checkpointData);
     }
     #endregion
 
