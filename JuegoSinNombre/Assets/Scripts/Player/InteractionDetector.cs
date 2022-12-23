@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gabriele Peruilh, Guido
 public class InteractionDetector : MonoBehaviour
 {
     public List<IInteractable> _interatablesInRange = new List<IInteractable>();

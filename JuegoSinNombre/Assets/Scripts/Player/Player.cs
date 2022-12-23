@@ -176,6 +176,7 @@ public class Player : Entity
         }
     }
 
+    //Gabriele Peruilh, Guido
     public void Revive(CheckpointStruct data)
     {
         deadh = false;
