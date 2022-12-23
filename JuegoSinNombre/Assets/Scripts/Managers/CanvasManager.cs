@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour
     float _maxStamina;
     float _maxHealth;
 
-private void Start()
+    private void Start()
     {
         _player.Health.OnTakeDamage += UpdateHealthBar;
         _player.Health.OnHeal += UpdateHealthBar;
@@ -25,12 +25,7 @@ private void Start()
     }
     void UpdateHealthBar(DamageData data)
     {
-        _health = _player.Health.GetHealth();
-        _maxHealth = _player.Health.GetMaxHeal();
-
-        _health = Mathf.Clamp(_health, 0, _maxHealth);
-
-        _lifeBar.fillAmount = _health / _maxHealth;
+        UpdateHealthBar();
     }
     void UpdateHealthBar()
     {
@@ -45,12 +40,7 @@ private void Start()
     //Gabriele Peruilh, Guido
     void UpdateHealthBar(CheckpointStruct data)
     {
-        _health = _player.Health.GetHealth();
-        _maxHealth = _player.Health.GetMaxHeal();
-
-        _health = Mathf.Clamp(_health, 0, _maxHealth);
-
-        _lifeBar.fillAmount = _health / _maxHealth;
+        UpdateHealthBar();
     }
 
     void UpdateStaminaBar()
@@ -71,13 +61,11 @@ private void Start()
         _interactCommand.SetActive(elements >= 1);
     }
 
-
-    private void OnDestroy()
+    void OnDestroy()
     {
         _player.Health.OnTakeDamage -= UpdateHealthBar;
         _player.Health.OnHeal -= UpdateHealthBar;
         _player.OnStaminaCHange -= UpdateStaminaBar;
         _player.GetComponentInChildren<InteractionDetector>().OnInteractuableChange -= DisplayInteractiveCommand;
-
     }
 }
