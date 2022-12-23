@@ -4,12 +4,8 @@ using UnityEngine;
 //basualdo sebastian
 public class MeleeEnemy : EnemyPatrol
 {
-
-    [SerializeField] AnimManager _animManager;
     [SerializeField] GameObject _damaging;
     [SerializeField] float _foolowPlayar;
-    Vector2 _direction;
-
 
     private void Start()
     {

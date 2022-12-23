@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4400594222251712332}
   - component: {fileID: 4400594222251712333}
   - component: {fileID: 4400594222251712334}
+  - component: {fileID: 46366076}
   m_Layer: 7
   m_Name: MeleeCrazyNew
   m_TagString: Untagged
@@ -132,7 +133,6 @@ MonoBehaviour:
   - {fileID: 0}
   _waitTime: 2
   _wayPointMinDistance: 0.3
-  _animManager: {fileID: 4400594222251712334}
   _damaging: {fileID: 4400594222465084807}
   _foolowPlayar: 2
 --- !u!50 &4400594222251712332
@@ -196,6 +196,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entity: {fileID: 4400594222251712323}
   _myAnim: {fileID: 4400594222251712322}
+--- !u!114 &46366076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400594222251712335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d418154cdea62b04baa2ce7b4e752ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _potion: {fileID: 5853431058410480328, guid: 8d91b8a3060ad3e48a9e8b1b11d1ac11, type: 3}
+  _melee: {fileID: 4400594222251712323}
+  _time: 0
+  _maxTime: 4
+  spawnDrop: 0
 --- !u!1 &4400594222465084807
 GameObject:
   m_ObjectHideFlags: 0
