@@ -74,8 +74,6 @@ private void Start()
 
     private void OnDestroy()
     {
-        if (_player == null) return;
-
         _player.Health.OnTakeDamage -= UpdateHealthBar;
         _player.Health.OnHeal -= UpdateHealthBar;
         _player.OnStaminaCHange -= UpdateStaminaBar;
