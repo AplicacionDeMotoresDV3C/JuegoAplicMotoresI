@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Gabriele Peruilh, Guido
+//TPFinal - Gabriele Peruilh, Guido
 public class Switch : MonoBehaviour, IInteractable
 {
     private bool doorIsOpen = false;

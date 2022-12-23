@@ -14,13 +14,13 @@ public class HealthComponent
     public event Action<CheckpointStruct> OnAssignHealth;
 
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     public void StartingHealth()
     {
         _health = _maxHealth;
     }
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     public void TakeDamage(DamageData data)
     {
         if (isInvunerable) return;
@@ -35,7 +35,7 @@ public class HealthComponent
         }
     }
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     public void Heal(int healValue)
     {
         _health += healValue;
@@ -54,13 +54,13 @@ public class HealthComponent
         return _health;
     }
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     private void Death()
     {
         OnDeath?.Invoke();
     }
 
-    //Gabriele Peruilh, Guido
+    //TPFinal - Gabriele Peruilh, Guido
     public void AssignHealth(CheckpointStruct data)
     {
         Debug.Log("Assign Health " + data.playerLife);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 public class WarpTrap : Trap
 {
     [SerializeField] Transform _targetPos;
@@ -18,8 +18,6 @@ public class WarpTrap : Trap
         base.Activate();
         _target.enabled = false;
         _target.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-        //No estoy seguro de usar esta linea
         _target.transform.position = new Vector3(transform.position.x, _target.transform.position.y, 0);
     }
 

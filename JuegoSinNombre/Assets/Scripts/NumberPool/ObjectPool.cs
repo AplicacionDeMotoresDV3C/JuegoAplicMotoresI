@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool instace;

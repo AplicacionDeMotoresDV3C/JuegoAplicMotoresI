@@ -9,7 +9,7 @@ public abstract class Enemy : Entity
     protected Player _player;
 
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     protected override void Move(Vector2 direction)
     {
         direction.Normalize();

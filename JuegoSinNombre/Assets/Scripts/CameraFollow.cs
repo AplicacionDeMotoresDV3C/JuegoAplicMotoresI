@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//basualdo sebastian
+//TPFinal - basualdo sebastian
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] GameObject _player;

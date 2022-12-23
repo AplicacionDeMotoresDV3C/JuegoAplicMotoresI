@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-//basualdo sebastian
+//TPFinal - basualdo sebastian
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField] Image _lifeBar;
@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour
     float _maxStamina;
     float _maxHealth;
 
-    private void Start()
+private void Start()
     {
         _player.Health.OnTakeDamage += UpdateHealthBar;
         _player.Health.OnHeal += UpdateHealthBar;
@@ -25,7 +25,12 @@ public class CanvasManager : MonoBehaviour
     }
     void UpdateHealthBar(DamageData data)
     {
-        UpdateHealthBar();
+        _health = _player.Health.GetHealth();
+        _maxHealth = _player.Health.GetMaxHeal();
+
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+
+        _lifeBar.fillAmount = _health / _maxHealth;
     }
     void UpdateHealthBar()
     {
@@ -37,10 +42,15 @@ public class CanvasManager : MonoBehaviour
         _lifeBar.fillAmount = _health / _maxHealth;
     }
 
-    //Gabriele Peruilh, Guido
+    //TPFinal - Gabriele Peruilh, Guido
     void UpdateHealthBar(CheckpointStruct data)
     {
-        UpdateHealthBar();
+        _health = _player.Health.GetHealth();
+        _maxHealth = _player.Health.GetMaxHeal();
+
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+
+        _lifeBar.fillAmount = _health / _maxHealth;
     }
 
     void UpdateStaminaBar()
@@ -55,17 +65,19 @@ public class CanvasManager : MonoBehaviour
     }
 
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     void DisplayInteractiveCommand(int elements)
     {
         _interactCommand.SetActive(elements >= 1);
     }
 
-    void OnDestroy()
-    {
+
+    private void OnDestroy()
+    { 
         _player.Health.OnTakeDamage -= UpdateHealthBar;
         _player.Health.OnHeal -= UpdateHealthBar;
         _player.OnStaminaCHange -= UpdateStaminaBar;
         _player.GetComponentInChildren<InteractionDetector>().OnInteractuableChange -= DisplayInteractiveCommand;
+
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 public class DamageTrap : Trap
 {
     [SerializeField] Damaging _damageComponent;

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-//basualdo sebastian
+//TPFinal - basualdo sebastian
 public class Player : Entity
 {
     [SerializeField] InteractionDetector _interactable;
@@ -176,7 +176,7 @@ public class Player : Entity
         }
     }
 
-    //Gabriele Peruilh, Guido
+    //TPFinal - Gabriele Peruilh, Guido
     public void Revive(CheckpointStruct data)
     {
         deadh = false;

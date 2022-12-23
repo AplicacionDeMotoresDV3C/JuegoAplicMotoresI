@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 public class Trap : MonoBehaviour
 {
     [SerializeField] protected Animator _myAnim;

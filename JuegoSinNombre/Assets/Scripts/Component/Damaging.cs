@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 [RequireComponent(typeof(Collider2D))]
 public class Damaging : MonoBehaviour
 {

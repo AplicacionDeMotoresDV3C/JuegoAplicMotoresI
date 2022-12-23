@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 public class DamageNumber : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _myText;

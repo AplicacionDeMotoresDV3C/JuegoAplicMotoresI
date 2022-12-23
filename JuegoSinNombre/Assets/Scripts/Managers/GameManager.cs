@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//Gabriele Peruilh, Guido
+//TPFinal - Gabriele Peruilh, Guido
 public class GameManager : MonoBehaviour
 {
     public bool _isPause = false;

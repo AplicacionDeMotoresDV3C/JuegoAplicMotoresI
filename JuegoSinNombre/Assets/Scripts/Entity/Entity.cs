@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected AnimManager myAnim;
 
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     private void Awake()
     {
         _health.StartingHealth();
@@ -24,7 +24,7 @@ public abstract class Entity : MonoBehaviour
     protected abstract void Move(Vector2 direction);
 
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     protected virtual void DeathBehavior()
     {
         _rb.velocity = Vector2.zero;
@@ -35,19 +35,19 @@ public abstract class Entity : MonoBehaviour
         this.enabled = false;
     }
 
-    //Gabriele Peruilh, Guido
+    //TPFinal - Gabriele Peruilh, Guido
     void InvunerableOn()
     {
         Health.isInvunerable = true;
     }
-    //Gabriele Peruilh, Guido
+    //TPFinal - Gabriele Peruilh, Guido
     void InvunerableOff()
     {
         Health.isInvunerable = false;
     }
 
 
-    //Rubio, Martín Omar
+    //TPFinal - Rubio, Martín Omar
     void ShowDamage(DamageData data)
     {
         var o = ObjectPool.instace.GetNextObject();

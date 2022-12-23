@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-//Rubio, Martín Omar
+//TPFinal - Rubio, Martín Omar
 public abstract class EnemyPatrol : Enemy
 {
     [SerializeField] protected Transform[] _wayPoints;
